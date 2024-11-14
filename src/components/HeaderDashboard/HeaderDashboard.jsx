@@ -1,5 +1,5 @@
 const HeaderDashboard = () => {
-  return <div></div>;
+  return <div>HeaderDashboard</div>;
 };
 
 export default HeaderDashboard;

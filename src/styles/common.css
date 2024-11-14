@@ -1,0 +1,38 @@
+::-webkit-scrollbar {
+  /* width: 5px; */
+}
+
+::-webkit-scrollbar-track {
+  /* background: transparent;
+  border-radius: 10px; */
+}
+
+::-webkit-scrollbar-thumb {
+  /* background: #fff3;
+  border-radius: 10px;
+  transition: 0.2s ease-in-out; */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* background: var(--dashboard_text); */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  /* -webkit-text-fill-color: rgba(255, 255, 255, 0.6);
+  transition: background-color 5000s;
+  background-color: transparent !important; */
+}
+input::placeholder {
+  /* color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px; */
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* -webkit-appearance: none; */
+}
