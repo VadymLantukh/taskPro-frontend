@@ -1,0 +1,74 @@
+:root {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --background-color: #f6f6f7;
+  --header-background-color: #fcfcfc;
+  --sidebar-background-color: #fff;
+  --sidebar-card-background: #f6f6f7;
+  --text-color: #161616;
+  --secondary-text-color: rgba(255, 255, 255, 0.8);
+  --third-text-color: rgba(255, 255, 255, 0.5);
+  --accent: #bedbb0;
+  --low: #8fa1d0;
+  --medium: #e09cb5;
+  --without: rgba(255, 255, 255, 0.3);
+  --hight: #bedbb0;
+}
+
+.dark-theme {
+  --background-color: #1f1f1f;
+  --header-background-color: #161616;
+  --sidebar-background-color: #121212;
+  --sidebar-card-background: #1f1f1f;
+  --text-color: #fff;
+  --secondary-text-color: rgba(255, 255, 255, 0.7);
+  --third-text-color: rgba(255, 255, 255, 0.5);
+}
+
+.violet-theme {
+  --background-color: #ecedfd;
+  --header-background-color: #fff;
+  --sidebar-background-color: #5255bc;
+  --sidebar-card-background: rgba(236, 237, 253, 0.4);
+  --text-color: #fff;
+  --secondary-text-color: rgba(255, 255, 255, 0.7);
+  --third-text-color: rgba(255, 255, 255, 0.5);
+  --accent: #5255bc;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  min-height: auto;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
