@@ -18,12 +18,12 @@ const authSlice = createSlice({
         state.token = null;
         state.isLoggedIn = false;
       })
-      .addCase(operation.refreshUser.pending, state => {
-        state.isRefreshing = true;
-      })
-      .addCase(operation.refreshUser.fulfilled, (state, action) => {
-        state.user = action.payload;
-      })
+      // .addCase(operation.refreshUser.pending, state => {
+      //   state.isRefreshing = true;
+      // })
+      // .addCase(operation.refreshUser.fulfilled, (state, action) => {
+      //   state.user = action.payload;
+      // })
       .addCase(operation.updateUserTheme.fulfilled, (state, action) => {
         state.user.theme = action.payload.theme;
       })
@@ -48,7 +48,7 @@ const authSlice = createSlice({
         isAnyOf(
           operation.register.fulfilled,
           operation.logIn.fulfilled,
-          operation.refreshUser.fulfilled,
+          // operation.refreshUser.fulfilled,
           operation.updateUser.fulfilled,
           operation.updateUserTheme.fulfilled,
           operation.needHelp.fulfilled
@@ -66,7 +66,10 @@ const authSlice = createSlice({
         }
       )
       .addMatcher(
-        isAnyOf(operation.logOut.fulfilled, operation.refreshUser.rejected),
+        isAnyOf(
+          operation.logOut.fulfilled
+          // operation.refreshUser.rejected
+        ),
         state => {
           state.isRefreshing = false;
         }
