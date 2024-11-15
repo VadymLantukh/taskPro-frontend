@@ -1,5 +1,5 @@
 const ScreensPage = () => {
-  return <div></div>;
+  return <div>ScreensPage</div>;
 };
 
 export default ScreensPage;
