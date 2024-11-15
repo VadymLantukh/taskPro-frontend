@@ -1,4 +1,6 @@
 :root {
+  --logo-background: #1f1f1f;
+  --logo-icon: #fff;
   --background-color: #f6f6f7;
   --header-background-color: #fcfcfc;
   --sidebar-background-color: #fff;
@@ -24,6 +26,8 @@
 }
 
 .violet-theme {
+  --logo-background: #ecedfd;
+  --logo-icon: #5255bc;
   --background-color: #ecedfd;
   --header-background-color: #fff;
   --sidebar-background-color: #5255bc;
