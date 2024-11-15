@@ -1,0 +1,35 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: 14px 0;
+  font-size: 14px;
+  border: none;
+
+  background-color: var(--accent);
+  color: var(--header-background-color);
+  border-radius: 8px;
+
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #9dc888;
+}
+
+.icon {
+  margin-right: 8px;
+  display: inline-flex;
+}
+
+.text {
+  display: inline-block;
+}
+
+.withIcon {
+  padding: 10px 0;
+}
