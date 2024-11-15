@@ -1,0 +1,26 @@
+.logoBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 24px;
+    padding-left: 24px;
+}
+
+.box {
+    background-color: var(--logo-background);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.logo {
+    height: 16px;
+    fill: var(--logo-icon);
+}
+
+.text {
+    color: var(--text-color);
+}
