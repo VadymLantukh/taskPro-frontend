@@ -3,6 +3,7 @@ import LogoComponent from './LogoComponent/LogoComponent.jsx';
 import NewBoard from '../NewBoard/NewBoard.jsx';
 import NeedHelp from '../NeedHelp/NeedHelp.jsx';
 import svg from '../../images/icons.svg';
+import LogOut from './Logout/Logout.jsx';
 
 const Sidebar = () => {
   return (
@@ -26,14 +27,8 @@ const Sidebar = () => {
       <div>
         <NeedHelp />
       </div>
-
-      <div className={s.sidedbarLogout}>
-        <button className={s.logoutBtn}>
-          <svg className={s.iconlogout}>
-            <use href={`${svg}#icon-logout`}></use>
-          </svg>
-          <p className={s.textLogout}>Log out</p>
-        </button>
+      <div>
+        <LogOut />
       </div>
     </div>
   );
