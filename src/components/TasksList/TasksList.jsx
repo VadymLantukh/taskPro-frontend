@@ -1,5 +1,12 @@
+import TaskItem from '../TaskItem/TaskItem';
+
 const TasksList = () => {
-  return <div></div>;
+  return (
+    <div>
+      Task
+      <TaskItem />
+    </div>
+  );
 };
 
 export default TasksList;
