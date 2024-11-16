@@ -1,5 +1,77 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  background-color: red;
+  background-color: var(--background-color);
+  width: 225px;
+}
+
+.sidebarTitle {
+  margin-top: 70px;
+  padding-left: 14px;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  color: rgba(22, 22, 22, 0.5);
+}
+
+
+.createNew {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  padding: 14px 0;
+  margin: 8px auto 40px 14px;
+  width: 197px;
+}
+
+.createBoardBtn {
+  background-color: #bedbb0;
+  border-radius: 6px;
+  width: 40px;
+  height: 36px;
+  transition: background-color 200ms linear;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.btnPlus {
+  height: 36px;
+  stroke: #121212;
+}
+
+
+.sidedbarLogout {
+  display: flex;
+  flex-direction: row;
+  padding-left: 24px;
+  padding-bottom: 24px;
+
+}
+
+.logoutBtn {
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0;
+  width: 150px;
+  height: 32px;
+}
+
+.iconlogout {
+  fill: none;
+  stroke: #bedbb0;
+  height: 32px;
+  width: 32px;
+
+}
+
+.textLogout {
+  font-size: 14px;
+  color: #161616;
+  font-weight: 500;
 }

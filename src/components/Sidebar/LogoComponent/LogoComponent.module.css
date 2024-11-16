@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding-top: 24px;
-    padding-left: 24px;
+    padding-top: 14px;
+    padding-left: 14px;
 }
 
 .box {
