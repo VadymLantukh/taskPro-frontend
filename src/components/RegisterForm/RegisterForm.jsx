@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
-import * as Yup from 'yup';
-import { register } from '../../redux/auth/authOperations';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+
+import { register } from '../../redux/auth/authOperations';
+import { registrationSchema } from '../../helpers/registrationSchema';
 
 import s from './RegisterForm.module.css';
 
@@ -14,21 +15,6 @@ const RegisterForm = () => {
     password: '',
   };
 
-  const registrationSchema = Yup.object({
-    name: Yup.string()
-      .min(3, 'To short name')
-      .max(50, 'To long name')
-      .required('Is required'),
-    email: Yup.string()
-      .min(3, 'To short email')
-      .max(50, 'To long email')
-      .required('Is required'),
-    password: Yup.string()
-      .min(8, 'To short password')
-      .max(50, 'To long password')
-      .required('Is required'),
-  });
-
   const handleSubmit = (values, action) => {
     dispatch(register(values));
     action.resetForm();
@@ -40,40 +26,48 @@ const RegisterForm = () => {
         initialValues={initialValues}
         onSubmit={handleSubmit}
         validationSchema={registrationSchema}
+        // validateOnBlur={true}
+        validateOnChange={false}
       >
         <Form className={s.form}>
-          <h2 className={s.title}>Register</h2>
-          <label className={s.label}>
-            Name
+          <label>
             <Field
               type="text"
               name="name"
               className={s.input}
-              placeholder=" Enter your name..."
+              placeholder="Enter your name"
             />
-            <ErrorMessage name="name" component="span" />
+            <ErrorMessage
+              name="name"
+              component="span"
+              className={s.errorForName}
+            />
           </label>
-
-          <label className={s.label}>
-            Email
+          <label>
             <Field
               type="email"
               name="email"
               className={s.input}
-              placeholder=" Enter your email..."
+              placeholder="Enter your email"
             />
-            <ErrorMessage name="email" component="span" />
+            <ErrorMessage
+              name="email"
+              component="span"
+              className={s.errorForEmail}
+            />
           </label>
-
-          <label className={s.label}>
-            Password
+          <label>
             <Field
               type="password"
               name="password"
               className={s.input}
-              placeholder=" Enter your password..."
+              placeholder="Create a password"
             />
-            <ErrorMessage name="password" component="span" />
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={s.errorForPassword}
+            />
           </label>
 
           <button type="submit" className={s.btn}>

@@ -1,24 +1,14 @@
 import { useDispatch } from 'react-redux';
-import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { logIn } from '../../redux/auth/authOperations.js';
+import { logInSchema } from '../../helpers/logInSchema.js';
+
 import s from './LoginForm.module.css';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
 
   const initialValues = { email: '', password: '' };
-
-  const logInSchema = Yup.object({
-    email: Yup.string()
-      .min(3, 'To short email')
-      .max(50, 'To long email')
-      .required('Is required'),
-    password: Yup.string()
-      .min(8, 'To short password')
-      .max(50, 'To long password')
-      .required('Is required'),
-  });
 
   const handleSubmit = (values, action) => {
     dispatch(logIn(values));
@@ -30,31 +20,35 @@ const LoginForm = () => {
         initialValues={initialValues}
         onSubmit={handleSubmit}
         validationSchema={logInSchema}
+        validateOnChange={false}
       >
         <Form className={s.form}>
-          <h2 className={s.title}>Login</h2>
-          <label className={s.label}>
-            Email
+          <label>
             <Field
               type="email"
               name="email"
               className={s.input}
-              placeholder=" Enter your email..."
+              placeholder="Enter your email"
             />
-            <ErrorMessage name="email" component="span" />
+            <ErrorMessage
+              name="email"
+              component="span"
+              className={s.errorForEmail}
+            />
           </label>
-
-          <label className={s.label}>
-            Password
+          <label>
             <Field
               type="password"
               name="password"
               className={s.input}
-              placeholder=" Enter your password..."
+              placeholder="Confirm a password"
             />
-            <ErrorMessage name="password" component="span" />
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={s.errorForPassword}
+            />
           </label>
-
           <button type="submit" className={s.btn}>
             Log In Now
           </button>
