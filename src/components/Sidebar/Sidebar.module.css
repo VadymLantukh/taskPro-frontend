@@ -1,5 +1,14 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  background-color: red;
+  background-color: var(--background-color);
+  width: 225px;
+}
+
+.sidebarTitle {
+  margin-top: 70px;
+  padding-left: 14px;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  color: rgba(22, 22, 22, 0.5);
 }

@@ -1,0 +1,31 @@
+.sidedbarLogout {
+    display: flex;
+    flex-direction: row;
+    padding-left: 24px;
+    padding-bottom: 24px;
+
+}
+
+.logoutBtn {
+    background-color: var(--background-color);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0;
+    width: 150px;
+    height: 32px;
+}
+
+.iconlogout {
+    fill: none;
+    stroke: #bedbb0;
+    height: 32px;
+    width: 32px;
+
+}
+
+.textLogout {
+    font-size: 14px;
+    color: #161616;
+    font-weight: 500;
+}
