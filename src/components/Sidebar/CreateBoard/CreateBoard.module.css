@@ -1,0 +1,28 @@
+.createNew {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    padding: 14px 0;
+    margin: 8px auto 40px 14px;
+    width: 197px;
+}
+
+.createBoardBtn {
+    background-color: #bedbb0;
+    border-radius: 6px;
+    width: 40px;
+    height: 36px;
+    transition: background-color 200ms linear;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.btnPlus {
+    height: 36px;
+    stroke: #121212;
+}
