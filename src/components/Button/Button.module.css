@@ -9,7 +9,7 @@
   border: none;
 
   background-color: var(--accent);
-  color: var(--header-background-color);
+  color: var(--text-color);
   border-radius: 8px;
 
   font-weight: 500;
@@ -17,13 +17,27 @@
   transition: background-color 0.3s ease;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
   background-color: #9dc888;
 }
 
-.icon {
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 7px;
+  border-radius: 6px;
+  background-color: var(--text-color);
+
   margin-right: 8px;
-  display: inline-flex;
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--logo-icon);
 }
 
 .text {
@@ -32,4 +46,10 @@
 
 .withIcon {
   padding: 10px 0;
+}
+
+@media (min-width: 1440px) {
+  .withIcon {
+    padding: 14px 0;
+  }
 }
