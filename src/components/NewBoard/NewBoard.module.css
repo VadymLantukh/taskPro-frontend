@@ -26,7 +26,7 @@
   letter-spacing: -0.02em;
   color: #161616;
   padding: 14px 18px;
-  margin-bottom: 24px;
+
 }
 .newBoardTitleInput:focus,
 .newBoardTitleInput:hover  {
@@ -35,11 +35,18 @@
     border: 1px solid #bedbb0;
     outline: none;
   }
+  .error {
+    display: flex;
+    font: 400 12px 'Poppins', sans-serif;
+    color: #e74c3c; 
+    margin-top: 4px; 
+  }
 .iconText {
   font: 500 14px 'Poppins', sans-serif;
   letter-spacing: -0.02em;
   color: #161616;
   margin-bottom: 14px;
+  margin-top: 24px;
 }
 
 .iconsContainer {
