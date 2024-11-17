@@ -36,3 +36,22 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   /* -webkit-appearance: none; */
 }
+.active {
+  & button {
+    display: block !important;
+    stroke: var(--third-text-color);
+  }
+  color: var(--text-color) !important;
+  stroke: var(--text-color) !important;
+  background-color: var(--background-color);
+  & :after {
+    content: '';
+    background-color: var(--accent);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 4px 0 0 4px;
+  }
+}
