@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // TODO: change
-axios.defaults.baseURL = 'https://localhost:3000/';
+axios.defaults.baseURL = 'https://task-manager-0qvm.onrender.com/';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;

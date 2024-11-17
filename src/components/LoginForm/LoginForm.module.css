@@ -95,7 +95,7 @@
 
 .errorForEmail,
 .errorForPassword {
-  /* position: fixed; */
+  position: fixed;
   color: var(--hight);
   font-size: 12px;
   margin-top: 3px;
