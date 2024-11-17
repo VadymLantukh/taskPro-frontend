@@ -17,7 +17,7 @@ const Sidebar = () => {
       </div>
 
       <div className={s.project}>
-        <NewBoard />
+        {/* <NewBoard /> */}
         {/* тут у нас дошки треба щоб можна було бачити всi */}
       </div>
       <div>
