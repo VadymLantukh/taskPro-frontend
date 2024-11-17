@@ -1,5 +1,5 @@
 import s from './Button.module.css';
-import svg from '../../images/icons.svg';
+import Icon from '../Icon/Icon';
 
 const Button = ({ onClick, text, showIcon = false, className = '' }) => {
   const buttonClasses = `${s.btn} ${showIcon ? s.withIcon : ''} ${className}`;
@@ -8,9 +8,7 @@ const Button = ({ onClick, text, showIcon = false, className = '' }) => {
     <button onClick={onClick} className={buttonClasses}>
       {showIcon && (
         <span className={s.iconWrapper}>
-          <svg className={s.icon}>
-            <use href={`${svg}#icon-plus`}></use>
-          </svg>
+          <Icon name="icon-plus" className={s.icon} />
         </span>
       )}
       {text && <span className={s.text}>{text}</span>}
