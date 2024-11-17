@@ -27,7 +27,7 @@ const Welcome = () => {
         />
       </picture>
       <div className={s.iconProject}>
-        <Icon name={'icon_6'} width={40} height={40} className={s.iconName} />
+        <Icon name={'icon-bolt'} className={s.iconName} />
 
         <h1 className={s.projectName}>Task Pro</h1>
       </div>
