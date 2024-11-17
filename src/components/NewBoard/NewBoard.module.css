@@ -28,6 +28,13 @@
   padding: 14px 18px;
   margin-bottom: 24px;
 }
+.newBoardTitleInput:focus,
+.newBoardTitleInput:hover  {
+    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+    opacity: 1;
+    border: 1px solid #bedbb0;
+    outline: none;
+  }
 .iconText {
   font: 500 14px 'Poppins', sans-serif;
   letter-spacing: -0.02em;

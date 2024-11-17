@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import s from './NewBoard.module.css';
 import svg from '../../images/icons.svg';
+import Button from '../Button/Button';
+
+
 
 const icons = [
   'icon-project',
@@ -15,7 +18,9 @@ const icons = [
 
 const NewBoard = () => {
   const [selectedIcon, setSelectedIcon] = useState(icons[0]);
-  const [selectedBackground, setSelectedBackground] = useState('bg_0'); // По умолчанию bg_0
+  const [selectedBackground, setSelectedBackground] = useState('bg_0'); 
+  const [title, setTitle] = useState('');
+  const [titleError, setTitleError] = useState('');
 
   const handleIconChange = (event) => {
     setSelectedIcon(event.target.value);
@@ -24,6 +29,20 @@ const NewBoard = () => {
   const handleBackgroundChange = (event) => {
     setSelectedBackground(event.target.value);
   };
+
+  const createBoardHandleClick = (e)=>{
+    e.preventDefault();
+
+    if (!title.trim()=='') {
+      setTitleError('Title is required');
+      console.log(titleError);
+      
+    } else {
+      setTitleError('');
+      console.log('Board Created:', { selectedIcon, selectedBackground, title });
+    }
+    
+  }
 
   return (
     <div className={s.newBoardContainer}>
@@ -77,7 +96,11 @@ const NewBoard = () => {
           })}
         </div>
 
-        <button type="submit" className={s.createBtn}>Create</button>
+        <Button
+        onClick={createBoardHandleClick}
+        text="Create"
+        showIcon={true} 
+      />
       </form>
     </div>
   );
