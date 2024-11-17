@@ -60,10 +60,8 @@
     <symbol id="icon-trash" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.6" d="M12 4h8M4 8h24M6.667 8l.801 12.018c.149 2.231.223 3.347.588 4.243a6 6 0 0 0 3.672 3.435c.919.304 2.037.304 4.273.304 2.236 0 3.354 0 4.273-.304a6 6 0 0 0 3.672-3.435c.365-.896.439-2.012.588-4.243L25.335 8"/>
     </symbol>
-    <symbol id="icon-right-arrow" viewBox="0 0 16 16">
-    <path d="M2.2251 4.66683C3.3778 2.67416 5.53228 1.3335 7.99988 1.3335C11.6818 1.3335 14.6666 4.31826 14.6666 8.00016C14.6666 11.6821 11.6818 14.6668 7.99988 14.6668C5.53228 14.6668 3.3778 13.3262 2.2251 11.3335" stroke="#161616" stroke-opacity="0.5" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M8 10.6668L10.6667 8.00016L8 5.3335" stroke="#161616" stroke-opacity="0.5" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M1.3335 8L10.6668 8" stroke="#161616" stroke-opacity="0.5" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        <symbol id="icon-house" viewBox="0 0 24 24">
+      <path d="M12.666 14h.674c.648 0 .971 0 1.15-.135a.666.666 0 0 0 .263-.492c.013-.223-.166-.493-.526-1.031l-2.006-3.01c-.297-.446-.446-.668-.633-.746a.667.667 0 0 0-.51 0c-.187.078-.336.3-.632.745l-.497.745M12.666 14 7.543 6.6c-.294-.425-.442-.638-.626-.713a.667.667 0 0 0-.502 0c-.184.075-.33.288-.626.713l-3.964 5.726c-.375.542-.563.813-.552 1.039.01.196.105.378.26.498.18.137.51.137 1.17.137h9.963ZM14 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"  stroke-opacity=".1" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
   </defs>
 </svg>
