@@ -1,0 +1,106 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title {
+  color: white;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: 24px;
+  margin: 0 auto;
+  border-radius: 8px;
+  width: 335px;
+  height: 300px;
+  background-color: #151515;
+}
+
+.label {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.input {
+  border: 1px solid #bedbb0;
+  border-radius: 8px;
+  width: 287px;
+  height: 49px;
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  background-color: var(--logo-background);
+  color: var(--logo-icon);
+  opacity: 0.4;
+  padding: 14px 18px;
+  /* width: 250px;
+  padding: 7px 12px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  color: #191815;
+  text-shadow: rgb(100, 66, 238) 1px 0 10px;
+  text-align: center;
+  box-shadow: rgb(9, 105, 208) 0px 20px 30px -10px;*/
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.btn {
+  display: block;
+  border-radius: 8px;
+  width: 287px;
+  background-color: var(--accent);
+  margin-top: 10px;
+  padding: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--text-color);
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    background-color: #9dc888;
+  }
+}
+
+.subtitle {
+  text-align: center;
+  color: white;
+  font-size: 14px;
+}
+
+.link {
+  margin-left: 8px;
+  text-decoration: underline;
+}
+
+.errorForEmail,
+.errorForPassword {
+  /* position: fixed; */
+  color: var(--hight);
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+/* .eye {
+  fill: #490333;
+} */
