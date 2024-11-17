@@ -1,9 +1,8 @@
 import TaskItem from '../TaskItem/TaskItem';
-
+import s from './TasksList.module.css';
 const TasksList = () => {
   return (
-    <div>
-      Task
+    <div className={s.taskItem}>
       <TaskItem />
     </div>
   );

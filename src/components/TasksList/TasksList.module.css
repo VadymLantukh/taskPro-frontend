@@ -1,0 +1,22 @@
+.taskItem {
+  max-height: 478px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  overflow: scroll;
+  scrollbar-width: 8px;
+  scrollbar-color: #8fa1d0 #fcfcfc;
+}
+
+@media screen and (min-width: 768px) {
+  .taskItem {
+    max-height: 640px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .taskItem {
+    max-height: 478px;
+  }
+}
