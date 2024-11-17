@@ -1,4 +1,4 @@
-.wrapper {
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,29 +12,38 @@
   background-size: cover;
 }
 
-.form {
+.wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 14px;
   width: 335px;
-  padding: 24px;
   border-radius: 8px;
   background-color: #151515;
+  padding: 24px;
 }
 
 @media only screen and (max-width: 374px) {
-  .form {
+  .wrapper {
     width: 90vw;
     padding: 14px;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .form {
+  .wrapper {
     width: 424px;
     padding: 40px;
   }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  border-radius: 8px;
+  background-color: #151515;
 }
 
 .linkNav {
@@ -86,7 +95,7 @@
 .errorMessage {
   position: fixed;
   font-size: 11px;
-  color: var(--hight);
+  color: red;
 }
 
 .passwordWrapper {

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
@@ -32,83 +32,85 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className={s.wrapper}>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={registrationSchema}
-        validateOnBlur={true}
-      >
-        <Form className={s.form}>
-          <div className={s.linkNav}>
-            <NavLink to="/auth/register" className={s.registerLink}>
-              Registration
-            </NavLink>
-            <NavLink to="/auth/login" className={s.loginLink}>
-              Log In
-            </NavLink>
-          </div>
-          <label>
-            <div>
-              <Field
-                type="text"
+    <div className={s.container}>
+      <div className={s.wrapper}>
+        <nav className={s.linkNav}>
+          <Link to="/auth/register" className={s.registerLink}>
+            Registration
+          </Link>
+          <Link to="/auth/login" className={s.loginLink}>
+            Log In
+          </Link>
+        </nav>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={registrationSchema}
+          validateOnBlur={true}
+        >
+          <Form className={s.form}>
+            <label>
+              <div>
+                <Field
+                  type="text"
+                  name="name"
+                  className={s.input}
+                  placeholder="Enter your name"
+                />
+              </div>
+              <ErrorMessage
                 name="name"
-                className={s.input}
-                placeholder="Enter your name"
+                component="span"
+                className={s.errorMessage}
               />
-            </div>
-            <ErrorMessage
-              name="name"
-              component="span"
-              className={s.errorMessage}
-            />
-          </label>
-          <label>
-            <div>
-              <Field
-                type="email"
+            </label>
+            <label>
+              <div>
+                <Field
+                  type="email"
+                  name="email"
+                  className={s.input}
+                  placeholder="Enter your email"
+                />
+              </div>
+              <ErrorMessage
                 name="email"
-                className={s.input}
-                placeholder="Enter your email"
+                component="span"
+                className={s.errorMessage}
               />
-            </div>
-            <ErrorMessage
-              name="email"
-              component="span"
-              className={s.errorMessage}
-            />
-          </label>
-          <label>
-            <div className={s.passwordWrapper}>
-              <Field
-                type={showPassword ? 'text' : 'password'}
+            </label>
+            <label>
+              <div className={s.passwordWrapper}>
+                <Field
+                  type={showPassword ? 'text' : 'password'}
+                  name="password"
+                  className={s.input}
+                  placeholder="Create a password"
+                />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className={s.eyeButton}
+                >
+                  {showPassword ? (
+                    <MdOutlineVisibilityOff size="18" />
+                  ) : (
+                    <MdOutlineRemoveRedEye size="18" />
+                  )}
+                </button>
+              </div>
+              <ErrorMessage
                 name="password"
-                className={s.input}
-                placeholder="Create a password"
+                component="span"
+                className={s.errorMessage}
               />
-              <button
-                type="button"
-                onClick={togglePasswordVisibility}
-                className={s.eyeButton}
-              >
-                {showPassword ? (
-                  <MdOutlineVisibilityOff size="18" />
-                ) : (
-                  <MdOutlineRemoveRedEye size="18" />
-                )}
-              </button>
-            </div>
-            <ErrorMessage
-              name="password"
-              component="span"
-              className={s.errorMessage}
-            />
-          </label>
-          <button type="submit" className={s.btnSubmit}>
-            Register Now
-          </button>
-        </Form>
-      </Formik>
+            </label>
+            <button type="submit" className={s.btnSubmit}>
+              Register Now
+            </button>
+          </Form>
+        </Formik>
+      </div>
     </div>
   );
 };
