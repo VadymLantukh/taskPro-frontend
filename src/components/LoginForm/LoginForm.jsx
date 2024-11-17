@@ -3,6 +3,8 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { logIn } from '../../redux/auth/authOperations.js';
 import { logInSchema } from '../../helpers/logInSchema.js';
 
+import { MdOutlineRemoveRedEye } from 'react-icons/md';
+
 import s from './LoginForm.module.css';
 
 const LoginForm = () => {
@@ -43,6 +45,7 @@ const LoginForm = () => {
               className={s.input}
               placeholder="Confirm a password"
             />
+            <MdOutlineRemoveRedEye />
             <ErrorMessage
               name="password"
               component="span"

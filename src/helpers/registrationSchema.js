@@ -16,7 +16,7 @@ export const registrationSchema = Yup.object({
   password: Yup.string()
     .matches(
       /^[^\s]{8,64}$/,
-      'The password must contain from 8 to 64 characters, without spaces'
+      'The password must contain from 8 to 64 characters'
     )
     .required('Password is required'),
 });
