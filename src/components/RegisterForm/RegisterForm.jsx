@@ -1,13 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
+import { MdOutlineRemoveRedEye, MdOutlineVisibilityOff } from 'react-icons/md';
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 import { register } from '../../redux/auth/authOperations';
 import { registrationSchema } from '../../helpers/registrationSchema';
-
-import { MdOutlineRemoveRedEye, MdOutlineVisibilityOff } from 'react-icons/md';
 
 import s from './RegisterForm.module.css';
 
@@ -29,7 +28,6 @@ const RegisterForm = () => {
 
   const handleSubmit = async (values, action) => {
     const response = await dispatch(register(values));
-    console.log(response);
     if (response.payload.status === 201) setCheckStatus(true);
     action.resetForm();
   };
