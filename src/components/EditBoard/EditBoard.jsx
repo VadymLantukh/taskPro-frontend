@@ -1,14 +1,14 @@
 import BoardForm from '../BoardForm/BoardForm';
 
 const EditBoard = ({ boardToEdit = {} }) => {
-  // Заглушка с дефолтными значениями
+
   const defaultBoard = {
-    title: 'Sample Board',               // Дефолтное название
-    icon: 'icon_2',                      // Дефолтная иконка
-    background: 'bg_0'                   // Дефолтный фон
+    title: 'Sample Board',               
+    icon: 'icon_2',                      
+    background: 'bg_0'                   
   };
 
-  // Используем переданные значения, если они есть, иначе берем значения из заглушки
+ 
   const { title, icon, background } = { ...defaultBoard, ...boardToEdit };
 
   const handleUpdateBoard = (updatedBoardData) => {
