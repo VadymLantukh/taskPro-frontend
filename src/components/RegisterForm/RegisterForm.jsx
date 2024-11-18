@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
@@ -13,6 +13,7 @@ import s from './RegisterForm.module.css';
 
 const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [checkStatus, setCheckStatus] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -26,13 +27,16 @@ const RegisterForm = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (values, action) => {
-    dispatch(register(values));
+  const handleSubmit = async (values, action) => {
+    const response = await dispatch(register(values));
+    console.log(response);
+    if (response.payload.status === 201) setCheckStatus(true);
     action.resetForm();
   };
 
   return (
     <div className={s.container}>
+      {checkStatus && <Navigate to="/auth/login" replace={true} />}
       <div className={s.wrapper}>
         <nav className={s.linkNav}>
           <Link to="/auth/register" className={s.registerLink}>

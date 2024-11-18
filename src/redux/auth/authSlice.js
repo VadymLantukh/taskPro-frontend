@@ -42,12 +42,12 @@ const authSlice = createSlice({
       .addMatcher(
         isAnyOf(operation.register.fulfilled, operation.logIn.fulfilled),
         (state, action) => {
-          state.token = action.payload.token;
+          state.token = action.payload.accessToken;
         }
       )
       .addMatcher(
         isAnyOf(
-          operation.register.fulfilled,
+          // operation.register.fulfilled,
           operation.logIn.fulfilled,
           // operation.refreshUser.fulfilled,
           operation.updateUser.fulfilled,
@@ -63,7 +63,7 @@ const authSlice = createSlice({
         isAnyOf(operation.logIn.fulfilled, operation.updateUser.fulfilled),
         (state, action) => {
           state.user.avatar = action.payload.avatar;
-          state.user.theme = action.payload.theme;
+          state.user.theme = action.payload.theme; //! TODO check user
         }
       )
       .addMatcher(
