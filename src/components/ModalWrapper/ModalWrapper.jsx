@@ -3,7 +3,7 @@ import { Modal, Backdrop } from '@mui/material';
 import svg from '../../images/icons.svg';
 import s from './Modal.module.css';
 
-const Modal = ({ open, onClose, children }) => {
+const ModalWrapper = ({ open, onClose, children }) => {
   useEffect(() => {
     const handleKeyDown = event => {
       if (event.key === 'Escape') {
