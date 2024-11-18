@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { Modal, Backdrop } from '@mui/material';
 import svg from '../../images/icons.svg';
-import s from './Modal.module.css';
+import s from './ModalWrapper.module.css';
 
-const Modal = ({ open, onClose, children }) => {
+const ModalWrapper = ({ open, onClose, children }) => {
   useEffect(() => {
     const handleKeyDown = event => {
       if (event.key === 'Escape') {
@@ -48,4 +48,4 @@ const Modal = ({ open, onClose, children }) => {
   );
 };
 
-export default Modal;
+export default ModalWrapper;
