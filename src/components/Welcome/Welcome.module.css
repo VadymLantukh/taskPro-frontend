@@ -5,12 +5,13 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  padding: 20px;
   background: linear-gradient(
     180deg,
     rgba(196, 196, 196, 0) 25%,
     #bedbb0 92.19%
   );
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .mainImage {
@@ -19,33 +20,51 @@
 
 .iconProject {
   display: flex;
+  align-items: center;
   gap: 14px;
   margin-bottom: 24px;
 }
 
 .iconName {
+  width: 40px;
+  height: 40px;
+  padding: 8px 10px;
   fill: var(--logo-icon);
-  background-color: var(--text-color);
   border-radius: 8px;
-  padding: 10px 12px;
+  background-color: var(--text-color);
+}
+
+@media only screen and (min-width: 768px) {
+  .iconName {
+    padding: 10px 12px;
+    width: 48px;
+    height: 48px;
+  }
 }
 
 .projectName {
-  color: var(--text-color);
   font-size: 28px;
   font-weight: 600;
   line-height: normal;
   letter-spacing: -1.12px;
+  color: var(--text-color);
+}
+
+@media only screen and (mim-width: 768px) {
+  .projectName {
+    font-size: 40px;
+    letter-spacing: -1.6px;
+  }
 }
 
 .description {
-  margin-bottom: 48px;
   width: 335px;
+  margin-bottom: 48px;
+  text-align: center;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.28px;
-  text-align: center;
   color: var(--text-color);
 }
 
@@ -57,22 +76,38 @@
 
 .register {
   display: flex;
-  width: 344px;
-  padding: 14px 0px;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  background-color: var(--text-color);
+  width: 335px;
   margin-bottom: 14px;
-  color: var(--logo-icon);
-  text-align: center;
+  padding: 14px 0px;
   font-size: 14px;
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.28px;
+  text-align: center;
+  color: var(--logo-icon);
+  border-radius: 8px;
+  background-color: var(--text-color);
+  transition: all 0.3s ease-in-out;
   &:hover,
   &:focus {
     background-color: #161616c5;
+  }
+}
+
+@media only screen and (max-width: 374px) {
+  .register {
+    width: 90vw;
+  }
+  .description {
+    width: 90vw;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .register {
+    width: 344px;
   }
 }
 
@@ -80,10 +115,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--text-color);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.28px;
+  color: var(--text-color);
+  transition: all 0.3s ease-in-out;
   &:hover,
   &:focus {
     color: #161616c5;

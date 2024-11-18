@@ -1,9 +1,9 @@
 import s from './Sidebar.module.css';
 import LogoComponent from './LogoComponent/LogoComponent.jsx';
-import NewBoard from '../NewBoard/NewBoard.jsx';
 import NeedHelp from '../NeedHelp/NeedHelp.jsx';
 import CreateBoard from './CreateBoard/CreateBoard.jsx';
 import LogOut from './Logout/Logout.jsx';
+import BoardsList from '../BoardsList/BoardsList.jsx';
 
 const Sidebar = () => {
   return (
@@ -17,8 +17,9 @@ const Sidebar = () => {
       </div>
 
       <div className={s.project}>
-        <NewBoard />
+        {/* <NewBoard /> */}
         {/* тут у нас дошки треба щоб можна було бачити всi */}
+        <BoardsList />
       </div>
       <div>
         <NeedHelp />

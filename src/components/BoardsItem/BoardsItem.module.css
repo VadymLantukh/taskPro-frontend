@@ -1,0 +1,22 @@
+.list_item {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--third-text-color);
+  stroke: var(--third-text-color);
+  padding: 20px 24px;
+  justify-content: space-between;
+  position: relative;
+
+  & button {
+    display: none;
+  }
+}
+
+.title {
+  margin-right: auto;
+}
+.icon {
+  stroke: inherit;
+}

@@ -7,12 +7,15 @@
   --sidebar-card-background: #f6f6f7;
   --text-color: #161616;
   --secondary-text-color: rgba(255, 255, 255, 0.8);
-  --third-text-color: rgba(255, 255, 255, 0.5);
+  --third-text-color: rgba(22, 22, 22, 0.5);
+  --thumb-color: rgba(22, 22, 22, 0.1);
+  --background-thumb-color: #e8e8e8;
   --accent: #bedbb0;
   --low: #8fa1d0;
   --medium: #e09cb5;
   --without: rgba(255, 255, 255, 0.3);
   --hight: #bedbb0;
+  --accentBtn: #9dc888;
 }
 
 .dark-theme {
@@ -36,4 +39,5 @@
   --secondary-text-color: rgba(255, 255, 255, 0.7);
   --third-text-color: rgba(255, 255, 255, 0.5);
   --accent: #5255bc;
+  --accentBtn: #7b7ede;
 }
