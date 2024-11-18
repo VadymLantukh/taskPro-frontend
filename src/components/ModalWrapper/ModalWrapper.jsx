@@ -48,4 +48,4 @@ const ModalWrapper = ({ open, onClose, children }) => {
   );
 };
 
-export default Modal;
+export default ModalWrapper;
