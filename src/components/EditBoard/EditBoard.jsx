@@ -1,17 +1,15 @@
 import BoardForm from '../BoardForm/BoardForm';
 
 const EditBoard = ({ boardToEdit = {} }) => {
-
   const defaultBoard = {
-    title: 'Sample Board',               
-    icon: 'icon_2',                      
-    background: 'bg_0'                   
+    title: 'Sample Board',
+    icon: 'icon_2',
+    background: 'bg_0',
   };
 
- 
   const { title, icon, background } = { ...defaultBoard, ...boardToEdit };
 
-  const handleUpdateBoard = (updatedBoardData) => {
+  const handleUpdateBoard = updatedBoardData => {
     console.log('Board Updated:', updatedBoardData);
   };
 

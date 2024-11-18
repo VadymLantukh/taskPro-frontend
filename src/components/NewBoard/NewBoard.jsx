@@ -1,7 +1,7 @@
-import BoardForm from "../BoardForm/BoardForm"; 
+import BoardForm from '../BoardForm/BoardForm';
 
 const NewBoard = () => {
-  const handleCreateBoard = (boardData) => {
+  const handleCreateBoard = boardData => {
     console.log('New Board Created:', boardData);
   };
 
