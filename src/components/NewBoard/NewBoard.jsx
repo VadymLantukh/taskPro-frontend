@@ -1,22 +1,11 @@
 import { useState } from 'react';
 import s from './NewBoard.module.css';
-import svg from '../../images/icons.svg';
+import Icon from '../Icon/Icon';
 import Button from '../Button/Button';
 
-const icons = [
-  'icon-project',
-  'icon-star',
-  'icon-ball',
-  'icon-puzzle',
-  'icon-cube',
-  'icon-lightning',
-  'icon-circles',
-  'icon-hexagon',
-];
-
 const NewBoard = () => {
-  const [selectedIcon, setSelectedIcon] = useState(icons[0]);
-  const [selectedBackground, setSelectedBackground] = useState('bg_0'); 
+  const [selectedIcon, setSelectedIcon] = useState('icon_1');
+  const [selectedBackground, setSelectedBackground] = useState('bg_0');
   const [title, setTitle] = useState('');
   const [titleError, setTitleError] = useState('');
 
@@ -29,7 +18,7 @@ const NewBoard = () => {
   };
 
   const handleTitleChange = (e) => {
-    setTitle(e.target.value); 
+    setTitle(e.target.value);
   };
 
   const createBoardHandleClick = (e) => {
@@ -41,7 +30,6 @@ const NewBoard = () => {
     } else {
       setTitleError('');
       console.log('Board Created:', { selectedIcon, selectedBackground, title });
-
     }
   };
 
@@ -53,28 +41,30 @@ const NewBoard = () => {
           type="text"
           placeholder="Title"
           className={s.newBoardTitleInput}
-          value={title} 
-          onChange={handleTitleChange} 
+          value={title}
+          onChange={handleTitleChange}
         />
-        {titleError && <span className={s.error}>{titleError}</span>} 
+        {titleError && <span className={s.error}>{titleError}</span>}
 
         <h3 className={s.iconText}>Icons</h3>
         <div className={s.iconsContainer}>
-          {icons.map((icon) => (
-            <label key={icon} className={s.iconLabel}>
-              <input
-                type="radio"
-                name="boardIcon"
-                value={icon}
-                checked={selectedIcon === icon}
-                onChange={handleIconChange}
-                className={s.radioInput}
-              />
-              <svg className={s.icon}>
-                <use href={`${svg}#${icon}`} />
-              </svg>
-            </label>
-          ))}
+          {Array.from({ length: 8 }, (_, index) => {
+            const iconName = `icon_${index + 1}`;
+            return (
+              <label key={iconName} className={s.iconLabel}>
+                <input
+                  type="radio"
+                  name="boardIcon"
+                  value={iconName}
+                  checked={selectedIcon === iconName}
+                  onChange={handleIconChange}
+                  className={s.radioInput}
+                />
+                {/* Используем компонент Icon */}
+                <Icon name={iconName} className={s.icon} />
+              </label>
+            );
+          })}
         </div>
 
         <h3 className={s.backgroundText}>Background</h3>
@@ -84,7 +74,9 @@ const NewBoard = () => {
             return (
               <label
                 key={bgName}
-                className={`${s.backgroundLabel} ${selectedBackground === bgName ? s.selected : ''}`}
+                className={`${s.backgroundLabel} ${
+                  selectedBackground === bgName ? s.selected : ''
+                }`}
               >
                 <input
                   type="radio"
@@ -104,11 +96,7 @@ const NewBoard = () => {
           })}
         </div>
 
-        <Button
-          onClick={createBoardHandleClick}
-          text="Create"
-          showIcon={true} 
-        />
+        <Button onClick={createBoardHandleClick} text="Create" showIcon={true} />
       </form>
     </div>
   );
