@@ -1,15 +1,13 @@
-import svg from '../../../images/icons.svg';
-import css from './LogoComponent.module.css';
+import s from './LogoComponent.module.css';
+import Icon from '../../Icon/Icon';
 
 const LogoComponent = () => {
   return (
-    <div className={css.logoBox}>
-      <div className={css.box}>
-        <svg className={css.logo}>
-          <use href={`${svg}#icon-lightning`}></use>
-        </svg>
+    <div className={s.logoBox}>
+      <div className={s.box}>
+        <Icon name="icon-lightning" className={s.logo} />
       </div>
-      <h2 className={css.text}>Task Pro</h2>
+      <h2 className={s.text}>Task Pro</h2>
     </div>
   );
 };
