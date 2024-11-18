@@ -1,5 +1,3 @@
 .container {
-    height: 100vh; /* TODO remove this style*/
-    background-color: var(--background-color);
     padding: 14px 20px 24px;
 }

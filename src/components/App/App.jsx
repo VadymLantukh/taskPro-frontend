@@ -4,6 +4,8 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { PrivateRoute } from '../PrivateRoute';
 import { PublicRoute } from '../PublicRoute';
 
+import "../../styles/common.css"
+
 // import { selectIsRefreshing } from '../../redux/auth/selectors';
 
 const Layout = lazy(() => import('../Layout/Layout'));

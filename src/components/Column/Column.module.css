@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    gap: 14px;
+    flex-direction: column;
+    padding-bottom: 24px;
+    max-width: 334px;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 8px;
+}
+
+.item {
+    flex-shrink: 0;
+    max-width: 334px;
+    height: 154px;
+    margin-right: 4px;
+    background-color: lightgray;
+}
+
