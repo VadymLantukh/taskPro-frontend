@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Modal, Backdrop } from '@mui/material';
 import svg from '../../images/icons.svg';
-import s from './Modal.module.css';
+import s from './ModalWrapper.module.css';
 
 const ModalWrapper = ({ open, onClose, children }) => {
   useEffect(() => {
