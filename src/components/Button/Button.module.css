@@ -19,7 +19,7 @@
 
 .btn:hover,
 .btn:focus {
-  background-color: #9dc888;
+  background-color: var(--accentBtn);
 }
 
 .iconWrapper {
