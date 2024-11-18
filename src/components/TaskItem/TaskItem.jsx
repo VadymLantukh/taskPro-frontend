@@ -3,6 +3,8 @@ import icons from '../../images/icons.svg';
 import data from '../../taskTest.json';
 import s from './TaskItem.module.css';
 import clsx from 'clsx';
+import { IconBase } from 'react-icons';
+import Icon from '../Icon/Icon';
 
 const TaskItem = () => {
   const taskArr = data;
@@ -62,9 +64,13 @@ const TaskItem = () => {
               </div>
               <div className={s.actions}>
                 {isDeadlineToday(taskCard.deadline) && (
-                  <svg width="16" height="16" fill="none" stroke="#BEDBB0">
-                    <use href={`${icons}#icon-bell`} />
-                  </svg>
+                  <Icon
+                    name="icon-bell"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="#BEDBB0"
+                  />
                 )}
                 <button className={s.action_button}>
                   <svg width="16" height="16" fill="none" stroke="#161616">
@@ -77,9 +83,13 @@ const TaskItem = () => {
                   </svg>
                 </button>
                 <button className={s.action_button}>
-                  <svg width="16" height="16" fill="none" stroke="#161616">
-                    <use href={icons + '#icon-trash'} />
-                  </svg>
+                  <Icon
+                    name="icon-trash"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="#161616"
+                  />
                 </button>
               </div>
             </div>
