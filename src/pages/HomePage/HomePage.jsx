@@ -1,14 +1,13 @@
 import s from './HomePage.module.css';
-import Header from '../../components/Header/Header';
-import Sidebar from '../../components/Sidebar/Sidebar';
-import ScreensPage from '../../components/ScreensPage/ScreensPage';
 
 const HomePage = () => {
   return (
     <div className={s.homePage}>
-      <Header />
-      <Sidebar />
-      <ScreensPage />
+      Before starting your project, it is essential
+      <button onClick={() => console.log('click')}> to create a board</button>
+      to create a board to visualize and track all the necessary tasks and
+      milestones. This board serves as a powerful tool to organize the workflow
+      and ensure effective collaboration among team members.
     </div>
   );
 };
