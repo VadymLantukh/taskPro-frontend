@@ -29,7 +29,6 @@ const RegisterForm = () => {
 
   const handleSubmit = async (values, action) => {
     const response = await dispatch(register(values));
-    console.log(response);
     if (response.payload.status === 201) setCheckStatus(true);
     action.resetForm();
   };
