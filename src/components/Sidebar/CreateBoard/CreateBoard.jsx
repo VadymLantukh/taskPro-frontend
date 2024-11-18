@@ -1,30 +1,11 @@
-// import s from './CreateBoard.module.css';
-// import svg from '../../../images/icons.svg';
-
-// const CreateBoard = () => {
-//   return (
-//     <div className={s.createNew}>
-//       <p>Create a new board</p>
-//       <button className={s.createBoardBtn}>
-//         <svg className={s.btnPlus}>
-//           <use href={`${svg}#icon-plus`}></use>
-//         </svg>
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default CreateBoard;
-
-import { useState } from 'react';
 import s from './CreateBoard.module.css';
-import svg from '../../../images/icons.svg';
-import Modal from '../../NewBoard/Modal';
-import NewBoard from '../../NewBoard/NewBoard';
+import Icon from '../../Icon/Icon.jsx';
+import { useState } from 'react';
+import Modal from '../../ModalWrapper/ModalWrapper.jsx';
+import NewBoard from '../../NewBoard/NewBoard.jsx';
 
 const CreateBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
 
@@ -32,13 +13,10 @@ const CreateBoard = () => {
     <div className={s.createNew}>
       <p>Create a new board</p>
       <button className={s.createBoardBtn} onClick={handleOpenModal}>
-        <svg className={s.btnPlus}>
-          <use href={`${svg}#icon-plus`}></use>
-        </svg>
+        <Icon name="icon-plus" className={s.btnPlus} />
       </button>
-
       {isModalOpen && (
-        <Modal onClose={handleCloseModal}>
+        <Modal open={isModalOpen} onClose={handleCloseModal}>
           <NewBoard />
         </Modal>
       )}
