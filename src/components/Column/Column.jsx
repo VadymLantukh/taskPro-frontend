@@ -1,8 +1,8 @@
 import HeaderColumn from './HeaderColumn/HeaderColumn.jsx';
+import Button from '../Button/Button.jsx';
 import TasksList from '../TasksList/TasksList.jsx';
 
 import s from "./Column.module.css"
-import Button from '../Button/Button.jsx';
 
 export const Column = () => {
 

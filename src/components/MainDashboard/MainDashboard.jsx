@@ -1,9 +1,10 @@
+import { useState } from 'react';
+import { useToggle } from '../../hooks/useToggle.js';
 import Button from '../Button/Button.jsx';
 import Column from '../Column/Column.jsx';
 
 import s from "./MainDashboard.module.css"
-import { useToggle } from '../../hooks/useToggle.js';
-import { useState } from 'react';
+
 
 export const MainDashboard = () => {
   const {open, handleOpen} = useToggle() // TODO Connect this to the modal AddColumn
@@ -17,7 +18,7 @@ export const MainDashboard = () => {
   const isEmptyColumn = true; // TODO temporary
 
   return (
-    <div>
+    <>
       {isEmptyColumn &&
          <Button showIcon={true} text="Add another column" className={s.button} onClick={handleClick}/>
       }
@@ -26,7 +27,7 @@ export const MainDashboard = () => {
           <Column key={index}/>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

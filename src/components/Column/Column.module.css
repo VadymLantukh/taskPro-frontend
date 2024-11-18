@@ -1,18 +1,18 @@
 .container {
-    display: flex;
+    display: grid;
+    grid-template-rows: 56px 1fr 56px;
     gap: 14px;
-    flex-direction: column;
-    padding-bottom: 24px;
-    max-width: 334px;
-    width: 100%;
     flex-shrink: 0;
+    width: 100%;
+    max-width: 334px;
+    height: calc(100vh - 121px);
+    padding-bottom: 24px;
 }
 
 .tasks-list {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    max-height: 500px;
     overflow-y: auto;
     overflow-x: hidden;
     padding-bottom: 8px;
@@ -26,3 +26,16 @@
     background-color: lightgray;
 }
 
+@media (min-width: 768px) and (max-width: 1439px) {
+    .container {
+        height: calc(100vh - 116px);
+        padding-bottom: 52px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        height: calc(100vh - 106px);
+        padding-bottom: 18px;
+    }
+}
