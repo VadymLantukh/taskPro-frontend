@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import s from '../NeedHelp/NeedHelp.module.css';
-import Icons from '../../../src/images/icons.svg';
+import Icon from '../Icon/Icon';
 import flowerpot from '../../images/flowerpot.webp';
 import HelpForm from './HelpForm/HelpForm.jsx';
 
