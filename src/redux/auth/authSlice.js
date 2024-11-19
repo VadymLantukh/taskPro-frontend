@@ -1,5 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import * as operation from './authOperations';
+import { addBoard, deleteBoard, updateBoard } from '../board/boardOperations';
 
 const initialState = {
   user: {
@@ -47,6 +48,23 @@ const authSlice = createSlice({
       })
       .addCase(operation.getUserThunk.fulfilled, (state, action) => {
         state.user = { ...state.user, ...action.payload.data };
+      })
+      .addCase(addBoard.fulfilled, (state, action) => {
+        state.user.boards.push(action.payload);
+      })
+      .addCase(deleteBoard.fulfilled, (state, action) => {
+        console.log(action.payload);
+
+        state.user.boards = state.user.boards.filter(
+          board => board._id !== action.payload
+        );
+      })
+      .addCase(updateBoard.fulfilled, (state, action) => {
+        console.log(action.payload);
+
+        state.user.boards = state.user.boards.map(board =>
+          board._id === action.payload._id ? action.payload : board
+        );
       }),
   // .addMatcher(
   //   isAnyOf(
