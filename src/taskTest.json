@@ -13,7 +13,7 @@
     "title": "Smart Watch Interface",
     "description": "Design an intuitive and user-friendly interface for our new smart watch model. Focus on seamless navigation and clear information hierarchy while maintaining our minimalist design approach.",
     "priority": "Medium",
-    "deadline": "15/05/2023",
+    "deadline": "20/11/2024",
     "colId": "col_1",
     "boardId": "board_1"
   },
@@ -22,7 +22,7 @@
     "title": "Watch Band Collection",
     "description": "Develop a collection of interchangeable watch bands using sustainable materials. The designs should complement our existing watch faces while offering unique style options for different occasions.",
     "priority": "Without",
-    "deadline": "20/05/2023",
+    "deadline": "21/11/2024",
     "colId": "col_2",
     "boardId": "board_1"
   },
@@ -31,7 +31,7 @@
     "title": "Limited Edition Package",
     "description": "Create packaging design for our limited edition watch series. The package should reflect luxury, sustainability, and include innovative unboxing experience elements.",
     "priority": "High",
-    "deadline": "25/05/2023",
+    "deadline": "22/11/2024",
     "colId": "col_2",
     "boardId": "board_1"
   },

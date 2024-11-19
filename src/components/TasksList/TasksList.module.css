@@ -5,8 +5,8 @@
   align-items: center;
   gap: 8px;
   overflow: scroll;
-  scrollbar-width: 8px;
-  scrollbar-color: #1616161a #e8e8e8;
+  /* scrollbar-width: 8px; */
+  /* scrollbar-color: #1616161a #e8e8e8; */
 }
 
 @media screen and (min-width: 768px) {
