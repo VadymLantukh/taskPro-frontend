@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { PrivateRoute } from '../PrivateRoute';
 import { PublicRoute } from '../PublicRoute';
+import Loader from '../Loader/Loader';
 
 import "../../styles/common.css"
 
@@ -20,7 +21,7 @@ const App = () => {
   return isRefreshing ? (
     <div>Loading...</div>
   ) : (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader/>}>
       <Routes>
         <Route
           path="/home"
