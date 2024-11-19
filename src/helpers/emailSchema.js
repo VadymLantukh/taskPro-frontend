@@ -5,7 +5,7 @@ export const validationSchema = Yup.object({
     .email('Invalid email address')
     .required('Email is required'),
   comment: Yup.string()
-    .min(4, 'Comment must be at least 4 characters')
+    .min(8, 'Comment must be at least 8 characters')
     .max(500, 'Comment must be less than 500 characters')
     .required('Comment is required.'),
 });
