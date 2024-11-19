@@ -1,21 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import BoardsItem from '../BoardsItem/BoardsItem';
 
 import s from './BoardsList.module.css';
 import { selectUser } from '../../redux/auth/authSelectors';
-import { useEffect, useState } from 'react';
-import { getUserThunk } from '../../redux/auth/authOperations';
+
 const BoardsList = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const { boards } = useSelector(selectUser);
-  const dispatch = useDispatch();
-
-  console.log(boards);
-
-  useEffect(() => {
-    dispatch(getUserThunk());
-  }, []);
+  // const isModalOpen = useSelector(selectEditBoard);
   return (
     <>
       <ul className={s.list}>
