@@ -24,7 +24,7 @@ const NeedHelp = () => {
           out our support resources or reach out to our customer support team.
         </p>
         <div className={s.needHelp}>
-          <Icon name="icon-help" className={s.icon} />
+          <Icon name="icon-help" className={s.icon} width={20} height={20} />
           <button className={s.button} onClick={handleClick}>
             Need help?
           </button>
