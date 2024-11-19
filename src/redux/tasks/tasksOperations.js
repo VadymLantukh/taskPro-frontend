@@ -6,7 +6,7 @@ export const addTask = createAsyncThunk(
   async (task, thunkAPI) => {
     try {
       const { data } = await axios.post('/tasks', task);
-      return data;
+      return data.data;
     } catch (error) {
       //   toast.error(
       //     'There was an issue adding your task. Please check the details and try again.',
@@ -44,7 +44,7 @@ export const updateTask = createAsyncThunk(
   async ({ task, id }, thunkAPI) => {
     try {
       const { data } = await axios.patch(`/tasks/${id}`, task);
-      return data;
+      return data.data;
     } catch (error) {
       //   toast.error(
       //     'Unable to update the task. Please check the details and try again.',

@@ -1,12 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// у діспатч функції потрібно передати id дошки та заголовок
+
 export const addColumn = createAsyncThunk(
   'columns/addColumn',
   async ({ boardId, title }, thunkAPI) => {
     try {
       const { data } = await axios.post('/columns', { boardId, title });
-      return data;
+      return data.data;
     } catch (error) {
       //   toast.error(
       //     'There was an issue adding your column. Please check the details and try again.',
@@ -46,7 +48,7 @@ export const updateColumn = createAsyncThunk(
       const { data } = await axios.patch(`/columns/${id}`, {
         title,
       });
-      return data;
+      return data.data;
     } catch (error) {
       //   toast.error(
       //     'Unable to update the column. Please check the details and try again.',

@@ -20,7 +20,13 @@ const slice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchBoard.fulfilled, (state, action) => {
-        state.tasks = action.payload.columns.flatMap(column => column.tasks);
+        state.tasks =
+          action.payload.columns?.flatMap(column =>
+            column.tasks.map(({ _id, ...rest }) => ({
+              ...rest,
+              id: _id,
+            }))
+          ) || [];
       })
       .addMatcher(({ type }) => type.endsWith('pending'), handlePending)
       .addMatcher(({ type }) => type.endsWith('rejected'), handleRejected)

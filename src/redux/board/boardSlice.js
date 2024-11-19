@@ -9,7 +9,7 @@ const initialState = {
     title: null,
     backgroundImage: null,
     icon: null,
-    columnIds: [],
+    columns: [],
   },
   currentBoard: null,
 
@@ -33,14 +33,14 @@ const slice = createSlice({
           title: action.payload.title,
           backgroundImage: action.payload.backgroundImage,
           icon: action.payload.icon,
-          columns: action.payload.columns.map(column => column._id),
+          columns: action.payload.columns?.map(column => column._id) || [],
         };
       })
       .addCase(addColumn.fulfilled, (state, action) => {
-        state.board.columnIds.push(action.payload._id);
+        state.board.columns.push(action.payload._id);
       })
       .addCase(deleteColumn.fulfilled, (state, action) => {
-        state.board.columnIds = state.board.columnIds.filter(
+        state.board.columns = state.board.columns.filter(
           id => id !== action.payload.id
         );
       })

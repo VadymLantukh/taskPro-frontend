@@ -1,14 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// у діспатч функції потрібно передати id дошки
+
 export const fetchBoard = createAsyncThunk(
   'boards/fetchBoard',
   async (id, thunkAPI) => {
     try {
       const { data } = await axios.get(`/boards/${id}`);
-      console.log(data);
 
-      return data;
+      return data.data;
     } catch (error) {
       //    toast.error(
       //     'Unable to load this board at the moment. Please try again later.'
@@ -23,7 +24,7 @@ export const addBoard = createAsyncThunk(
   async (board, thunkAPI) => {
     try {
       const { data } = await axios.post('/boards', board);
-      return data;
+      return data.data;
     } catch (error) {
       //   toast.error(
       //     'There was an issue adding your board. Please check the details and try again.',
@@ -65,7 +66,7 @@ export const updateBoard = createAsyncThunk(
         backgroundImage,
         icon,
       });
-      return data;
+      return data.data;
     } catch (error) {
       //   toast.error(
       //     'Unable to update the board. Please check the details and try again.',
