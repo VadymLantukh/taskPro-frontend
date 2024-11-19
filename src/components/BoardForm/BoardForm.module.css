@@ -4,9 +4,9 @@
 }
 
 .formTitle {
-  font: 500 18px 'Poppins', sans-serif;
-  letter-spacing: -0.02em;
-  color: #161616;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-color);
   margin-bottom: 24px;
 }
 
@@ -104,7 +104,18 @@
   border-radius: 6px;
 }
 
-.selected .backgroundImage {
+.backgroundIcon{
+  width: 28px;
+  height: 28px;
+  transition: border 0.3s ease;
+  border-radius: 6px;
+  stroke: rgba(22, 22, 22, 0.5);
+  fill: none;
+
+}
+
+.selected .backgroundImage,
+.selected .backgroundIcon {
   border: 3px solid #bedbb0;
 }
 
