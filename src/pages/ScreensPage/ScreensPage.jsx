@@ -10,7 +10,7 @@ const ScreensPage = () => {
 
   useEffect(() => {
     dispatch(fetchBoard(boardId));
-  }, [dispatch]);
+  }, [dispatch, boardId]);
 
   return (
     <div>
