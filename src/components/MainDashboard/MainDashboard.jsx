@@ -15,7 +15,7 @@ export const MainDashboard = () => {
     setColumns(prev => [...prev, newHeading]);
   };
 
-  const isEmptyColumn = true; // TODO temporary
+  const isEmptyColumn = false; // TODO temporary
 
   return (
     <>
