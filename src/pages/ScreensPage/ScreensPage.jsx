@@ -5,6 +5,7 @@ import { fetchBoard } from '../../redux/board/boardOperations';
 
 const ScreensPage = () => {
   const dispatch = useDispatch();
+
   const { boardId } = useParams();
 
   useEffect(() => {
