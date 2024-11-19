@@ -6,7 +6,7 @@ import { selectUser } from '../../redux/auth/authSelectors';
 
 const BoardsList = () => {
   const { boards } = useSelector(selectUser);
-
+  // const isModalOpen = useSelector(selectEditBoard);
   return (
     <>
       <ul className={s.list}>
