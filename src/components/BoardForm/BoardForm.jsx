@@ -1,112 +1,107 @@
-import { useState } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import s from './BoardForm.module.css';
 import Icon from '../Icon/Icon';
 import Button from '../Button/Button';
+import t from '../../styles/Forms.module.css';
 
 const BoardForm = ({
   initialTitle = '',
   initialSelectedIcon = 'icon_1',
-  initialSelectedBackground = 'bg_0',
+  initialSelectedBackground = 'iconBackground',
   formTitle = 'New board',
   buttonText = 'Create',
   onSubmit,
 }) => {
-  const [title, setTitle] = useState(initialTitle);
-  const [selectedIcon, setSelectedIcon] = useState(initialSelectedIcon);
-  const [selectedBackground, setSelectedBackground] = useState(
-    initialSelectedBackground
-  );
-  const [titleError, setTitleError] = useState('');
+  const validationSchema = Yup.object().shape({
+    title: Yup.string().trim().required('Title is required'),
+  });
 
-  const handleIconChange = event => {
-    setSelectedIcon(event.target.value);
-  };
-
-  const handleBackgroundChange = event => {
-    setSelectedBackground(event.target.value);
-  };
-
-  const handleTitleChange = e => {
-    setTitle(e.target.value);
-  };
-
-  const handleFormSubmit = e => {
-    e.preventDefault();
-    if (title.trim() === '') {
-      setTitleError('Title is required');
-      console.log('Title is required');
-    } else {
-      setTitleError('');
-      if (onSubmit) {
-        onSubmit({ title, selectedIcon, selectedBackground });
-      }
-    }
+  const initialValues = {
+    title: initialTitle,
+    selectedIcon: initialSelectedIcon,
+    selectedBackground: initialSelectedBackground,
   };
 
   return (
     <div className={s.boardContainer}>
-      <h2 className={s.formTitle}>{formTitle}</h2>
-      <form className={s.form} onSubmit={handleFormSubmit}>
-        <input
-          type="text"
-          placeholder="Title"
-          className={s.titleInput}
-          value={title}
-          onChange={handleTitleChange}
-        />
-        {titleError && <span className={s.error}>{titleError}</span>}
+      <h3 className={s.formTitle}>{formTitle}</h3>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={(values, { setSubmitting }) => {
+          if (onSubmit) {
+            onSubmit(values);
+          }
+          setSubmitting(false);
+        }}
+      >
+        {({ values, setFieldValue, isSubmitting }) => (
+          <Form className={s.form}>
+            <Field
+              type="text"
+              name="title"
+              placeholder="Title"
+              className={t.input}
+            />
+            <ErrorMessage name="title" component="span" className={s.error} />
 
-        <h3 className={s.iconText}>Icons</h3>
-        <div className={s.iconsContainer}>
-          {Array.from({ length: 8 }, (_, index) => {
-            const iconName = `icon_${index + 1}`;
-            return (
-              <label key={iconName} className={s.iconLabel}>
-                <input
-                  type="radio"
-                  name="boardIcon"
-                  value={iconName}
-                  checked={selectedIcon === iconName}
-                  onChange={handleIconChange}
-                  className={s.radioInput}
-                />
-                <Icon name={iconName} className={s.icon} />
-              </label>
-            );
-          })}
-        </div>
+            <h3 className={s.iconText}>Icons</h3>
+            <div className={s.iconsContainer}>
+              {Array.from({ length: 8 }, (_, index) => {
+                const iconName = `icon_${index + 1}`;
+                return (
+                  <label key={iconName} className={s.iconLabel}>
+                    <Field
+                      type="radio"
+                      name="selectedIcon"
+                      value={iconName}
+                      checked={values.selectedIcon === iconName}
+                      onChange={() => setFieldValue('selectedIcon', iconName)}
+                      className={s.radioInput}
+                    />
+                    <Icon name={iconName} className={s.icon} />
+                  </label>
+                );
+              })}
+            </div>
 
-        <h3 className={s.backgroundText}>Background</h3>
-        <div className={s.backgroundsContainer}>
-          {Array.from({ length: 16 }, (_, index) => {
-            const bgName = `bg_${index}`;
-            return (
-              <label
-                key={bgName}
-                className={`${s.backgroundLabel} ${
-                  selectedBackground === bgName ? s.selected : ''
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="boardBackground"
-                  value={bgName}
-                  checked={selectedBackground === bgName}
-                  onChange={handleBackgroundChange}
-                  className={s.radioInput}
-                />
-                <img
-                  src={`/src/images/${bgName}_mobile@1x.webp`}
-                  alt={`Background ${index}`}
-                  className={s.backgroundImage}
-                />
-              </label>
-            );
-          })}
-        </div>
+            <h3 className={s.backgroundText}>Background</h3>
+            <div className={s.backgroundsContainer}>
+              {Array.from({ length: 16 }, (_, index) => {
+                const isIcon = index === 0;
+                const bgName = isIcon ? 'iconBackground' : `bg_${index - 1}`;
+                return (
+                  <label
+                    key={bgName}
+                    className={`${s.backgroundLabel} ${
+                      values.selectedBackground === bgName ? s.selected : ''
+                    }`}
+                  >
+                    <Field
+                      type="radio"
+                      name="selectedBackground"
+                      value={bgName}
+                      className={s.radioInput}
+                    />
+                    {isIcon ? (
+                      <Icon name="icon-bg" className={s.backgroundIcon} />
+                    ) : (
+                      <img
+                        src={`/src/images/bg_${index}_prev@1x.webp`}
+                        alt={`Background ${index}`}
+                        className={s.backgroundImage}
+                      />
+                    )}
+                  </label>
+                );
+              })}
+            </div>
 
-        <Button text={buttonText} showIcon={true} />
-      </form>
+            <Button text={buttonText} showIcon={true} disabled={isSubmitting} />
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };
