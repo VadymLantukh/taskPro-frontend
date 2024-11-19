@@ -9,23 +9,6 @@
     padding-bottom: 24px;
 }
 
-.tasks-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-bottom: 8px;
-}
-
-.item {
-    flex-shrink: 0;
-    max-width: 334px;
-    height: 154px;
-    margin-right: 4px;
-    background-color: lightgray;
-}
-
 @media (min-width: 768px) and (max-width: 1439px) {
     .container {
         height: calc(100vh - 116px);
