@@ -18,24 +18,16 @@ export const addTask = createAsyncThunk(
 
 export const deleteTask = createAsyncThunk(
   'task/deleteTask',
-  async (id, thunkAPI) => {
+  async ({ id, columnId }, thunkAPI) => {
     try {
       await axios.delete(`/tasks/${id}`);
-      return id;
+      return { id, columnId };
     } catch (error) {
       //   toast.error(
       //     'Failed to delete the task. Please refresh the page and try again.',
       //   );
       return thunkAPI.rejectWithValue(error.message);
     }
-  },
-  {
-    condition: (_, thunkAPI) => {
-      const isLoading = thunkAPI.getState().tasks.isLoading;
-      if (isLoading) {
-        return false;
-      }
-    },
   }
 );
 
@@ -44,7 +36,7 @@ export const updateTask = createAsyncThunk(
   async ({ task, id }, thunkAPI) => {
     try {
       const { data } = await axios.patch(`/tasks/${id}`, task);
-      return data.data;
+      return data.data.data;
     } catch (error) {
       //   toast.error(
       //     'Unable to update the task. Please check the details and try again.',
