@@ -11,7 +11,9 @@ import {
 } from 'redux-persist';
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/authSlice';
-import { boardsReducer } from './boards/boardSlice';
+import { boardReducer } from './board/boardSlice';
+import { columnsReducer } from './columns/columnsSlice';
+import { tasksReducer } from './tasks/tasksSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -22,7 +24,9 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    boards: boardsReducer,
+    board: boardReducer,
+    columns: columnsReducer,
+    tasks: tasksReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

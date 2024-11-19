@@ -1,0 +1,72 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.taskIcon {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.clipboard {
+  width: 50px;
+  height: 60px;
+  background: #fff;
+  border: 3px solid var(--logo-background);
+  border-radius: 5px;
+  position: relative;
+}
+
+.clipboardTop {
+  width: 25px;
+  height: 10px;
+  background: var(--logo-background);
+  border-radius: 3px;
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.line {
+  width: 30px;
+  height: 3px;
+  background-color: var(--logo-background);
+  position: absolute;
+  left: 7px;
+  opacity: 0;
+  animation: fadeInOut 2s infinite;
+}
+
+.line:nth-child(1) {
+  top: 12px;
+  animation-delay: 0s;
+}
+
+.line:nth-child(2) {
+  top: 22px;
+  animation-delay: 0.5s;
+}
+
+.line:nth-child(3) {
+  top: 32px;
+  animation-delay: 1s;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+}

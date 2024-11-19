@@ -16,6 +16,8 @@
   --without: rgba(255, 255, 255, 0.3);
   --hight: #bedbb0;
   --accentBtn: #9dc888;
+  --filter-color: rgba(22, 22, 22, 0.8);
+  --add-column-button-background: rgba(255, 255, 255, 1);
 }
 
 .dark-theme {
@@ -26,6 +28,8 @@
   --text-color: #fff;
   --secondary-text-color: rgba(255, 255, 255, 0.7);
   --third-text-color: rgba(255, 255, 255, 0.5);
+  --filter-color: rgba(255, 255, 255, 0.8);
+  --add-column-button-background: rgba(18, 18, 18, 1);
 }
 
 .violet-theme {
@@ -40,4 +44,5 @@
   --third-text-color: rgba(255, 255, 255, 0.5);
   --accent: #5255bc;
   --accentBtn: #7b7ede;
+  --add-column-button-background: rgba(255, 255, 255, 1);
 }
