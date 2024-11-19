@@ -5,7 +5,12 @@ import HeaderDashboard from '../../components/HeaderDashboard/HeaderDashboard.js
 import MainDashboard from '../../components/MainDashboard/MainDashboard.jsx';
 
 import s from './ScreensPage.module.css';
-import { fetchBoard } from '../../redux/board/boardOperations';
+import {
+  addBoard,
+  deleteBoard,
+  fetchBoard,
+  updateBoard,
+} from '../../redux/board/boardOperations';
 import {
   addColumn,
   deleteColumn,
@@ -22,10 +27,33 @@ const ScreensPage = () => {
 
   const { boardId } = useParams();
 
-  //? fetch board
+  // //? fetch board
+  useEffect(() => {
+    dispatch(fetchBoard({ id: '673c65105fcb8abd18ff7690' }));
+  }, [dispatch, boardId]);
+
+  // ? add board
   // useEffect(() => {
-  //   dispatch(fetchBoard({ id: '673c65105fcb8abd18ff7690' }));
-  // }, [dispatch, boardId]);
+  //   dispatch(
+  //     addBoard({
+  //       title: 'BOARD 10000000000000',
+  //       backgroundImage: 'bgImage_7',
+  //       icon: 'icon_4',
+  //     })
+  //   );
+  // }, [dispatch]);
+
+  // ?delete board;
+  // useEffect(() => {
+  //   dispatch(deleteBoard('673cb6344262e63750c77bfc'));
+  // }, [dispatch]);
+
+  // ?update board
+  // useEffect(() => {
+  //   dispatch(
+  //     updateBoard({ title: 'board', id: '673b643604a6f8a2e4f1282f' })
+  //   );
+  // }, [dispatch]);
 
   //? add column
   // useEffect(() => {

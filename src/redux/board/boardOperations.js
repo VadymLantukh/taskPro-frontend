@@ -46,14 +46,6 @@ export const deleteBoard = createAsyncThunk(
       //   );
       return thunkAPI.rejectWithValue(error.message);
     }
-  },
-  {
-    condition: (_, thunkAPI) => {
-      const isLoading = thunkAPI.getState().board.isLoading;
-      if (isLoading) {
-        return false;
-      }
-    },
   }
 );
 
@@ -66,7 +58,7 @@ export const updateBoard = createAsyncThunk(
         backgroundImage,
         icon,
       });
-      return data.data;
+      return data.data.data;
     } catch (error) {
       //   toast.error(
       //     'Unable to update the board. Please check the details and try again.',
