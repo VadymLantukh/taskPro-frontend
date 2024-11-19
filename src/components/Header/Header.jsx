@@ -1,11 +1,16 @@
 import Icon from '../Icon/Icon';
 import s from './Header.module.css';
+import PropTypes from 'prop-types';
 
-const Header = () => {
+const Header = ({ onBurgerClick }) => {
   return (
     <header className={s.header}>
       <div>
-        <Icon name={'icon-menu'} className={s.menu_icon} />
+        <Icon
+          onClick={onBurgerClick}
+          name={'icon-menu'}
+          className={s.menu_icon}
+        />
       </div>
       <div className={s.theme_user_wrap}>
         <div className={s.theme}>
@@ -24,5 +29,7 @@ const Header = () => {
     </header>
   );
 };
+
+Header.propTypes = { onBurgerClick: PropTypes.func.isRequired };
 
 export default Header;

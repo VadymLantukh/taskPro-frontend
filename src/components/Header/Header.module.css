@@ -13,6 +13,12 @@
   height: 34px;
 }
 
+@media (min-width: 1440px) {
+  .menu_icon {
+    display: none;
+  }
+}
+
 .theme_user_wrap {
   display: flex;
   gap: 14px;
