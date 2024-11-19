@@ -13,7 +13,7 @@ const HomePage = () => {
   return (
     <>
       <div className={s.homePage}>
-        {/* HomePage */}
+        HomePage
         <button onClick={handleOpenModal}>Open Add Card</button>
       </div>
       <ModalWrapper open={isModalOpen} onClose={handleCloseModal}>
