@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
 import { useEffect } from 'react';
 import { getUserThunk } from '../../redux/auth/authOperations';
 import { selectUser } from '../../redux/auth/authSelectors';
@@ -8,15 +7,16 @@ import HeaderDashboard from '../../components/HeaderDashboard/HeaderDashboard.js
 import MainDashboard from '../../components/MainDashboard/MainDashboard.jsx';
 
 import s from './ScreensPage.module.css';
+import { fetchBoard } from '../../redux/board/boardOperations';
 
 const ScreensPage = () => {
+  const dispatch = useDispatch();
+
   const { boardId } = useParams();
 
-  console.log('getter');
-
   useEffect(() => {
-    // const board = dispatch(getBoard(boardId))
-  });
+    dispatch(fetchBoard(boardId));
+  }, [dispatch, boardId]);
 
   return (
     <div className={s.container}>
