@@ -39,7 +39,7 @@ const ModalWrapper = ({ open, onClose, children }) => {
       <div className={s.modalContainer}>
         <button className={s.closeButton} onClick={onClose}>
           <svg className={s.iconModal}>
-            <use href={`${svg}#icon-plus`}></use>
+            <use href={`${svg}#icon-close`}></use>
           </svg>
         </button>
         {children}

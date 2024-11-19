@@ -1,5 +1,5 @@
 import s from '../NeedHelp/NeedHelp.module.css';
-import Icons from '../../../src/images/icons.svg';
+import Icon from '../Icon/Icon';
 import flowerpot from '../../images/flowerpot.webp';
 
 const NeedHelp = () => {
@@ -24,9 +24,7 @@ const NeedHelp = () => {
           out our support resources or reach out to our customer support team.
         </p>
         <div className={s.needHelp}>
-          <svg className={s.icon} width={20} height={20}>
-            <use href={`${Icons}#icon-help`} />
-          </svg>
+          <Icon name="icon-help" className={s.icon} width={20} height={20} />
           <button className={s.button} onClick={handleClick}>
             Need help?
           </button>
