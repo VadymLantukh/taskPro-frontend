@@ -24,14 +24,14 @@
   gap: 14px;
 }
 
-.theme {
+/* .theme {
   display: flex;
   align-items: center;
   gap: 5px;
   font-size: 16px;
-}
+} */
 
-.arrow_icon {
+/* .arrow_icon {
   fill: none;
   stroke: rgba(22, 22, 22, 0.8);
   stroke-opacity: 0.8;
@@ -40,7 +40,7 @@
   stroke-linejoin: round;
   width: 16px;
   height: 16px;
-}
+} */
 
 .profile {
   display: flex;
