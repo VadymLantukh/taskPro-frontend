@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
-import { logIn } from '../../redux/auth/authOperations.js';
+import { logInThunk } from '../../redux/auth/authOperations.js';
 import { logInSchema } from '../../helpers/logInSchema.js';
 
 import { MdOutlineRemoveRedEye, MdOutlineVisibilityOff } from 'react-icons/md';
@@ -22,7 +22,7 @@ const LoginForm = () => {
   };
 
   const handleSubmit = (values, action) => {
-    dispatch(logIn(values));
+    dispatch(logInThunk(values));
     action.resetForm();
   };
   return (

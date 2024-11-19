@@ -5,7 +5,7 @@ import { MdOutlineRemoveRedEye, MdOutlineVisibilityOff } from 'react-icons/md';
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
-import { register } from '../../redux/auth/authOperations';
+import { registerThunk } from '../../redux/auth/authOperations';
 import { registrationSchema } from '../../helpers/registrationSchema';
 
 import s from './RegisterForm.module.css';
@@ -27,7 +27,7 @@ const RegisterForm = () => {
   };
 
   const handleSubmit = async (values, action) => {
-    const response = await dispatch(register(values));
+    const response = await dispatch(registerThunk(values));
     if (response.payload.status === 201) setCheckStatus(true);
     action.resetForm();
   };
