@@ -1,3 +1,56 @@
 .header {
-  background-color: green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+}
+
+.menu_icon {
+  stroke-width: 2.5px;
+  stroke: #161616;
+  width: 34px;
+  height: 34px;
+}
+
+@media (min-width: 1440px) {
+  .menu_icon {
+    display: none;
+  }
+}
+
+.theme_user_wrap {
+  display: flex;
+  gap: 14px;
+}
+
+.theme {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+}
+
+.arrow_icon {
+  fill: none;
+  stroke: rgba(22, 22, 22, 0.8);
+  stroke-opacity: 0.8;
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  width: 16px;
+  height: 16px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile_image {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
 }

@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { Modal, Backdrop } from '@mui/material';
 import svg from '../../images/icons.svg';
 import s from './ModalWrapper.module.css';
-
 const ModalWrapper = ({ open, onClose, children }) => {
   useEffect(() => {
     const handleKeyDown = event => {
@@ -39,7 +38,7 @@ const ModalWrapper = ({ open, onClose, children }) => {
       <div className={s.modalContainer}>
         <button className={s.closeButton} onClick={onClose}>
           <svg className={s.iconModal}>
-            <use href={`${svg}#icon-plus`}></use>
+            <use href={`${svg}#icon-close`}></use>
           </svg>
         </button>
         {children}
