@@ -5,21 +5,14 @@ import s from './HomePage.module.css';
 import AddCard from '../../components/AddCard/AddCard';
 
 const HomePage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
-
   return (
-    <>
-      <div className={s.homePage}>
-        HomePage
-        <button onClick={handleOpenModal}>Open Add Card</button>
-      </div>
-      <ModalWrapper open={isModalOpen} onClose={handleCloseModal}>
-        <AddCard />
-      </ModalWrapper>
-    </>
+    <div className={s.homePage}>
+      Before starting your project, it is essential
+      <button onClick={() => console.log('click')}> to create a board</button>
+      to create a board to visualize and track all the necessary tasks and
+      milestones. This board serves as a powerful tool to organize the workflow
+      and ensure effective collaboration among team members.
+    </div>
   );
 };
 
