@@ -29,7 +29,7 @@ const ScreensPage = () => {
 
   // //? fetch board
   useEffect(() => {
-    dispatch(fetchBoard({ id: '673c65105fcb8abd18ff7690' }));
+    dispatch(fetchBoard({ id: boardId }));
   }, [dispatch, boardId]);
 
   // ? add board
