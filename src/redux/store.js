@@ -12,6 +12,7 @@ import {
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/authSlice';
 import { boardReducer } from './board/boardSlice';
+import { columnsReducer } from './columns/columnsSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -23,6 +24,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     board: boardReducer,
+    columns: columnsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

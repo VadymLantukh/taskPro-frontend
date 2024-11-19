@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { handleFulFilled, handlePending, handleRejected } from '../handlers';
+import { fetchBoard } from '../board/boardOperations';
 
 const initialState = {
-  tasksById: {},
-  tasksIds: [],
-  currentTask: {},
+  tasks: [],
+  currentTask: null,
   isLoading: false,
   isError: null,
 };
@@ -15,6 +16,15 @@ const slice = createSlice({
     setCurrentTask(state, action) {
       state.currentTask = action.payload;
     },
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchBoard.fulfilled, (state, action) => {
+        state.tasks = action.payload.columns.flatMap(column => column.tasks);
+      })
+      .addMatcher(({ type }) => type.endsWith('pending'), handlePending)
+      .addMatcher(({ type }) => type.endsWith('rejected'), handleRejected)
+      .addMatcher(({ type }) => type.endsWith('fulfilled'), handleFulFilled);
   },
 });
 
