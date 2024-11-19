@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "The Watch Spot Design",
+    "description": "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
+    "priority": "Low",
+    "deadline": "19/11/2024",
+    "colId": "col_1",
+    "boardId": "board_1"
+  },
+  {
+    "id": 2,
+    "title": "Smart Watch Interface",
+    "description": "Design an intuitive and user-friendly interface for our new smart watch model. Focus on seamless navigation and clear information hierarchy while maintaining our minimalist design approach.",
+    "priority": "Medium",
+    "deadline": "20/11/2024",
+    "colId": "col_1",
+    "boardId": "board_1"
+  },
+  {
+    "id": 3,
+    "title": "Watch Band Collection",
+    "description": "Develop a collection of interchangeable watch bands using sustainable materials. The designs should complement our existing watch faces while offering unique style options for different occasions.",
+    "priority": "Without",
+    "deadline": "21/11/2024",
+    "colId": "col_2",
+    "boardId": "board_1"
+  },
+  {
+    "id": 4,
+    "title": "Limited Edition Package",
+    "description": "Create packaging design for our limited edition watch series. The package should reflect luxury, sustainability, and include innovative unboxing experience elements.",
+    "priority": "High",
+    "deadline": "22/11/2024",
+    "colId": "col_2",
+    "boardId": "board_1"
+  },
+  {
+    "id": 5,
+    "title": "Watch Face Customization Tool",
+    "description": "Develop a digital tool that allows customers to customize their watch faces. Include options for different colors, materials, and complications while maintaining brand guidelines.",
+    "priority": "Medium",
+    "deadline": "01/06/2023",
+    "colId": "col_3",
+    "boardId": "board_1"
+  },
+  {
+    "id": 6,
+    "title": "Chronograph Feature Design",
+    "description": "Design an elegant chronograph feature that integrates seamlessly with our classic watch face. Focus on readability and functionality while preserving the minimalist aesthetic.",
+    "priority": "High",
+    "deadline": "05/06/2023",
+    "colId": "col_3",
+    "boardId": "board_1"
+  },
+  {
+    "id": 7,
+    "title": "Watch Display Stand",
+    "description": "Design retail display stands for our watch collection. The stands should highlight the watches effectively while embodying our brand's commitment to sustainable design.",
+    "priority": "Low",
+    "deadline": "10/06/2023",
+    "colId": "col_4",
+    "boardId": "board_1"
+  },
+  {
+    "id": 8,
+    "title": "Digital Crown Enhancement",
+    "description": "Improve the functionality and aesthetics of our digital crown mechanism. The design should enhance user interaction while maintaining durability and precision.",
+    "priority": "Medium",
+    "deadline": "15/06/2023",
+    "colId": "col_4",
+    "boardId": "board_1"
+  },
+  {
+    "id": 9,
+    "title": "Watch Care Kit Design",
+    "description": "Create a comprehensive watch care kit including cleaning tools and maintenance accessories. The kit should reflect our premium brand identity while being practical and user-friendly.",
+    "priority": "Low",
+    "deadline": "20/06/2023",
+    "colId": "col_5",
+    "boardId": "board_1"
+  },
+  {
+    "id": 10,
+    "title": "Anniversary Edition Watch",
+    "description": "Design a special edition watch commemorating our company's 10th anniversary. Incorporate elements from our brand heritage while pushing boundaries in modern watch design.",
+    "priority": "High",
+    "deadline": "25/06/2023",
+    "colId": "col_5",
+    "boardId": "board_1"
+  }
+]
