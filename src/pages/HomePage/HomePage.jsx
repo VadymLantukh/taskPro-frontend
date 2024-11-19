@@ -1,8 +1,4 @@
-import { useState } from 'react';
-
-import ModalWrapper from '../../components/ModalWrapper/ModalWrapper';
 import s from './HomePage.module.css';
-import AddCard from '../../components/AddCard/AddCard';
 
 const HomePage = () => {
   return (
