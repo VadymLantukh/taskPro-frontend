@@ -20,8 +20,8 @@ const ScreensPage = () => {
 
   return (
     <div className={s.container}>
-      <HeaderDashboard title={boardId}/>
-      <MainDashboard/>
+      <HeaderDashboard title={boardId} />
+      <MainDashboard />
     </div>
   );
 };
