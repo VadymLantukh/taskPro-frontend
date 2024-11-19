@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 export const registrationSchema = Yup.object({
   name: Yup.string()
     .matches(
-      /^[a-zA-Z0-9!@#$%^&*(),.?":{}|<>]{2,32}$/,
+      /^[a-zA-Z0-9\s!@#$%^&*(),.?":{}|<>]{2,32}$/,
       'Name must contain from 2 to 32 characters'
     )
     .required('Name is required'),
