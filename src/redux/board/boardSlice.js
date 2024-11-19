@@ -12,7 +12,6 @@ const initialState = {
     columns: [],
   },
   currentBoard: null,
-
   isLoading: false,
   isError: null,
 };
