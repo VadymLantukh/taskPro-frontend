@@ -2,12 +2,17 @@ import axios from 'axios';
 import { clearStatus } from '../emails/emailsSlice';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+const setAuthHeader = token => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
 export const sendEmail = createAsyncThunk(
   'email/sendEmail',
   async (emailData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('/help/send-email', emailData);
-      return response.data;
+      const res = await axios.post('/help/send-email', emailData);
+      setAuthHeader(res.data.token);
+      return res.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || 'Failed to send email');
     }

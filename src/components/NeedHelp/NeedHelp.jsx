@@ -8,9 +8,6 @@ const NeedHelp = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  // const handleClick = () => {
-  //   alert('кукусики');
-  // };
 
   return (
     <>
@@ -30,7 +27,7 @@ const NeedHelp = () => {
         </p>
         <div className={s.needHelp}>
           <svg className={s.icon} width={20} height={20}>
-            <use href={`${Icons}#icon-help`} />
+            <use href={`${Icon}#icon-help`} />
           </svg>
           <button className={s.button} onClick={handleOpen}>
             Need help?
