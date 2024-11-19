@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// у діспатч функції потрібно передати id дошки
-
 export const fetchBoard = createAsyncThunk(
   'boards/fetchBoard',
-  async (id, thunkAPI) => {
+  async ({ id, priority }, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/boards/${id}`);
+      const { data } = await axios.get(`/boards/${id}`, {
+        params: { priority },
+      });
 
       return data.data;
     } catch (error) {
