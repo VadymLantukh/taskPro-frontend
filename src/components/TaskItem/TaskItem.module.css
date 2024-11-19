@@ -2,6 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   background: #ffffff;
   border-radius: 8px;
   padding: 14px 14px 14px 24px;
@@ -113,12 +114,27 @@
 }
 
 .action-button {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border: none;
   cursor: pointer;
   padding: 0;
-  opacity: 0.6;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #161616;
+  opacity: 0.5;
+}
+
+.bell_icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #bedbb0;
+  opacity: 0.5;
 }
 
 .action-button:hover {

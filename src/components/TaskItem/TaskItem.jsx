@@ -64,32 +64,16 @@ const TaskItem = () => {
               </div>
               <div className={s.actions}>
                 {isDeadlineToday(taskCard.deadline) && (
-                  <Icon
-                    name="icon-bell"
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="#BEDBB0"
-                  />
+                  <Icon className={s.bell_icon} name="icon-bell" />
                 )}
                 <button className={s.action_button}>
-                  <svg width="16" height="16" fill="none" stroke="#161616">
-                    <use href={icons + '#icon-house'} />
-                  </svg>
+                  <Icon className={s.icon} name="icon-right" />
                 </button>
                 <button className={s.action_button}>
-                  <svg width="16" height="16" fill="none" stroke="#161616">
-                    <use href={icons + '#icon-pencil'} />
-                  </svg>
+                  <Icon className={s.icon} name="icon-pencil" />
                 </button>
                 <button className={s.action_button}>
-                  <Icon
-                    name="icon-trash"
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="#161616"
-                  />
+                  <Icon className={s.icon} name="icon-trash" />
                 </button>
               </div>
             </div>
