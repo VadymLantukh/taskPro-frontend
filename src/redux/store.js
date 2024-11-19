@@ -12,6 +12,7 @@ import {
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/authSlice';
 import { boardsReducer } from './boards/boardSlice';
+import { emailReducer } from './emails/emailsSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -23,6 +24,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     boards: boardsReducer,
+    email: emailReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

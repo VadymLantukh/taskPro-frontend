@@ -1,11 +1,16 @@
+import { useState } from 'react';
 import s from '../NeedHelp/NeedHelp.module.css';
 import Icons from '../../../src/images/icons.svg';
 import flowerpot from '../../images/flowerpot.webp';
+import HelpForm from './HelpForm/HelpForm.jsx';
 
 const NeedHelp = () => {
-  const handleClick = () => {
-    alert('кукусики');
-  };
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  // const handleClick = () => {
+  //   alert('кукусики');
+  // };
 
   return (
     <>
@@ -27,11 +32,12 @@ const NeedHelp = () => {
           <svg className={s.icon} width={20} height={20}>
             <use href={`${Icons}#icon-help`} />
           </svg>
-          <button className={s.button} onClick={handleClick}>
+          <button className={s.button} onClick={handleOpen}>
             Need help?
           </button>
         </div>
       </div>
+      <HelpForm open={open} onClose={handleClose} />
     </>
   );
 };
