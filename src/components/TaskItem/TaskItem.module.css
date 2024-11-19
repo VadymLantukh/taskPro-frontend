@@ -6,9 +6,10 @@
   background: #ffffff;
   border-radius: 8px;
   padding: 14px 14px 14px 24px;
-  width: 335px;
+  width: 100%;
   min-height: 154px;
 }
+
 .card_item::before {
   content: '';
   position: absolute;
@@ -18,7 +19,7 @@
   border-radius: 8px 0px 0px 8px;
   width: 5px;
   height: 154px;
-  background-color: #8fa1d0;
+  background-color: var(--low);
 }
 
 .task_title {
@@ -75,15 +76,15 @@
 }
 
 .priority_low::before {
-  background-color: #8fa1d0;
+  background-color: var(--low);
 }
 
 .priority_medium::before {
-  background-color: #e09cb5;
+  background-color: var(--medium);
 }
 
 .priority_high::before {
-  background-color: #bedbb0;
+  background-color: var(--accent);
 }
 
 .task_priority::before {
@@ -133,7 +134,7 @@
   width: 16px;
   height: 16px;
   fill: none;
-  stroke: #bedbb0;
+  stroke: var(--accent);
   opacity: 0.5;
 }
 
