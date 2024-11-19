@@ -76,8 +76,6 @@
     </symbol>
     <symbol id="icon-trash" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round"  fill="none" stroke="currentColor" stroke-width="2.6" d="M12 4h8M4 8h24M6.667 8l.801 12.018c.149 2.231.223 3.347.588 4.243a6 6 0 0 0 3.672 3.435c.919.304 2.037.304 4.273.304 2.236 0 3.354 0 4.273-.304a6 6 0 0 0 3.672-3.435c.365-.896.439-2.012.588-4.243L25.335 8"/>
-      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.6"
-        d="M12 4h8M4 8h24M6.667 8l.801 12.018c.149 2.231.223 3.347.588 4.243a6 6 0 0 0 3.672 3.435c.919.304 2.037.304 4.273.304 2.236 0 3.354 0 4.273-.304a6 6 0 0 0 3.672-3.435c.365-.896.439-2.012.588-4.243L25.335 8" />
     </symbol>
     <symbol id="icon-house" viewBox="0 0 24 24">
       <path

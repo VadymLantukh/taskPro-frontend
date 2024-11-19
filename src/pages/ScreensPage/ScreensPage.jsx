@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getUserThunk } from '../../redux/auth/authOperations';
 import { useEffect } from 'react';
+import { getUserThunk } from '../../redux/auth/authOperations';
 import { selectUser } from '../../redux/auth/authSelectors';
 import HeaderDashboard from '../../components/HeaderDashboard/HeaderDashboard.jsx';
 import MainDashboard from '../../components/MainDashboard/MainDashboard.jsx';
