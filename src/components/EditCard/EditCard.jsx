@@ -11,8 +11,14 @@ import { addCardSchema } from '../../helpers/addCardSchema.js';
 
 import s from '../AddCard/AddCard.module.css';
 import t from '../../styles/Forms.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentTask } from '../../redux/tasks/tasksSelectors.js';
+import { updateTask } from '../../redux/tasks/tasksOperations.js';
 
-const EditCard = ({ card, onSubmit }) => {
+const EditCard = () => {
+  const dispatch = useDispatch();
+  const card = useSelector(selectCurrentTask);
+
   const [selectedPriority, setSelectedPriority] = useState(card.priority);
   const [selectedDate, setSelectedDate] = useState(
     card.deadline ? new Date(card.deadline) : null
@@ -30,11 +36,19 @@ const EditCard = ({ card, onSubmit }) => {
   };
 
   const handleSubmit = (values, action) => {
-    onSubmit({
+    const task = {
       ...values,
       priority: selectedPriority,
       deadline: selectedDate ? dayjs(selectedDate).toISOString() : null,
-    });
+    };
+
+    dispatch(
+      updateTask({
+        task,
+        id: card._id,
+      })
+    );
+
     action.resetForm();
   };
 
