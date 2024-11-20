@@ -2,8 +2,7 @@ import IconButton from '../../IconButton/IconButton.jsx';
 
 import s from "./HeaderColumn.module.css"
 
-export const HeaderColumn = () => {
-  const title="To Do"
+export const HeaderColumn = ({title}) => {
 
   return (
     <div className={s.container}>

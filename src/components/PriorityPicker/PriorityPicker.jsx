@@ -4,8 +4,9 @@ import {
   Radio,
   RadioGroup,
 } from '@mui/material';
+import './PriorityPicker.css';
 
-const PriorityPicker = ({ selectedValue, onChange }) => {
+const PriorityPicker = ({ selectedValue = 'none', onChange }) => {
   const options = [
     { value: 'none', label: 'Without', color: '#c9b7b7' },
     { value: 'low', label: 'Low', color: '#8fa1d0' },
@@ -27,43 +28,14 @@ const PriorityPicker = ({ selectedValue, onChange }) => {
             <FormControlLabel
               key={option.value}
               value={option.value}
-              sx={{
-                '&.MuiFormControlLabel-root': {
-                  marginLeft: 0,
-                  marginRight: 0,
-                },
-              }}
+              className="priority-picker-form-control"
               control={
                 <Radio
                   size="small"
-                  sx={{
-                    '&.MuiRadio-root': {
-                      position: 'relative',
-                      padding: 0,
-                      transform: 'scale(0.8)',
-                      '&:before': {
-                        position: 'absolute',
-                        content: '""',
-                        display: 'block',
-                        width: '16px',
-                        height: '16px',
-                        borderRadius: '50%',
-                        backgroundColor: option.color,
-                        border: `9px solid ${option.color}`,
-                        zIndex: 5,
-                      },
-                    },
-                    '&.Mui-checked': {
-                      '&:before': {
-                        display: 'none',
-                      },
-                      color: option.color,
-                      transform: 'scale(0.9)',
-                    },
-                    '& .MuiTouchRipple-root': {
-                      display: 'none',
-                    },
-                  }}
+                  checked={
+                    selectedValue.toLowerCase() === option.value.toLowerCase()
+                  }
+                  className={`priority-picker-radio priority-picker-radio-${option.value}`}
                 />
               }
             />

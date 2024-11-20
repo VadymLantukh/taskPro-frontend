@@ -1,6 +1,6 @@
 import TaskItem from '../TaskItem/TaskItem';
 import s from './TasksList.module.css';
-const TasksList = () => {
+const TasksList = ({columnId}) => {
   return (
     <div className={s.taskItem}>
       <TaskItem />

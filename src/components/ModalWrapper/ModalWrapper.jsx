@@ -12,15 +12,10 @@ const ModalWrapper = ({ open, onClose, children, className = '' }) => {
     };
 
     if (open) {
-      document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKeyDown);
     }
 
     return () => {
-      document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [open, onClose]);
@@ -33,7 +28,7 @@ const ModalWrapper = ({ open, onClose, children, className = '' }) => {
       BackdropComponent={Backdrop}
       BackdropProps={{
         timeout: 200,
-        sx: { backgroundColor: 'rgba(21, 21, 21, 0.3' },
+        sx: { backgroundColor: 'rgba(21, 21, 21, 0.3)' },
       }}
     >
       <div className={UpdatedModalContainer}>

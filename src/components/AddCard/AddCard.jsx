@@ -31,7 +31,7 @@ const AddCard = () => {
     console.log('Form submitted with values:', {
       ...values,
       priority: selectedPriority,
-      deadline: selectedDate ? dayjs(selectedDate).format('YYYY-MM-DD') : null,
+      deadline: selectedDate ? dayjs(selectedDate).toISOString() : null,
     });
     action.resetForm();
     setSelectedPriority('none');
