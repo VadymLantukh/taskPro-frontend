@@ -1,0 +1,141 @@
+.icon {
+  width: 18px;
+  height: 18px;
+  stroke: #bedbb0;
+  fill: transparent;
+}
+
+.MuiInputBase-root {
+  background-color: transparent !important;
+  cursor: pointer !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  font-family: inherit !important;
+}
+
+.MuiInputBase-input {
+  font-size: 16px !important;
+  color: #bedbb0 !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  user-select: none !important;
+  opacity: 1 !important;
+}
+
+.MuiInputBase-input::selection {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+.MuiInputAdornment-root {
+  display: none !important;
+}
+
+.MuiInputBase-root::before,
+.MuiInputBase-root::after {
+  display: none !important;
+}
+
+.MuiPickersCalendarHeader-root {
+  margin: 14px 18px 8px !important;
+  padding: 0 !important;
+  border-bottom: 1px solid #e3e3e3 !important;
+}
+
+.MuiPickersCalendarHeader-root .MuiTypography-root {
+  font-size: 16px !important;
+  font-weight: bold !important;
+  color: #4a4a4a !important;
+}
+
+.MuiPickersCalendarHeader-root .MuiIconButton-root {
+  color: #8c8c8c !important;
+}
+
+.MuiPickersCalendarHeader-label {
+  font-weight: 600 !important;
+}
+
+.MuiPickersCalendarHeader-switchViewIcon {
+  display: none !important;
+}
+
+.MuiPickersCalendarHeader-labelContainer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: inherit !important;
+}
+
+.MuiPickersDay-root {
+  font-size: 14px;
+  font-weight: 600 !important;
+  color: #4a4a4a !important;
+}
+
+.MuiPickersDay-root.Mui-selected {
+  background-color: #bedbb0 !important;
+  font-weight: 600 !important;
+}
+
+.MuiPickersDay-root:not(.Mui-selected) {
+  border: none !important;
+}
+
+.MuiPickersDay-root:hover,
+.MuiPickersDay-root:focus {
+  background-color: #d9ecd2 !important;
+}
+
+.MuiPickersDay-root.Mui-disabled {
+  color: #e0e0e0 !important;
+}
+
+.MuiPickersActionBar-root {
+  display: none !important;
+}
+
+.MuiPickersYear-yearButton {
+  font-family: inherit !important;
+}
+
+.MuiPickersYear-yearButton:hover,
+.MuiPickersYear-yearButton:focus {
+  background-color: #d9ecd2 !important;
+}
+
+.MuiPickersArrowSwitcher-button svg {
+  fill: #bedbb0 !important;
+}
+
+.Mui-disabled svg {
+  fill: #161616 !important;
+}
+
+.MuiButtonBase-root {
+  font-family: inherit !important;
+}
+
+.MuiTypography-root {
+  font-family: inherit !important;
+}
+
+.MuiDayCalendar-weekDayLabel {
+  font-size: 14px !important;
+}
+
+.MuiPickersArrowSwitcher-root {
+  justify-content: space-between !important;
+  width: 100% !important;
+}
+
+.MuiInputBase-root.Mui-focused .MuiInputBase-input {
+  color: #bedbb0 !important;
+  opacity: 1 !important;
+}
+
+.MuiInputBase-input::placeholder {
+  color: #bedbb0 !important;
+}
