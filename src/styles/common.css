@@ -45,7 +45,7 @@ body {
   }
   color: var(--text-color) !important;
   stroke: var(--text-color) !important;
-  background-color: var(--background-color);
+  background-color: var(--third-text-color);
   & :after {
     content: '';
     background-color: var(--accent);

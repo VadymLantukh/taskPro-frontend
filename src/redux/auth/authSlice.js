@@ -20,6 +20,11 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    setTheme(state) {
+      document.body.classList = state.user.theme;
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(operation.logOutThunk.fulfilled, state => {
@@ -66,46 +71,7 @@ const authSlice = createSlice({
           board._id === action.payload._id ? action.payload : board
         );
       }),
-  // .addMatcher(
-  //   isAnyOf(
-  //     operation.register.fulfilled,
-  //     operation.logIn.fulfilled,
-  //     operation.updateUser.fulfilled,
-  //     operation.getUserThunk.fulfilled
-  //   ),
-  //   (state, action) => {
-  //     state.user = { ...state.user, ...action.payload.data };
-  //   }
-  // )
-  // .addMatcher(
-  //   isAnyOf(operation.register.fulfilled, operation.logIn.fulfilled),
-  //   (state, action) => {
-  //  ;
-  //   }
-  // )
-  // .addMatcher(
-  //   isAnyOf(
-  //     // operation.register.fulfilled,
-  //     operation.logIn.fulfilled,
-  //     // operation.refreshUser.fulfilled,
-  //     operation.updateUser.fulfilled,
-  //     operation.updateUserTheme.fulfilled,
-  //     operation.needHelp.fulfilled
-  //   ),
-  //   state => {
-  //     state.isLoggedIn = true;
-  //     state.isRefreshing = false;
-  //   }
-  // )
-  // .addMatcher(
-  //   isAnyOf(
-  //     operation.logOut.fulfilled
-  //     // operation.refreshUser.rejected
-  //   ),
-  //   state => {
-  //     state.isRefreshing = false;
-  //   }
-  // ),
 });
 
 export const authReducer = authSlice.reducer;
+export const { setTheme } = authSlice.actions;

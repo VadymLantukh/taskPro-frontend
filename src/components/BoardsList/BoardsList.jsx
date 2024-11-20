@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/authSelectors';
 import BoardsItem from '../BoardsItem/BoardsItem';
 
 import s from './BoardsList.module.css';
-import { selectUser } from '../../redux/auth/authSelectors';
 
 const BoardsList = () => {
   const { boards } = useSelector(selectUser);

@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import { Modal, Backdrop } from '@mui/material';
 import svg from '../../images/icons.svg';
 import s from './ModalWrapper.module.css';
-const ModalWrapper = ({ open, onClose, children }) => {
+import clsx from 'clsx';
+const ModalWrapper = ({ open, onClose, children, className = '' }) => {
   useEffect(() => {
     const handleKeyDown = event => {
       if (event.key === 'Escape') {
@@ -11,19 +12,14 @@ const ModalWrapper = ({ open, onClose, children }) => {
     };
 
     if (open) {
-      document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKeyDown);
     }
 
     return () => {
-      document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [open, onClose]);
-
+  const UpdatedModalContainer = clsx(s.modalContainer, className);
   return (
     <Modal
       open={open}
@@ -32,10 +28,10 @@ const ModalWrapper = ({ open, onClose, children }) => {
       BackdropComponent={Backdrop}
       BackdropProps={{
         timeout: 200,
-        sx: { backgroundColor: 'rgba(21, 21, 21, 0.3' },
+        sx: { backgroundColor: 'rgba(21, 21, 21, 0.3)' },
       }}
     >
-      <div className={s.modalContainer}>
+      <div className={UpdatedModalContainer}>
         <button className={s.closeButton} onClick={onClose}>
           <svg className={s.iconModal}>
             <use href={`${svg}#icon-close`}></use>
