@@ -1,6 +1,8 @@
 import { Suspense, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
@@ -27,16 +29,40 @@ export const Layout = () => {
   useEffect(() => {
     dispatch(setTheme());
     dispatch(getUserThunk());
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isSidebarOpen, dispatch, theme]);
+    dispatch(setTheme());
+  }, [dispatch, theme]);
+
+  const toastTheme = theme === 'violet' ? 'light' : theme;
 
   return (
     <div className={s.page}>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={toastTheme}
+      />
       <div className={s.wrapper}>
         <Sidebar isOpen={isSidebarOpen} onClose={onBurgerClick} />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme={toastTheme}
+        />
+        <Sidebar />
         <main className={s.main}>
           <Header onBurgerClick={onBurgerClick} />
           <div className={s.outlet}>
