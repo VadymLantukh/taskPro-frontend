@@ -11,7 +11,7 @@ const CreateBoard = () => {
 
   return (
     <div className={s.createNew}>
-      <p>Create a new board</p>
+      <p className={s.createText}>Create a new board</p>
       <button className={s.createBoardBtn} onClick={handleOpenModal}>
         <Icon name="icon-plus" className={s.btnPlus} />
       </button>

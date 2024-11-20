@@ -82,6 +82,10 @@
         d="M12.666 14h.674c.648 0 .971 0 1.15-.135a.666.666 0 0 0 .263-.492c.013-.223-.166-.493-.526-1.031l-2.006-3.01c-.297-.446-.446-.668-.633-.746a.667.667 0 0 0-.51 0c-.187.078-.336.3-.632.745l-.497.745M12.666 14 7.543 6.6c-.294-.425-.442-.638-.626-.713a.667.667 0 0 0-.502 0c-.184.075-.33.288-.626.713l-3.964 5.726c-.375.542-.563.813-.552 1.039.01.196.105.378.26.498.18.137.51.137 1.17.137h9.963ZM14 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
         stroke-opacity=".1" stroke-linecap="round" stroke-linejoin="round" />
     </symbol>
+    <symbol id="icon-right" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M4.451 9.334c2.305-3.985 6.614-6.667 11.55-6.667 7.364 0 13.333 5.97 13.333 13.333s-5.969 13.333-13.333 13.333c-4.935 0-9.244-2.681-11.55-6.667"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M16 21.334l5.333-5.333-5.333-5.333"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M2.666 16h18.667"></path>
     <symbol id="icon-menu" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.5" d="M4 16h24"></path>
       <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.5" d="M4 8h24"></path>
@@ -90,5 +94,6 @@
     <symbol id="icon-bg" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M25.333 28h1.347c1.295 0 1.942 0 2.299-0.27 0.311-0.235 0.503-0.595 0.527-0.984 0.027-0.447-0.332-0.985-1.051-2.063l-4.014-6.021c-0.593-0.89-0.89-1.335-1.264-1.49-0.327-0.136-0.695-0.136-1.022 0-0.374 0.155-0.671 0.6-1.264 1.49l-0.992 1.488M25.333 28l-10.246-14.8c-0.589-0.851-0.884-1.277-1.252-1.426-0.322-0.131-0.682-0.131-1.004 0-0.368 0.15-0.663 0.575-1.252 1.426l-7.928 11.452c-0.751 1.084-1.126 1.626-1.105 2.077 0.019 0.393 0.21 0.757 0.522 0.996 0.359 0.274 1.018 0.274 2.337 0.274h19.928zM28 8c0 2.209-1.791 4-4 4s-4-1.791-4-4 1.791-4 4-4c2.209 0 4 1.791 4 4z"></path>
 </symbol>
+
   </defs>
 </svg>
