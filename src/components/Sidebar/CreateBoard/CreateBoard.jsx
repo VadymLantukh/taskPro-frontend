@@ -25,3 +25,5 @@ const CreateBoard = () => {
 };
 
 export default CreateBoard;
+
+// <Button onClick={handleClick} showIcon={true} className={s.btnCreate} />;
