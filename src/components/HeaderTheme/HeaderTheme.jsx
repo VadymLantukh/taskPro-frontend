@@ -4,15 +4,12 @@ import { Menu, MenuItem } from '@mui/material';
 import Icon from '../Icon/Icon';
 
 import s from './HeaderTheme.module.css';
+import { useDispatch } from 'react-redux';
+import { updateUserThemeThunk } from '../../redux/auth/authOperations';
 
 const HeaderTheme = () => {
-  const [theme, setTheme] = useState('light');
   const [anchorEl, setAnchorEl] = useState(null);
-
-  useEffect(() => {
-    document.documentElement.className = ''; //
-    document.documentElement.classList.add(`${theme}-theme`);
-  }, [theme]);
+  const dispatch = useDispatch();
 
   const handleOpenMenu = event => {
     setAnchorEl(event.currentTarget);
@@ -23,7 +20,7 @@ const HeaderTheme = () => {
   };
 
   const handleThemeChange = selectedTheme => {
-    setTheme(selectedTheme);
+    dispatch(updateUserThemeThunk(selectedTheme));
     handleCloseMenu();
   };
 
