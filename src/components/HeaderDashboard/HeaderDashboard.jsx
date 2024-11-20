@@ -1,7 +1,11 @@
 import Icon from '../Icon/Icon';
 import s from './HeaderDashboard.module.css';
+import { useSelector } from 'react-redux';
+import { selectBoard } from '../../redux/board/boardSelectors.js';
 
-export const HeaderDashboard = ({title}) => {
+export const HeaderDashboard = () => {
+  const board = useSelector(selectBoard);
+  const title = board?.title ?? ""
 
   return (
     <div className={s.container}>

@@ -1,7 +1,19 @@
 .HelpFormTitle {
-  padding-bottom: 24px;
+  margin-bottom: 24px;
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
   color: var(--text-color);
+}
+
+@media (min-width: 375px) {
+  .helpContainer {
+    width: 335px;
+    padding: 24px;
+  }
+}
+@media (min-width: 758px) {
+  .helpContainer {
+    width: 400px;
+  }
 }

@@ -39,7 +39,11 @@ const HelpForm = ({ open, onClose }) => {
   };
 
   return (
-    <ModalWrapper open={open} onClose={handleClose}>
+    <ModalWrapper
+      open={open}
+      onClose={handleClose}
+      className={st.helpContainer}
+    >
       <div>
         <h2 className={st.HelpFormTitle}>Need help</h2>
         <Formik
