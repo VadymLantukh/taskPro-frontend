@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import HeaderDashboard from '../../components/HeaderDashboard/HeaderDashboard.jsx';
@@ -21,6 +21,7 @@ import {
   deleteTask,
   updateTask,
 } from '../../redux/tasks/tasksOperations.js';
+import { selectBoard } from '../../redux/board/boardSelectors.js';
 
 const ScreensPage = () => {
   const dispatch = useDispatch();
@@ -111,7 +112,7 @@ const ScreensPage = () => {
 
   return (
     <div className={s.container}>
-      <HeaderDashboard title={boardId} />
+      <HeaderDashboard/>
       <MainDashboard />
     </div>
   );

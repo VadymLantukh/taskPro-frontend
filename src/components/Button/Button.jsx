@@ -1,5 +1,6 @@
 import s from './Button.module.css';
 import Icon from '../Icon/Icon';
+import clsx from 'clsx';
 
 const Button = ({
   onClick,
@@ -8,7 +9,7 @@ const Button = ({
   className = '',
   ...props
 }) => {
-  const buttonClasses = `${s.btn} ${showIcon ? s.withIcon : ''} ${className}`;
+  const buttonClasses = clsx(s.btn, showIcon ? s.withIcon : '', className);
 
   return (
     <button onClick={onClick} className={buttonClasses} {...props}>
