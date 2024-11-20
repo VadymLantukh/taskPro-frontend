@@ -3,6 +3,7 @@ import Icon from '../../Icon/Icon.jsx';
 import { useState } from 'react';
 import Modal from '../../ModalWrapper/ModalWrapper.jsx';
 import NewBoard from '../../NewBoard/NewBoard.jsx';
+import Button from '../../Button/Button.jsx';
 
 const CreateBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,6 +16,12 @@ const CreateBoard = () => {
       <button className={s.createBoardBtn} onClick={handleOpenModal}>
         <Icon name="icon-plus" className={s.btnPlus} />
       </button>
+      {/* <Button
+        onClick={handleOpenModal}
+        showIcon={false}
+        className={s.createBoardBtn}
+      /> */}
+
       {isModalOpen && (
         <Modal open={isModalOpen} onClose={handleCloseModal}>
           <NewBoard />
@@ -25,3 +32,5 @@ const CreateBoard = () => {
 };
 
 export default CreateBoard;
+
+// <Button onClick={handleClick} showIcon={true} className={s.btnCreate} />;

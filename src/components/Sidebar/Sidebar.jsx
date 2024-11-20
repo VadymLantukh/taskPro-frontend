@@ -4,12 +4,40 @@ import NeedHelp from '../NeedHelp/NeedHelp.jsx';
 import CreateBoard from './CreateBoard/CreateBoard.jsx';
 import LogOut from './Logout/Logout.jsx';
 import BoardsList from '../BoardsList/BoardsList.jsx';
-// import { useState } from 'react';
-// import { useSelector, useDispatch} from 'react-redux';
+import clsx from 'clsx';
+import { useScreenWidth } from '../../hooks/useScreenWidth.js';
+import { useEffect } from 'react';
 
-const Sidebar = ({ isOpen }) => {
+const Sidebar = ({ isOpen, onClose }) => {
+  const handleSidebarClick = e => {
+    e.stopPropagation();
+  };
+  const { isSmallScreen, isMediumScreen } = useScreenWidth();
+  useEffect(() => {
+    const handleKeyDown = event => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
   return (
-    <div className={`${s.sidebar} ${isOpen ? s.sidebarOpen : ''}`}>
+    <div
+      id="sidebar"
+      className={clsx(
+        s.sidebar,
+        isSmallScreen || isMediumScreen ? s.mobile : '',
+        isOpen ? s.sidebarOpen : s.sidebarClose
+      )}
+      onClick={handleSidebarClick}
+    >
       <div>
         <LogoComponent />
       </div>

@@ -10,6 +10,20 @@
     background-color: var(--sidebar-background-color);
     width: 225px;
     padding: 14px;
+    transition: all ease-in-out 300ms;
+  }
+
+  .mobile {
+    position: fixed;
+    z-index: 99;
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+
+  .sidebarClose {
+    transform: translateX(-150%);
   }
 
   .sidebarTitle {
