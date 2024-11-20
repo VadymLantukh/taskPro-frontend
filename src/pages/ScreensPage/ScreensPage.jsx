@@ -29,9 +29,9 @@ const ScreensPage = () => {
   const { boardId } = useParams();
 
   // //? fetch board
-  useEffect(() => {
-    dispatch(fetchBoard({ id: boardId }));
-  }, [dispatch, boardId]);
+  // useEffect(() => {
+  //   dispatch(fetchBoard({ id: boardId }));
+  // }, [dispatch, boardId]);
 
   // ? add board
   // useEffect(() => {
@@ -60,8 +60,8 @@ const ScreensPage = () => {
   // useEffect(() => {
   //   dispatch(
   //     addColumn({
-  //       title: 'DONE',
-  //       boardId: '673c65105fcb8abd18ff7690',
+  //       title: '4234234234x',
+  //       boardId: '673dbfbfeac731198c9663d5',
   //     })
   //   );
   // }, [dispatch, boardId]);
@@ -84,9 +84,10 @@ const ScreensPage = () => {
   // const task = {
   //   title: 'task 3 DONE',
   //   description: 'task 3 DONE',
-  //   priority: 'Medium',
+  //   priority: 'Low',
   //   columnId: '673c65575fcb8abd18ff76a0',
   //   boardId: '673c65105fcb8abd18ff7690',
+  //   deadline: '2024-11-25T15:30:00Z',
   // };
 
   // ?delete task
@@ -112,7 +113,7 @@ const ScreensPage = () => {
 
   return (
     <div className={s.container}>
-      <HeaderDashboard/>
+      <HeaderDashboard />
       <MainDashboard />
     </div>
   );

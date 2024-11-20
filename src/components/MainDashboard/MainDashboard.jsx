@@ -9,7 +9,7 @@ import s from './MainDashboard.module.css';
 
 export const MainDashboard = () => {
   const board = useSelector(selectBoard);
-  const columns = useSelector(state => selectColumnsForBoard(state, board.id))
+  const columns = useSelector(state => selectColumnsForBoard(state, board.id));
   const isEmptyColumn = board?.columns?.length === 0;
 
   return (
@@ -19,11 +19,13 @@ export const MainDashboard = () => {
           showIcon={true}
           text="Add another column"
           className={s.button}
-          onClick={open}
+          // onClick={open}
         />
       )}
       <div className={s['columns-container']}>
-        {columns.map(column => <Column key={column._id} column={column} />)}
+        {columns.map(column => (
+          <Column key={column._id} column={column} />
+        ))}
       </div>
     </>
   );
