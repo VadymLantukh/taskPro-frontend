@@ -1,20 +1,15 @@
-::-webkit-scrollbar {
-  /* width: 5px; */
+*::-webkit-scrollbar {
+  width: 8px;
 }
 
-::-webkit-scrollbar-track {
-  /* background: transparent;
-  border-radius: 10px; */
+*::-webkit-scrollbar-track {
+  background-color: rgba(232, 232, 232, 1);
+  border-radius: 12px;
 }
 
-::-webkit-scrollbar-thumb {
-  /* background: #fff3;
-  border-radius: 10px;
-  transition: 0.2s ease-in-out; */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  /* background: var(--dashboard_text); */
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(22, 22, 22, 0.1);
+  border-radius: 12px;
 }
 
 input:-webkit-autofill,
@@ -36,6 +31,13 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   /* -webkit-appearance: none; */
 }
+
+body {
+  background-color: var(--sidebar-card-background);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(22, 22, 22, 0.1) rgba(232, 232, 232, 1);
+}
+
 .active {
   & button {
     display: block !important;
@@ -43,7 +45,7 @@ input::-webkit-inner-spin-button {
   }
   color: var(--text-color) !important;
   stroke: var(--text-color) !important;
-  background-color: var(--background-color);
+  background-color: var(--third-text-color);
   & :after {
     content: '';
     background-color: var(--accent);

@@ -1,20 +1,18 @@
-import svg from '../../../images/icons.svg';
+import Icon from '../../Icon/Icon.jsx';
 import s from './Logout.module.css';
 import { useDispatch } from 'react-redux';
-import { logOut } from '../../../redux/auth/authOperations.js';
+import { logOutThunk } from '../../../redux/auth/authOperations.js';
 
 const LogOut = () => {
   const dispatch = useDispatch();
 
   const handleLogOut = () => {
-    dispatch(logOut());
+    dispatch(logOutThunk());
   };
   return (
     <div className={s.sidedbarLogout}>
       <button className={s.logoutBtn} onClick={handleLogOut}>
-        <svg className={s.iconlogout}>
-          <use href={`${svg}#icon-logout`}></use>
-        </svg>
+        <Icon name="icon-logout" className={s.iconlogout} />
         <p className={s.textLogout}>Log out</p>
       </button>
     </div>
