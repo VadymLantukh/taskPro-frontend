@@ -5,9 +5,9 @@ import CreateBoard from './CreateBoard/CreateBoard.jsx';
 import LogOut from './Logout/Logout.jsx';
 import BoardsList from '../BoardsList/BoardsList.jsx';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen }) => {
   return (
-    <div className={s.sidebar}>
+    <div className={`${s.sidebar} ${isOpen ? s.sidebarOpen : ''}`}>
       <div>
         <LogoComponent />
       </div>
@@ -15,10 +15,7 @@ const Sidebar = () => {
       <div>
         <CreateBoard />
       </div>
-
       <div className={s.project}>
-        {/* <NewBoard /> */}
-        {/* тут у нас дошки треба щоб можна було бачити всi */}
         <BoardsList />
       </div>
       <div>

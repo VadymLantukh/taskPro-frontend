@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import Images from '../../images/Image.js';
 import s from './BoardForm.module.css';
 import Icon from '../Icon/Icon';
 import Button from '../Button/Button';
@@ -70,7 +71,13 @@ const BoardForm = ({
             <div className={s.backgroundsContainer}>
               {Array.from({ length: 16 }, (_, index) => {
                 const isIcon = index === 0;
-                const bgName = isIcon ? 'iconBackground' : `bg_${index - 1}`;
+                const bgName = isIcon ? 'iconBackground' : `bgImage_${index}`;
+                const bgPreview = isIcon
+                  ? null
+                  : Images[`bgImage_${index}`]?.preview?.[
+                      `bg_${index}_preview`
+                    ];
+
                 return (
                   <label
                     key={bgName}
@@ -82,13 +89,17 @@ const BoardForm = ({
                       type="radio"
                       name="selectedBackground"
                       value={bgName}
+                      checked={values.selectedBackground === bgName}
+                      onChange={() =>
+                        setFieldValue('selectedBackground', bgName)
+                      }
                       className={s.radioInput}
                     />
                     {isIcon ? (
                       <Icon name="icon-bg" className={s.backgroundIcon} />
                     ) : (
                       <img
-                        src={`/src/images/bg_${index}_prev@1x.webp`}
+                        src={bgPreview}
                         alt={`Background ${index}`}
                         className={s.backgroundImage}
                       />
