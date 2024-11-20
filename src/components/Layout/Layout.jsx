@@ -29,8 +29,11 @@ export const Layout = () => {
   useEffect(() => {
     dispatch(setTheme());
     dispatch(getUserThunk());
-    dispatch(setTheme());
-  }, [dispatch, theme]);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isSidebarOpen, dispatch, theme]);
 
   const toastTheme = theme === 'violet' ? 'light' : theme;
 
@@ -50,19 +53,6 @@ export const Layout = () => {
       />
       <div className={s.wrapper}>
         <Sidebar isOpen={isSidebarOpen} onClose={onBurgerClick} />
-        <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme={toastTheme}
-        />
-        <Sidebar />
         <main className={s.main}>
           <Header onBurgerClick={onBurgerClick} />
           <div className={s.outlet}>
