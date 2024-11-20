@@ -41,20 +41,24 @@ const Sidebar = ({ isOpen, onClose }) => {
       onClick={handleSidebarClick}
     >
       <div>
-        <LogoComponent />
+        <div>
+          <LogoComponent />
+        </div>
+        <p className={s.sidebarTitle}>My boards</p>
+        <div>
+          <CreateBoard />
+        </div>
+        <div className={s.project}>
+          <BoardsList />
+        </div>
       </div>
-      <p className={s.sidebarTitle}>My boards</p>
       <div>
-        <CreateBoard />
-      </div>
-      <div className={s.project}>
-        <BoardsList />
-      </div>
-      <div>
-        <NeedHelp />
-      </div>
-      <div>
-        <LogOut />
+        <div>
+          <NeedHelp />
+        </div>
+        <div>
+          <LogOut />
+        </div>
       </div>
     </div>
   );
