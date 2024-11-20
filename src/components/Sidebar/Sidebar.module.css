@@ -1,7 +1,6 @@
 @media (min-width: 375px) {
 
   .sidebar {
-
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -17,6 +16,7 @@
     position: fixed;
     z-index: 99;
   }
+
 
   .sidebarOpen {
     transform: translateX(0);
