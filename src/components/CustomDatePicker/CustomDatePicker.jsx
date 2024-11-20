@@ -1,7 +1,12 @@
+import { useState } from 'react';
 import { DatePicker } from '@mui/x-date-pickers';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { useState } from 'react';
+import dayjs from 'dayjs';
+
+import Icon from '../Icon/Icon';
+
+import './CustomDatePicker.css';
 
 const CustomDatePicker = ({ value, onChange, disablePast = false }) => {
   const [open, setOpen] = useState(false);
@@ -16,74 +21,32 @@ const CustomDatePicker = ({ value, onChange, disablePast = false }) => {
   };
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker
-        value={value}
-        onChange={onChange}
-        disablePast={disablePast}
-        open={open}
-        onOpen={() => setOpen(true)}
-        onClose={() => setOpen(false)}
-        slotProps={{
-          textField: {
-            variant: 'standard',
-            fullWidth: true,
-            InputProps: {
-              readOnly: true,
+    <div>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DatePicker
+          value={dayjs(value)}
+          onChange={onChange}
+          disablePast={disablePast}
+          open={open}
+          onOpen={() => setOpen(true)}
+          onClose={() => setOpen(false)}
+          slotProps={{
+            textField: {
+              variant: 'standard',
+              fullWidth: true,
+              InputProps: {
+                readOnly: true,
+                endAdornment: <Icon className="icon" name="icon-arrowDown" />,
+              },
+              onClick: handleClick,
+              onFocus: handleFocus,
             },
-            onClick: handleClick,
-            onFocus: handleFocus,
-            sx: {
-              backgroundColor: 'transparent',
-              cursor: 'pointer',
-              border: 'none',
-              padding: 0,
-              boxShadow: 'none',
-              '& .MuiInputBase-root': {
-                padding: 0,
-                userSelect: 'none',
-                fontFamily: 'inherit',
-              },
-              '& input': {
-                fontSize: '16px',
-                color: '#BEDBB0',
-                textAlign: 'left',
-                cursor: 'pointer',
-                padding: '0px',
-                userSelect: 'none',
-              },
-
-              '& input::selection': {
-                background: 'transparent',
-                color: 'inherit',
-              },
-
-              '& .MuiInputAdornment-root': {
-                display: 'none',
-              },
-              '& .MuiInputBase-root::before': {
-                display: 'none',
-              },
-              '& .MuiInputBase-root::after': {
-                display: 'none',
-              },
-            },
-          },
-          toolbar: { hidden: true },
-          actionBar: { hidden: true },
-          calendarHeader: { sx: { borderBottom: '1px solid red' } },
-          yearButton: {
-            sx: {
-              color: '#1565c0',
-              borderRadius: '2px',
-              borderColor: '#2196f3',
-              border: '1px solid',
-              backgroundColor: '#90caf9',
-            },
-          },
-        }}
-      />
-    </LocalizationProvider>
+          }}
+          minDate={dayjs().startOf('year')}
+          maxDate={dayjs().add(31, 'year').endOf('year')}
+        />
+      </LocalizationProvider>
+    </div>
   );
 };
 
