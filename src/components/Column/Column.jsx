@@ -4,12 +4,13 @@ import TasksList from '../TasksList/TasksList.jsx';
 
 import s from "./Column.module.css"
 
-export const Column = () => {
+export const Column = ({column}) => {
+  const title = column?.title ?? ""
 
   return (
     <div className={s.container}>
-      <HeaderColumn />
-      <TasksList/>
+      <HeaderColumn title={title}/>
+      <TasksList columnId={column?._id }/>
       <Button text="Add another card" showIcon={true} />
     </div>
   );
