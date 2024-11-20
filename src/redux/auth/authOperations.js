@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 // TODO: change
 axios.defaults.baseURL = 'https://task-manager-0qvm.onrender.com/';
@@ -21,9 +22,27 @@ export const registerThunk = createAsyncThunk(
     try {
       const res = await axios.post('/auth/register', credentials);
       setAuthHeader(res.data.token);
+      toast.success('Registration successfull!', {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       console.log(res.data); //TODO remove this
       return res.data;
     } catch (error) {
+      toast.error(`${error.message}`, {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -38,9 +57,26 @@ export const logInThunk = createAsyncThunk(
     try {
       const { data } = await axios.post('/auth/login', credentials);
       setAuthHeader(data.data.accessToken);
-
+      toast.success('Successfull login!', {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return data.data;
     } catch (error) {
+      toast.error(`${error.message}`, {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
