@@ -1,22 +1,23 @@
 import { useState } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import Button from '../Button/Button';
-import s from '../NewBoard/NewBoard.module.css';
+import s from '../BoardForm/BoardForm.module.css';
+import t from '../../styles/Forms.module.css';
 
 const AddColumn = ({ title = '', columnId = null }) => {
-  const [title, setTitle] = useState('');
+  const [newTitle, setNewTitle] = useState('title');
 
   const handleTitleChange = e => {
-    setTitle(e.target.value);
+    setNewTitle(e.target.value);
   };
 
   const addColumnHandleClick = e => {
     e.preventDefault();
 
-    if (title.trim() === '') {
-      setTitleError('Title is required');
+    if (newTitle.trim() === '') {
       console.log('Title is required');
     } else {
-      setTitleError('');
       if (columnId !== null) {
         console.log('Column renamed: ', e.target.value);
       } else {
@@ -25,18 +26,40 @@ const AddColumn = ({ title = '', columnId = null }) => {
     }
   };
 
+  const validationSchema = Yup.object().shape({
+    newTitle: Yup.string().trim().required('Title is required'),
+  });
+
+  const initialValues = {
+    title: newTitle,
+  };
+
   return (
-    <div>
-      <h2 className={s.newBoardTitle}>Add column</h2>
-      <form className={s.form}>
-        <input
-          type="text"
-          value={title}
-          onChange={handleTitleChange}
-          className={s.newBoardTitleInput}
-        />
-        <Button onClick={addColumnHandleClick} text="Add" showIcon={true} />
-      </form>
+    <div className={s.boardContainer}>
+      <h2 className={s.newBoardTitle} style={{ marginBottom: '24px' }}>
+        Add column
+      </h2>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={addColumnHandleClick}
+      >
+        <Form className={s.form}>
+          <Field
+            type="text"
+            name="title"
+            placeholder="Title"
+            className={t.input}
+          />
+          <ErrorMessage name="title" component="span" className={s.error} />
+          <Button
+            type={'submit'}
+            text="Add"
+            showIcon={true}
+            style={{ marginTop: '24px' }}
+          />
+        </Form>
+      </Formik>
     </div>
   );
 };
