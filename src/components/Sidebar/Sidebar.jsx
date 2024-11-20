@@ -4,6 +4,8 @@ import NeedHelp from '../NeedHelp/NeedHelp.jsx';
 import CreateBoard from './CreateBoard/CreateBoard.jsx';
 import LogOut from './Logout/Logout.jsx';
 import BoardsList from '../BoardsList/BoardsList.jsx';
+// import { useState } from 'react';
+// import { useSelector, useDispatch} from 'react-redux';
 
 const Sidebar = ({ isOpen }) => {
   return (
