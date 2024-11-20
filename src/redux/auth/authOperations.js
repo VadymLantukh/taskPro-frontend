@@ -135,7 +135,10 @@ export const updateUserThunk = createAsyncThunk(
     }
     try {
       setAuthHeader(persistedToken);
-      const { data } = await axios.patch('/user', credentials);
+      const { data } = await axios.patch(
+        `/auth/${state.auth.user._id}`,
+        credentials
+      );
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -157,7 +160,10 @@ export const updateUserThemeThunk = createAsyncThunk(
       const payload = {
         theme: credentials,
       };
-      const { data } = await axios.patch('/user/theme', payload);
+      const { data } = await axios.patch(
+        `/auth/${state.auth.user._id}`,
+        payload
+      );
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
