@@ -1,9 +1,7 @@
 import ReactEllipsisText from 'react-ellipsis-text';
-import icons from '../../images/icons.svg';
 import data from '../../taskTest.json';
 import s from './TaskItem.module.css';
 import clsx from 'clsx';
-import { IconBase } from 'react-icons';
 import Icon from '../Icon/Icon';
 
 const TaskItem = () => {
