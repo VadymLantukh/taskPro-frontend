@@ -1,17 +1,23 @@
 import Icon from '../Icon/Icon';
+import HeaderTheme from '../HeaderTheme/HeaderTheme';
 import s from './Header.module.css';
 
-const Header = () => {
+const Header = ({ onBurgerClick }) => {
   return (
     <header className={s.header}>
       <div>
-        <Icon name={'icon-menu'} className={s.menu_icon} />
+        <Icon
+          onClick={() => onBurgerClick()}
+          name={'icon-menu'}
+          className={s.menu_icon}
+        />
       </div>
       <div className={s.theme_user_wrap}>
-        <div className={s.theme}>
+        <HeaderTheme />
+        {/* <div className={s.theme}>
           <span>Theme</span>
           <Icon name={'icon-arrowDown'} className={s.arrow_icon} />
-        </div>
+        </div> */}
         <div className={s.profile}>
           <span>name</span>
           <img

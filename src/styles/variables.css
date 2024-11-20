@@ -20,7 +20,7 @@
   --add-column-button-background: rgba(255, 255, 255, 1);
 }
 
-.dark-theme {
+.dark {
   --background-color: #1f1f1f;
   --header-background-color: #161616;
   --sidebar-background-color: #121212;
@@ -32,7 +32,7 @@
   --add-column-button-background: rgba(18, 18, 18, 1);
 }
 
-.violet-theme {
+.violet {
   --logo-background: #ecedfd;
   --logo-icon: #5255bc;
   --background-color: #ecedfd;

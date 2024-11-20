@@ -1,31 +1,29 @@
-import { useState } from 'react';
-import { useToggle } from '../../hooks/useToggle.js';
+import { useSelector } from 'react-redux';
+import { selectBoard } from '../../redux/board/boardSelectors.js';
+import { selectColumnsForBoard } from '../../redux/columns/columnsSelectors.js';
+
 import Button from '../Button/Button.jsx';
 import Column from '../Column/Column.jsx';
 
-import s from "./MainDashboard.module.css"
-
+import s from './MainDashboard.module.css';
 
 export const MainDashboard = () => {
-  const {open, handleOpen} = useToggle() // TODO Connect this to the modal AddColumn
-  const [columns, setColumns] = useState([]);
-
-  const handleClick = () => { // TODO temporary
-    const newHeading = `New Column ${columns.length + 1}`;
-    setColumns(prev => [...prev, newHeading]);
-  };
-
-  const isEmptyColumn = true; // TODO temporary
+  const board = useSelector(selectBoard);
+  const columns = useSelector(state => selectColumnsForBoard(state, board.id))
+  const isEmptyColumn = board?.columns?.length === 0;
 
   return (
     <>
-      {isEmptyColumn &&
-         <Button showIcon={true} text="Add another column" className={s.button} onClick={handleClick}/>
-      }
-      <div className={s["columns-container"]}>
-        {columns.map((heading, index) => (
-          <Column key={index}/>
-        ))}
+      {isEmptyColumn && (
+        <Button
+          showIcon={true}
+          text="Add another column"
+          className={s.button}
+          onClick={open}
+        />
+      )}
+      <div className={s['columns-container']}>
+        {columns.map(column => <Column key={column._id} column={column} />)}
       </div>
     </>
   );

@@ -1,13 +1,20 @@
-// import { useSelector } from 'react-redux';
+export const selectColumns = state => state.columns.columns;
 
-// // Селектор для отримання колонок з дошки
-// const selectColumnsForBoard = (state, boardId) => {
-//   const board = state.board;
-//   return board.columnIds.map(columnId => state.columns.byId[columnId]);
-// };
+export const selectCurrentColumn = state => state.columns.currentColumn;
 
-// // Селектор для отримання завдань конкретної колонки
-// const selectTasksForColumn = (state, columnId) => {
-//   const column = state.columns.byId[columnId];
-//   return column.taskIds.map(taskId => state.tasks.byId[taskId]);
-// };
+export const selectIsLoading = state => state.columns.isLoading;
+
+export const selectIsError = state => state.columns.isError;
+
+export const selectColumnsForBoard = (state, boardId) => {
+  const board = state.board.board;
+  if (board.id !== boardId) return [];
+  return board.columns.map(columnId =>
+    state.columns.columns.find(column => column._id === columnId)
+  );
+};
+
+// ? як використати в компоненті (ColumnList):
+// const board = useSelector(selectBoard);
+// const columns = useSelector(state => selectColumnsForBoard(state, board.id));
+// columns.map(column => <Column key={column._id} column={column} />);

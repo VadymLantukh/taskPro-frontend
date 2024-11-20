@@ -1,5 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import * as operation from './authOperations';
+import { addBoard, deleteBoard, updateBoard } from '../board/boardOperations';
 
 const initialState = {
   user: {
@@ -19,6 +20,11 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    setTheme(state) {
+      document.body.classList = state.user.theme;
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(operation.logOutThunk.fulfilled, state => {
@@ -47,47 +53,25 @@ const authSlice = createSlice({
       })
       .addCase(operation.getUserThunk.fulfilled, (state, action) => {
         state.user = { ...state.user, ...action.payload.data };
+      })
+      .addCase(addBoard.fulfilled, (state, action) => {
+        state.user.boards.push(action.payload);
+      })
+      .addCase(deleteBoard.fulfilled, (state, action) => {
+        console.log(action.payload);
+
+        state.user.boards = state.user.boards.filter(
+          board => board._id !== action.payload
+        );
+      })
+      .addCase(updateBoard.fulfilled, (state, action) => {
+        console.log(action.payload);
+
+        state.user.boards = state.user.boards.map(board =>
+          board._id === action.payload._id ? action.payload : board
+        );
       }),
-  // .addMatcher(
-  //   isAnyOf(
-  //     operation.register.fulfilled,
-  //     operation.logIn.fulfilled,
-  //     operation.updateUser.fulfilled,
-  //     operation.getUserThunk.fulfilled
-  //   ),
-  //   (state, action) => {
-  //     state.user = { ...state.user, ...action.payload.data };
-  //   }
-  // )
-  // .addMatcher(
-  //   isAnyOf(operation.register.fulfilled, operation.logIn.fulfilled),
-  //   (state, action) => {
-  //  ;
-  //   }
-  // )
-  // .addMatcher(
-  //   isAnyOf(
-  //     // operation.register.fulfilled,
-  //     operation.logIn.fulfilled,
-  //     // operation.refreshUser.fulfilled,
-  //     operation.updateUser.fulfilled,
-  //     operation.updateUserTheme.fulfilled,
-  //     operation.needHelp.fulfilled
-  //   ),
-  //   state => {
-  //     state.isLoggedIn = true;
-  //     state.isRefreshing = false;
-  //   }
-  // )
-  // .addMatcher(
-  //   isAnyOf(
-  //     operation.logOut.fulfilled
-  //     // operation.refreshUser.rejected
-  //   ),
-  //   state => {
-  //     state.isRefreshing = false;
-  //   }
-  // ),
 });
 
 export const authReducer = authSlice.reducer;
+export const { setTheme } = authSlice.actions;

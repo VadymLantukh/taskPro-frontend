@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { handleFulFilled, handlePending, handleRejected } from '../handlers';
-import { fetchBoard } from './boardOperations';
 import { addColumn, deleteColumn } from '../columns/columnsOperations';
+import { fetchBoard } from './boardOperations';
 
 const initialState = {
   board: {
@@ -12,7 +12,6 @@ const initialState = {
     columns: [],
   },
   currentBoard: null,
-
   isLoading: false,
   isError: null,
 };
@@ -41,7 +40,7 @@ const slice = createSlice({
       })
       .addCase(deleteColumn.fulfilled, (state, action) => {
         state.board.columns = state.board.columns.filter(
-          id => id !== action.payload.id
+          id => id !== action.payload
         );
       })
       .addMatcher(({ type }) => type.endsWith('pending'), handlePending)
