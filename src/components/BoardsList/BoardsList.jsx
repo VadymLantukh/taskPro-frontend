@@ -17,6 +17,7 @@ const BoardsList = () => {
               title={board.title}
               id={board._id}
               icon={board.icon}
+              backgroundImage={board.backgroundImage}
             />
           );
         })}
