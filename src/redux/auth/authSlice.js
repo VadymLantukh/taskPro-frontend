@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import * as operation from './authOperations';
 import { addBoard, deleteBoard, updateBoard } from '../board/boardOperations';
 
