@@ -60,8 +60,8 @@ const ScreensPage = () => {
   // useEffect(() => {
   //   dispatch(
   //     addColumn({
-  //       title: 'DONE',
-  //       boardId: '673c65105fcb8abd18ff7690',
+  //       title: 'sobaku',
+  //       boardId: '673dfdae67e6bca8c6472d93',
   //     })
   //   );
   // }, [dispatch, boardId]);
@@ -78,15 +78,25 @@ const ScreensPage = () => {
 
   //? add task
   // useEffect(() => {
-  //   dispatch(addTask(task));
+  //   dispatch(
+  //     addTask({
+  //       title: 'Update homepage styles',
+  //       description: 'Modify the current homepage layout.',
+  //       priority: 'Medium',
+  //       deadline: '2024-11-21T00:00:00Z',
+  //       columnId: '673de8c9eac731198c966a6f',
+  //       boardId: '673dbfbfeac731198c9663d5',
+  //     })
+  //   );
   // }, [dispatch]);
 
   // const task = {
   //   title: 'task 3 DONE',
   //   description: 'task 3 DONE',
-  //   priority: 'Medium',
+  //   priority: 'Low',
   //   columnId: '673c65575fcb8abd18ff76a0',
   //   boardId: '673c65105fcb8abd18ff7690',
+  //   deadline: '2024-11-25T15:30:00Z',
   // };
 
   // ?delete task
@@ -112,7 +122,7 @@ const ScreensPage = () => {
 
   return (
     <div className={s.container}>
-      <HeaderDashboard/>
+      <HeaderDashboard />
       <MainDashboard />
     </div>
   );

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 // TODO: change
 axios.defaults.baseURL = 'https://task-manager-0qvm.onrender.com/';
@@ -21,9 +22,27 @@ export const registerThunk = createAsyncThunk(
     try {
       const res = await axios.post('/auth/register', credentials);
       setAuthHeader(res.data.token);
+      toast.success('Registration successfull!', {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       console.log(res.data); //TODO remove this
       return res.data;
     } catch (error) {
+      toast.error(`${error.message}`, {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -38,9 +57,28 @@ export const logInThunk = createAsyncThunk(
     try {
       const { data } = await axios.post('/auth/login', credentials);
       setAuthHeader(data.data.accessToken);
-
+      // !data.data.accessToken;
+      // toast.success('Successfull login!', {
+      //   position: 'bottom-right',
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
+      /// !return data.data;
       return data.data;
     } catch (error) {
+      toast.error(`${error.message}`, {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -77,7 +115,7 @@ export const logOutThunk = createAsyncThunk(
 
 //     try {
 //       setAuthHeader(persistedToken);
-//       const res = await axios.get('/auth/current');
+//       const res = await axios.get('/auth/');
 //       return res.data;
 //     } catch (error) {
 //       return thunkAPI.rejectWithValue(error.message);
@@ -99,7 +137,7 @@ export const updateUserThunk = createAsyncThunk(
     }
     try {
       setAuthHeader(persistedToken);
-      const { data } = await axios.patch('/user', credentials);
+      const { data } = await axios.patch('/auth', credentials);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -121,7 +159,7 @@ export const updateUserThemeThunk = createAsyncThunk(
       const payload = {
         theme: credentials,
       };
-      const { data } = await axios.patch('/user/theme', payload);
+      const { data } = await axios.patch('/auth', payload);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -129,20 +167,38 @@ export const updateUserThemeThunk = createAsyncThunk(
   }
 );
 
-export const needHelpThunk = createAsyncThunk(
-  'auth/feedback',
+export const sendEmail = createAsyncThunk(
+  'email/sendEmail',
   async (credentials, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
-    if (persistedToken === null) {
+    if (!persistedToken) {
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
     try {
       setAuthHeader(persistedToken);
-      const { data } = await axios.post('/feedback/sendFeedback', credentials);
+      const { data } = await axios.post('/help/send-email', credentials);
+      toast.success('Message sent successfully!', {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return data;
     } catch (error) {
+      toast.error(`${error.message} Message was not sent, please retry`, {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -152,16 +208,14 @@ export const getUserThunk = createAsyncThunk(
   'auth/getUserThunk',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-
     const persistedToken = state.auth.token;
 
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue('Unable to fetch user');
+    if (!persistedToken) {
+      return thunkAPI.rejectWithValue('Unable to fetch user (no token found)');
     }
     try {
       setAuthHeader(persistedToken);
-
-      const { data } = await axios.get(`/auth/${state.auth.user._id}`);
+      const { data } = await axios.get('/auth');
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

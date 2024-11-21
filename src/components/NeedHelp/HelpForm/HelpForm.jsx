@@ -11,8 +11,11 @@ import {
   selectEmailLoading,
   selectEmailSuccess,
 } from '../../../redux/emails/emailsSelectors';
-import { sendHelpRequestEmail } from '../../../redux/emails/emailsOperations';
+// import { sendHelpRequestEmail } from '../../../redux/emails/emailsOperations';
 import { validationSchema } from '../../../helpers/emailSchema';
+import { toast } from 'react-toastify';
+import { sendEmail } from '../../../redux/auth/authOperations';
+import { clearStatus } from '../../../redux/emails/emailsSlice';
 
 const HelpForm = ({ open, onClose }) => {
   const dispatch = useDispatch();
@@ -22,13 +25,22 @@ const HelpForm = ({ open, onClose }) => {
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
-      const message = await dispatch(sendHelpRequestEmail(values));
-      alert(message);
+      const res = await dispatch(sendEmail(values));
+      dispatch(clearStatus());
       resetForm();
       onClose();
+      return res.message;
     } catch (error) {
-      console.error('Failed to send email:', error);
-      alert('Failed to send email. Please try again.');
+      toast.error(`${error.message}`, {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      dispatch(clearStatus());
     } finally {
       setSubmitting(false);
     }
