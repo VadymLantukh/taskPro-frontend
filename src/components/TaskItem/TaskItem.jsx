@@ -1,12 +1,29 @@
-import ReactEllipsisText from 'react-ellipsis-text';
-import s from './TaskItem.module.css';
-import clsx from 'clsx';
-import Icon from '../Icon/Icon';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import ReactEllipsisText from 'react-ellipsis-text';
+import clsx from 'clsx';
+
+import Icon from '../Icon/Icon';
+import ModalWrapper from '../../components/ModalWrapper/ModalWrapper';
+import EditCard from '../../components/EditCard/EditCard';
+
 import { deleteTask } from '../../redux/tasks/tasksOperations';
+import { setCurrentTask } from '../../redux/tasks/tasksSlice';
+
+import s from './TaskItem.module.css';
 
 const TaskItem = ({ tasks }) => {
   const dispatch = useDispatch();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = taskCard => {
+    dispatch(setCurrentTask(taskCard));
+
+    setIsModalOpen(true);
+  };
+  const handleCloseModal = () => setIsModalOpen(false);
+
   const taskArr = tasks;
 
   const getPriorityClass = priority => {
@@ -37,7 +54,7 @@ const TaskItem = ({ tasks }) => {
 
   return (
     <>
-      {taskArr.length > 0 &&
+      {taskArr?.length > 0 &&
         taskArr.map(taskCard => {
           return (
             <div
@@ -48,7 +65,7 @@ const TaskItem = ({ tasks }) => {
               <ReactEllipsisText
                 className={s.task_description}
                 text={taskCard.description}
-                length={'90'}
+                length={90}
               />
               <span className={s.separator}></span>
               <div className={s.task_footer}>
@@ -72,7 +89,10 @@ const TaskItem = ({ tasks }) => {
                   <button className={s.action_button}>
                     <Icon className={s.icon} name="icon-right" />
                   </button>
-                  <button className={s.action_button}>
+                  <button
+                    className={s.action_button}
+                    onClick={() => handleOpenModal(taskCard)}
+                  >
                     <Icon className={s.icon} name="icon-pencil" />
                   </button>
                   <button
@@ -93,6 +113,9 @@ const TaskItem = ({ tasks }) => {
             </div>
           );
         })}
+      <ModalWrapper open={isModalOpen} onClose={handleCloseModal}>
+        <EditCard />
+      </ModalWrapper>
     </>
   );
 };
