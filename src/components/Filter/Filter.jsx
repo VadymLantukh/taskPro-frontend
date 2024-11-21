@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // Импорт React и useState
+import { useState } from 'react';
 import Modal from '../ModalWrapper/ModalWrapper.jsx';
 import clsx from 'clsx';
 import { Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material';
@@ -7,7 +7,7 @@ import s from "./Filter.module.css";
 const radioButtons = [
   {
     label: "Without priority",
-    color: "rgba(22, 22, 22, 0.3)",
+    color: "var(--third-text-color)",
     value: "without-priority"
   },
   {
@@ -22,7 +22,7 @@ const radioButtons = [
   },
   {
     label: "High",
-    color: "var(--high)",
+    color: "var(--hight)",
     value: "high"
   }
 ];
@@ -34,7 +34,9 @@ const Filter = ({ open, handleClose }) => {
     setSelectedValue(event.target.value);
   };
 
-  console.log("Current selected value:", selectedValue);
+
+
+  console.log("selectedValue", selectedValue);
 
   return (
     <Modal open={open} onClose={handleClose}>
@@ -46,14 +48,11 @@ const Filter = ({ open, handleClose }) => {
 
       <FormControl>
         <RadioGroup
-          aria-labelledby="filter-options-label"
           name="filter-options"
           value={selectedValue}
           onChange={handleChange}
         >
           {radioButtons.map(({ label, color, value }) => {
-            console.log("Rendering radio button:", { label, color, value });
-            console.log(selectedValue === value,  "TEST")
 
             return (
               <FormControlLabel
@@ -62,12 +61,15 @@ const Filter = ({ open, handleClose }) => {
                 checked={selectedValue === value}
                 control={
                   <Radio
-                    color="default"
-                    sx={{
-                      fill: color,
-                      '&.Mui-checked': {
-                        color: color,
-                      },
+                    color={color}
+                    // sx={{
+                    //   // fill: color,
+                    //   '&.Mui-checked': {
+                    //     color: color,
+                    //   },
+                    // }}
+                    classes={{
+                      root: clsx(s.radio, selectedValue === value && s.checked, s[`radio-${value}`], s[`radio-color-${value}`]),
                     }}
                   />
                 }

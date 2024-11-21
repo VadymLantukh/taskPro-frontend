@@ -57,7 +57,59 @@
 }
 
 .checked {
-    color: var(--label-color); /* Пример цветовой переменной для активного состояния */
+    color: var(--label-color);
+}
+
+.radio {
+    position: relative;
+    padding: 0;
+}
+
+.radio::after {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+
+.radio-without-priority:not(.checked)::after {
+    background: #b7b7b7;
+}
+
+.radio-low:not(.checked)::after {
+    background: var(--low);
+}
+
+.radio-medium:not(.checked)::after {
+    background: var(--medium);
+}
+
+.radio-high:not(.checked)::after {
+    background: var(--hight);
+}
+
+
+
+.radio-color-without-priority {
+    color: #b7b7b7;
+}
+
+.radio-color-low {
+    color: var(--low);
+}
+
+.radio-color-medium {
+    color: var(--medium);
+}
+
+.radio-color-high {
+    color: var(--hight);
+}
+
+
+.radio:hover {
+    background: transparent;
 }
 
 
