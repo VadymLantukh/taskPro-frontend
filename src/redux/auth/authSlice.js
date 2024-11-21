@@ -53,18 +53,15 @@ const authSlice = createSlice({
       })
       .addCase(operation.getUserThunk.pending, state => {
         state.isRefreshing = true;
-        console.log('penis');
       })
       .addCase(operation.getUserThunk.fulfilled, (state, action) => {
         state.user = { ...state.user, ...action.payload.data };
         state.isLoggedIn = true;
         state.isRefreshing = false;
-        console.log('fulfilled');
       })
       .addCase(operation.getUserThunk.rejected, state => {
         state.isRefreshing = false;
         state.isLoggedIn = false;
-        console.log('rejected');
       })
       .addCase(addBoard.fulfilled, (state, action) => {
         state.user.boards.push(action.payload);
