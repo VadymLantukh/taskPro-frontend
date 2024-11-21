@@ -12,5 +12,5 @@ export const PublicRoute = ({ component: Component }) => {
 
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  return isLoggedIn ? <Navigate to={location?.state || '/'} /> : Component;
+  return isLoggedIn ? <Navigate to={location?.state || '/home'} /> : Component;
 };

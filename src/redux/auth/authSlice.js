@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+// import { createSlice } from '@reduxjs/toolkit';
 import * as operation from './authOperations';
 import { addBoard, deleteBoard, updateBoard } from '../board/boardOperations';
 
@@ -53,18 +54,15 @@ const authSlice = createSlice({
       })
       .addCase(operation.getUserThunk.pending, state => {
         state.isRefreshing = true;
-        console.log('penis');
       })
       .addCase(operation.getUserThunk.fulfilled, (state, action) => {
         state.user = { ...state.user, ...action.payload.data };
         state.isLoggedIn = true;
         state.isRefreshing = false;
-        console.log('fulfilled');
       })
       .addCase(operation.getUserThunk.rejected, state => {
         state.isRefreshing = false;
         state.isLoggedIn = false;
-        console.log('rejected');
       })
       .addCase(addBoard.fulfilled, (state, action) => {
         state.user.boards.push(action.payload);

@@ -15,6 +15,6 @@ export const PrivateRoute = ({ component: Component }) => {
   return isLoggedIn ? (
     Component
   ) : (
-    <Navigate to="/login" replace state={location} />
+    <Navigate to="/welcome" replace state={location} />
   );
 };
