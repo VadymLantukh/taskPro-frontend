@@ -52,24 +52,39 @@
     color: var(--label-color);
 }
 
+.control {
+    margin-top: 14px;
+}
+
 .label {
+    margin-left: 0;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: -0.2px;
     color: var(--third-text-color);
 }
 
-.checked {
+.checked-label {
     color: var(--label-color);
 }
 
 .radio {
     position: relative;
     padding: 0;
+    margin-right: 8px;
+
+    svg {
+        width: 14px;
+        height: 14px;
+    }
 }
 
 .radio::after {
     position: absolute;
     content: "";
-    height: 20px;
-    width: 20px;
+    height: 10px;
+    width: 10px;
     border-radius: 50%;
 }
 
@@ -89,8 +104,6 @@
     background: var(--hight);
 }
 
-
-
 .radio-color-without-priority {
     color: #b7b7b7;
 }
@@ -106,7 +119,6 @@
 .radio-color-high {
     color: var(--hight);
 }
-
 
 .radio:hover {
     background: transparent;
