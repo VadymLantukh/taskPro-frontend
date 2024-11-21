@@ -135,10 +135,7 @@ export const updateUserThunk = createAsyncThunk(
     }
     try {
       setAuthHeader(persistedToken);
-      const { data } = await axios.patch(
-        `/auth/${state.auth.user._id}`,
-        credentials
-      );
+      const { data } = await axios.patch('/auth', credentials);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -202,8 +199,7 @@ export const getUserThunk = createAsyncThunk(
     }
     try {
       setAuthHeader(persistedToken);
-
-      const { data } = await axios.get(`/auth/${state.auth.user._id}`);
+      const { data } = await axios.get('/auth');
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
