@@ -14,6 +14,7 @@ const AddColumn = ({ title = '', columnId = null, onClose }) => {
 
   const handleSubmit = values => {
     console.log('in handle submit');
+    console.log(values);
 
     if (newTitle.trim() === '') {
       console.log('Title is required');
@@ -34,19 +35,19 @@ const AddColumn = ({ title = '', columnId = null, onClose }) => {
     newTitle: Yup.string().trim().required('Title is required'),
   });
 
-  const initialValues = {
-    title: newTitle,
-  };
-
   return (
     <div className={s.boardContainer}>
       <h2 className={s.newBoardTitle} style={{ marginBottom: '24px' }}>
         Add column
       </h2>
       <Formik
-        initialValues={initialValues}
+        initialValues={{
+          title: newTitle,
+        }}
         validationSchema={validationSchema}
-        onSubmit={handleSubmit}
+        onSubmit={() => {
+          console.log('submitting: ');
+        }}
       >
         <Form className={s.form}>
           <Field
@@ -56,6 +57,9 @@ const AddColumn = ({ title = '', columnId = null, onClose }) => {
             className={t.input}
           />
           <ErrorMessage name="title" component="span" className={s.error} />
+          <button type="submit" style={{ marginTop: '24px' }}>
+            submit
+          </button>
           <Button
             type={'submit'}
             text="Add"
