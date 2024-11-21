@@ -4,7 +4,7 @@ import flowerpot from '../../images/flowerpot.webp';
 
 const NeedHelp = () => {
   const handleClick = () => {
-    alert('кукусики');
+    alert('кукусики, тута не допомогти..');
   };
 
   return (

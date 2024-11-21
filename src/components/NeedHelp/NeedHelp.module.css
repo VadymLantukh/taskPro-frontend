@@ -1,11 +1,12 @@
 .container {
   width: 197px;
   height: 238px;
-  background-color: rgba(31, 31, 31, 1);
+  background-color: var(--sidebar-card-background);
+
   border-radius: 8px;
   padding: 15px;
   margin: 0 auto;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 }
 
 .flower {
@@ -17,11 +18,11 @@
   font-size: 12px;
   font-weight: 400;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 1);
+  color: var(--text-color);
   margin-bottom: 18px;
 }
 .task {
-  color: rgba(190, 219, 176, 1);
+  color: var(--accent);
 }
 
 .needHelp {
@@ -37,10 +38,10 @@
   font-weight: 500;
   line-height: 18px;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 1);
+  color: var(--text-color);
 }
 .icon {
-  stroke: white;
+  stroke: var(--logo-icon);
 }
 
 @media (min-width: 375px) {
