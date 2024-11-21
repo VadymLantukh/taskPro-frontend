@@ -15,6 +15,7 @@ const AddColumn = ({
   columnId = null,
   onClose,
   formName = 'Add column',
+  buttonText = 'Add',
 }) => {
   const dispatch = useDispatch();
   const { boardId } = useParams();
@@ -79,7 +80,7 @@ const AddColumn = ({
             <ErrorMessage name="title" component="span" className={s.error} />
             <Button
               type="submit"
-              text="Add"
+              text={buttonText}
               disabled={isSubmitting}
               showIcon={true}
               style={{ marginTop: '24px' }}
