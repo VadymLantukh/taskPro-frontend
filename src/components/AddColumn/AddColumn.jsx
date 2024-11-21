@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useParams } from 'react-router-dom';
 import Button from '../Button/Button';
 import {
   addColumn,
@@ -9,64 +9,81 @@ import {
 import s from '../BoardForm/BoardForm.module.css';
 import t from '../../styles/Forms.module.css';
 
-const AddColumn = ({ title = '', columnId = null, onClose }) => {
-  const [newTitle, setNewTitle] = useState(title);
+const AddColumn = ({
+  title = '',
+  columnId = null,
+  onClose,
+  formName = 'Add column',
+}) => {
+  const { boardId } = useParams();
 
-  const handleSubmit = values => {
-    console.log('in handle submit');
-    console.log(values);
+  const handleSubmit = (values, { setSubmitting }) => {
+    const trimmedTitle = values.title.trim();
 
-    if (newTitle.trim() === '') {
-      console.log('Title is required');
-    } else {
-      setNewTitle({ values });
-      if (columnId !== null) {
-        updateColumn({ values });
-        console.log('Column renamed: ', { values });
-      } else {
-        addColumn({ values });
-        console.log('New column added: ', { values });
-      }
+    if (trimmedTitle === '') {
+      setSubmitting(false);
+      return;
     }
-    onClose();
+
+    try {
+      if (columnId !== null) {
+        console.log(
+          'editing column: columnId: ',
+          columnId,
+          ', title: ',
+          trimmedTitle
+        );
+
+        updateColumn({ id: columnId, title: trimmedTitle });
+      } else {
+        console.log(
+          'adding column: boardId: ',
+          boardId,
+          ', title: ',
+          trimmedTitle
+        );
+        addColumn({ boardId, title: trimmedTitle });
+      }
+      onClose();
+    } catch (error) {
+      console.error('Error adding/updating column:', error);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const validationSchema = Yup.object().shape({
-    newTitle: Yup.string().trim().required('Title is required'),
+    title: Yup.string().trim().required('Title is required'),
   });
 
   return (
     <div className={s.boardContainer}>
       <h2 className={s.newBoardTitle} style={{ marginBottom: '24px' }}>
-        Add column
+        {formName}
       </h2>
       <Formik
-        initialValues={{
-          title: newTitle,
-        }}
+        initialValues={{ title }}
         validationSchema={validationSchema}
-        onSubmit={() => {
-          console.log('submitting: ');
-        }}
+        onSubmit={handleSubmit}
       >
-        <Form className={s.form}>
-          <Field
-            type="text"
-            name="title"
-            placeholder="Title"
-            className={t.input}
-          />
-          <ErrorMessage name="title" component="span" className={s.error} />
-          <button type="submit" style={{ marginTop: '24px' }}>
-            submit
-          </button>
-          <Button
-            type={'submit'}
-            text="Add"
-            showIcon={true}
-            style={{ marginTop: '24px' }}
-          />
-        </Form>
+        {({ isSubmitting }) => (
+          <Form className={s.form}>
+            <Field
+              type="text"
+              name="title"
+              placeholder="Title"
+              className={t.input}
+            />
+            <ErrorMessage name="title" component="span" className={s.error} />
+            <Button
+              type="submit"
+              text="Add"
+              disabled={isSubmitting}
+              showIcon={true}
+              style={{ marginTop: '24px' }}
+            />
+          </Form>
+        )}
       </Formik>
     </div>
   );
