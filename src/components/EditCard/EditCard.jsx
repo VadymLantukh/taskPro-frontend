@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import dayjs from 'dayjs';
 import clsx from 'clsx';
@@ -8,12 +9,11 @@ import CustomDatePicker from '../CustomDatePicker/CustomDatePicker.jsx';
 import PriorityPicker from '../PriorityPicker/PriorityPicker.jsx';
 
 import { addCardSchema } from '../../helpers/addCardSchema.js';
+import { selectCurrentTask } from '../../redux/tasks/tasksSelectors.js';
+import { updateTask } from '../../redux/tasks/tasksOperations.js';
 
 import s from '../AddCard/AddCard.module.css';
 import t from '../../styles/Forms.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentTask } from '../../redux/tasks/tasksSelectors.js';
-import { updateTask } from '../../redux/tasks/tasksOperations.js';
 
 const EditCard = () => {
   const dispatch = useDispatch();

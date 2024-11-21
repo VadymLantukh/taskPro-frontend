@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import dayjs from 'dayjs';
 import clsx from 'clsx';
@@ -8,19 +9,29 @@ import CustomDatePicker from '../CustomDatePicker/CustomDatePicker.jsx';
 import PriorityPicker from '../PriorityPicker/PriorityPicker.jsx';
 
 import { addCardSchema } from '../../helpers/addCardSchema.js';
+import { addTask } from '../../redux/tasks/tasksOperations.js';
+import {
+  selectIsError,
+  selectIsLoading,
+} from '../../redux/tasks/tasksSelectors.js';
 
 import s from './AddCard.module.css';
 import t from '../../styles/Forms.module.css';
 
-const AddCard = () => {
+const AddCard = ({ boardId, columnId }) => {
+  const dispatch = useDispatch();
+
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectIsError);
+
   const initialValues = {
     title: '',
     description: '',
-    priority: 'none',
+    priority: 'Without',
     deadline: null,
   };
 
-  const [selectedPriority, setSelectedPriority] = useState('none');
+  const [selectedPriority, setSelectedPriority] = useState('Without');
   const [selectedDate, setSelectedDate] = useState(null);
 
   const handlePriorityChange = value => {
@@ -28,13 +39,19 @@ const AddCard = () => {
   };
 
   const handleSubmit = (values, action) => {
-    console.log('Form submitted with values:', {
+    const task = {
       ...values,
       priority: selectedPriority,
-      deadline: selectedDate ? dayjs(selectedDate).toISOString() : null,
-    });
+      columnId,
+      boardId,
+    };
+
+    if (selectedDate) task.deadline = dayjs(selectedDate).toISOString();
+
+    dispatch(addTask(task));
+
     action.resetForm();
-    setSelectedPriority('none');
+    setSelectedPriority('Without');
     setSelectedDate(null);
   };
 

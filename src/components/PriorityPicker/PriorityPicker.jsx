@@ -8,10 +8,10 @@ import './PriorityPicker.css';
 
 const PriorityPicker = ({ selectedValue = 'none', onChange }) => {
   const options = [
-    { value: 'none', label: 'Without', color: '#c9b7b7' },
-    { value: 'low', label: 'Low', color: '#8fa1d0' },
-    { value: 'medium', label: 'Medium', color: '#e09cb5' },
-    { value: 'high', label: 'High', color: '#bedbb0' },
+    { value: 'Without', label: 'Without', color: '#c9b7b7' },
+    { value: 'Low', label: 'Low', color: '#8fa1d0' },
+    { value: 'Medium', label: 'Medium', color: '#e09cb5' },
+    { value: 'High', label: 'High', color: '#bedbb0' },
   ];
 
   return (
