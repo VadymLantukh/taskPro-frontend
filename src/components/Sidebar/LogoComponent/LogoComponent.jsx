@@ -1,17 +1,15 @@
-import svg from '../../../images/icons.svg';
-import css from './LogoComponent.module.css';
+import { Link } from 'react-router-dom';
+import s from './LogoComponent.module.css';
+import Icon from '../../Icon/Icon';
 
 const LogoComponent = () => {
   return (
-    <div className={css.logoBox}>
-      <div className={css.box}>
-        <svg className={css.logo}>
-          <use href={`${svg}#icon-lightning`}></use>
-        </svg>
+    <Link to="/HomePage" className={s.logoBox}>
+      <div className={s.box}>
+        <Icon name="icon-lightning" className={s.logo} />
       </div>
-      <h2 className={css.text}>Task Pro</h2>
-    </div>
+      <h2 className={s.text}>Task Pro</h2>
+    </Link>
   );
 };
-
 export default LogoComponent;
