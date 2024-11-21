@@ -80,12 +80,12 @@ const ScreensPage = () => {
   // useEffect(() => {
   //   dispatch(
   //     addTask({
-  //       title: 'Update homepage design',
+  //       title: 'Update homepage styles',
   //       description: 'Modify the current homepage layout.',
   //       priority: 'Medium',
-  //       deadline: '2024-12-15T00:00:00Z',
-  //       columnId: '673dff6f67e6bca8c6472dbf',
-  //       boardId: '673dfdae67e6bca8c6472d93',
+  //       deadline: '2024-11-21T00:00:00Z',
+  //       columnId: '673de8c9eac731198c966a6f',
+  //       boardId: '673dbfbfeac731198c9663d5',
   //     })
   //   );
   // }, [dispatch]);
