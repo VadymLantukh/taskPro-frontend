@@ -2,28 +2,32 @@ import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Button from '../Button/Button';
+import {
+  addColumn,
+  updateColumn,
+} from '../../redux/columns/columnsOperations.js';
 import s from '../BoardForm/BoardForm.module.css';
 import t from '../../styles/Forms.module.css';
 
-const AddColumn = ({ title = '', columnId = null }) => {
-  const [newTitle, setNewTitle] = useState('title');
+const AddColumn = ({ title = '', columnId = null, onClose }) => {
+  const [newTitle, setNewTitle] = useState(title);
 
-  const handleTitleChange = e => {
-    setNewTitle(e.target.value);
-  };
-
-  const addColumnHandleClick = e => {
-    e.preventDefault();
+  const handleSubmit = values => {
+    console.log('in handle submit');
 
     if (newTitle.trim() === '') {
       console.log('Title is required');
     } else {
+      setNewTitle({ values });
       if (columnId !== null) {
-        console.log('Column renamed: ', e.target.value);
+        updateColumn({ values });
+        console.log('Column renamed: ', { values });
       } else {
-        console.log('New column added: ', e.target.value);
+        addColumn({ values });
+        console.log('New column added: ', { values });
       }
     }
+    onClose();
   };
 
   const validationSchema = Yup.object().shape({
@@ -42,7 +46,7 @@ const AddColumn = ({ title = '', columnId = null }) => {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={addColumnHandleClick}
+        onSubmit={handleSubmit}
       >
         <Form className={s.form}>
           <Field

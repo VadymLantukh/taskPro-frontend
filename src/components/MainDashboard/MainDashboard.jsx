@@ -31,7 +31,7 @@ export const MainDashboard = () => {
           />
           {isModalOpen && (
             <Modal open={isModalOpen} onClose={handleCloseModal}>
-              <AddColumn />
+              <AddColumn onClose={handleCloseModal} />
             </Modal>
           )}
         </div>
