@@ -29,7 +29,11 @@ export const HeaderColumn = ({ title, columnId }) => {
 
         {isEditModalOpen && (
           <Modal open={isEditModalOpen} onClose={closeEditModal}>
-            <EditColumn onClose={closeEditModal} columnId={columnId} />
+            <EditColumn
+              onClose={closeEditModal}
+              columnId={columnId}
+              title={title}
+            />
           </Modal>
         )}
 
