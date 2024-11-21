@@ -157,10 +157,7 @@ export const updateUserThemeThunk = createAsyncThunk(
       const payload = {
         theme: credentials,
       };
-      const { data } = await axios.patch(
-        `/auth/${state.auth.user._id}`,
-        payload
-      );
+      const { data } = await axios.patch('/auth', payload);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
