@@ -1,0 +1,65 @@
+.title {
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--thumb-color);
+    font-size: 18px;
+}
+
+.text {
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--label-color);
+    letter-spacing: -0.2px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.subtitle {
+    font-size: 14px;
+}
+
+.button {
+    position: relative;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--third-text-color);
+    letter-spacing: -0.2px;
+    font-size: 12px;
+    transition: color 0.3s ease;
+}
+
+.button::after {
+    position: absolute;
+    content: "";
+    bottom: 2px;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: var(--third-text-color);
+    transition: background-color 0.3s ease;
+}
+
+.button:hover::after {
+    background-color: var(--label-color);
+}
+
+.button:hover {
+    color: var(--label-color);
+}
+
+.label {
+    color: var(--third-text-color);
+}
+
+.checked {
+    color: var(--label-color); /* Пример цветовой переменной для активного состояния */
+}
+
+
+
+

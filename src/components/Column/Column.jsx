@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useToggle } from '../../hooks/useToggle.js';
 
 import HeaderColumn from './HeaderColumn/HeaderColumn.jsx';
 import Button from '../Button/Button.jsx';
@@ -9,11 +9,7 @@ import AddCard from '../../components/AddCard/AddCard';
 import s from './Column.module.css';
 
 export const Column = ({ column }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
-
+  const {open, handleOpen, handleClose} = useToggle()
   const title = column?.title ?? '';
 
   return (
@@ -23,9 +19,9 @@ export const Column = ({ column }) => {
       <Button
         text="Add another card"
         showIcon={true}
-        onClick={handleOpenModal}
+        onClick={handleOpen}
       />
-      <ModalWrapper open={isModalOpen} onClose={handleCloseModal}>
+      <ModalWrapper open={open} onClose={handleClose}>
         <AddCard />
       </ModalWrapper>
     </div>
