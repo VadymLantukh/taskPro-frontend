@@ -20,7 +20,7 @@
   width: 16px;
   height: 16px;
 
-  stroke: var(--text-color);
+  stroke: var(--icon-modal-close);
 }
 
 @media (min-width: 375px) {
