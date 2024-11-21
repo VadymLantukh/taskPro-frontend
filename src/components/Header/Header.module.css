@@ -2,21 +2,46 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #fff;
+  padding: 14px 20px;
+  background-color: var(--header-background-color);
 }
 
 .menu_icon {
   stroke-width: 2.5px;
-  stroke: #161616;
-  width: 34px;
-  height: 34px;
+  stroke: var(--text-color);
+  width: 24px;
+  height: 24px;
 }
 
-@media (min-width: 1440px) {
-  .menu_icon {
-    display: none;
-  }
+.userName {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+}
+
+.profile_image {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.userIconWrapper {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background-color: var(--background-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.userIcon {
+  width: 26px;
+  height: 26px;
+  fill: var(--logo-icon);
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .theme_user_wrap {
@@ -24,33 +49,26 @@
   gap: 14px;
 }
 
-/* .theme {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 16px;
-} */
-
-/* .arrow_icon {
-  fill: none;
-  stroke: rgba(22, 22, 22, 0.8);
-  stroke-opacity: 0.8;
-  stroke-width: 1.5px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  width: 16px;
-  height: 16px;
-} */
-
 .profile {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
-.profile_image {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  object-fit: cover;
+@media (min-width: 768px) {
+  .header {
+    padding: 18px 20px;
+    max-height: 68px;
+  }
+
+  .menu_icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header {
+    justify-content: flex-end;
+  }
 }
