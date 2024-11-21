@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import dayjs from 'dayjs';
@@ -18,11 +18,24 @@ import {
 import s from './AddCard.module.css';
 import t from '../../styles/Forms.module.css';
 
-const AddCard = ({ boardId, columnId }) => {
+const AddCard = ({ boardId, columnId, onSuccess }) => {
   const dispatch = useDispatch();
 
   const isLoading = useSelector(selectIsLoading);
   const isError = useSelector(selectIsError);
+
+  const [formActions, setFormActions] = useState(null);
+
+  useEffect(() => {
+    if (formActions && !isLoading && !isError) {
+      formActions.resetForm();
+      setSelectedPriority('Without');
+      setSelectedDate(null);
+      setFormActions(null);
+
+      if (onSuccess) onSuccess();
+    }
+  }, [isLoading, isError, formActions, onSuccess]);
 
   const initialValues = {
     title: '',
@@ -38,7 +51,7 @@ const AddCard = ({ boardId, columnId }) => {
     setSelectedPriority(value);
   };
 
-  const handleSubmit = (values, action) => {
+  const handleSubmit = (values, actions) => {
     const task = {
       ...values,
       priority: selectedPriority,
@@ -46,13 +59,15 @@ const AddCard = ({ boardId, columnId }) => {
       boardId,
     };
 
-    if (selectedDate) task.deadline = dayjs(selectedDate).toISOString();
+    if (selectedDate) {
+      task.deadline = dayjs(selectedDate).toISOString();
+    } else {
+      delete task.deadline;
+    }
 
     dispatch(addTask(task));
 
-    action.resetForm();
-    setSelectedPriority('Without');
-    setSelectedDate(null);
+    setFormActions(actions);
   };
 
   return (
