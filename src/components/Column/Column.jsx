@@ -18,7 +18,7 @@ export const Column = ({ column }) => {
 
   return (
     <div className={s.container}>
-      <HeaderColumn title={title} />
+      <HeaderColumn title={title} columnId={column?._id} />
       <TasksList columnId={column?._id} />
       <Button
         text="Add another card"

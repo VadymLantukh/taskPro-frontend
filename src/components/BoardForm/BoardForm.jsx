@@ -30,14 +30,9 @@ const BoardForm = ({
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          if (onSubmit) {
-            onSubmit(values);
-          }
-          setSubmitting(false);
-        }}
+        onSubmit={onSubmit}
       >
-        {({ values, setFieldValue, isSubmitting }) => (
+        {({ values, setFieldValue }) => (
           <Form className={s.form}>
             <Field
               type="text"
@@ -109,7 +104,7 @@ const BoardForm = ({
               })}
             </div>
 
-            <Button text={buttonText} showIcon={true} disabled={isSubmitting} />
+            <Button text={buttonText} showIcon={true} type="submit" />
           </Form>
         )}
       </Formik>

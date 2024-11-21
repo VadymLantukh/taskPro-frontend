@@ -8,7 +8,8 @@ export const selectIsError = state => state.tasks.isError;
 
 export const selectTasksForColumn = (state, columnId) => {
   const column = state.columns.columns.find(col => col._id === columnId);
-  if (!column) return [];
+  if (!column || !column.tasksIds) return [];
+
   return column.tasksIds.map(taskId =>
     state.tasks.tasks.find(task => task._id === taskId)
   );
