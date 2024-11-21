@@ -8,6 +8,7 @@ import {
 } from '../../redux/columns/columnsOperations.js';
 import s from '../BoardForm/BoardForm.module.css';
 import t from '../../styles/Forms.module.css';
+import { useDispatch } from 'react-redux';
 
 const AddColumn = ({
   title = '',
@@ -15,6 +16,7 @@ const AddColumn = ({
   onClose,
   formName = 'Add column',
 }) => {
+  const dispatch = useDispatch();
   const { boardId } = useParams();
 
   const handleSubmit = (values, { setSubmitting }) => {
@@ -34,7 +36,7 @@ const AddColumn = ({
           trimmedTitle
         );
 
-        updateColumn({ id: columnId, title: trimmedTitle });
+        dispatch(updateColumn({ id: columnId, title: trimmedTitle }));
       } else {
         console.log(
           'adding column: boardId: ',
@@ -42,7 +44,7 @@ const AddColumn = ({
           ', title: ',
           trimmedTitle
         );
-        addColumn({ boardId, title: trimmedTitle });
+        dispatch(addColumn({ boardId, title: trimmedTitle }));
       }
       onClose();
     } catch (error) {
