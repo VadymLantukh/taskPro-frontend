@@ -57,6 +57,7 @@ const authSlice = createSlice({
       })
 
       .addCase(operation.getUserThunk.pending, state => {
+        if (!state.isLoggedIn || state.isRefreshing) return;
         state.isRefreshing = true;
       })
       .addCase(operation.getUserThunk.fulfilled, (state, action) => {

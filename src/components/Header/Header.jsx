@@ -1,19 +1,28 @@
 import Icon from '../Icon/Icon';
 import HeaderTheme from '../HeaderTheme/HeaderTheme';
 import s from './Header.module.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '../../redux/auth/authSelectors';
+import { getUserThunk } from '../../redux/auth/authOperations';
 import { useScreenWidth } from '../../hooks/useScreenWidth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import EditProfile from '../EditProfile/EditProfile';
 
 const Header = ({ onBurgerClick }) => {
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
+
   const { isLargeScreen } = useScreenWidth();
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  useEffect(() => {
+    if (!user.name) {
+      dispatch(getUserThunk());
+    }
+  }, [dispatch, user.name]);
 
   return (
     <header className={s.header}>
@@ -26,7 +35,7 @@ const Header = ({ onBurgerClick }) => {
         <HeaderTheme />
 
         <button className={s.profile} onClick={handleOpen}>
-          <p className={s.userName}>{user.name}</p>
+          <p className={s.userName}>{user.name || 'Loading...'}</p>
           {user?.avatar ? (
             <img
               src={user.avatar}
@@ -40,7 +49,7 @@ const Header = ({ onBurgerClick }) => {
           )}
         </button>
       </div>
-      <EditProfile open={open} onClose={handleClose} />
+      <EditProfile open={open} onClose={handleClose} user={user} />
     </header>
   );
 };

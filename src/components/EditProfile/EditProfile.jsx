@@ -1,19 +1,18 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { useState, useRef } from 'react';
 
 import ModalWrapper from '../ModalWrapper/ModalWrapper';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
-import { selectUser } from '../../redux/auth/authSelectors';
-import { updateUserThunk } from '../../redux/auth/authOperations';
+import { getUserThunk, updateUserThunk } from '../../redux/auth/authOperations';
 import { validationSchema } from '../../helpers/editUserSchema';
 
 import s from './EditProfile.module.css';
-import { useRef, useState } from 'react';
 
-const EditProfile = ({ open, onClose }) => {
+const EditProfile = ({ open, onClose, user }) => {
   const dispatch = useDispatch();
-  const { name, email, avatar } = useSelector(selectUser);
+  const { name, email, avatar } = user;
   const [avatarPreview, setAvatarPreview] = useState(avatar);
   const fileInputRef = useRef(null);
 
@@ -32,7 +31,7 @@ const EditProfile = ({ open, onClose }) => {
     }
   };
 
-  const handleSubmit = values => {
+  const handleSubmit = async values => {
     const formData = new FormData();
     formData.append('name', values.name);
     formData.append('email', values.email);
@@ -43,7 +42,8 @@ const EditProfile = ({ open, onClose }) => {
       formData.append('avatar', fileInputRef.current.files[0]);
     }
 
-    dispatch(updateUserThunk(formData));
+    await dispatch(updateUserThunk(formData));
+    await dispatch(getUserThunk());
     handleClose();
   };
 
