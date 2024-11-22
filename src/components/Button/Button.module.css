@@ -9,7 +9,7 @@
   border: none;
 
   background-color: var(--accent);
-  color: var(--text-color);
+  color: var(--icon-wrapper-btn);
   border-radius: 8px;
 
   font-weight: 500;
@@ -29,7 +29,7 @@
 
   padding: 7px;
   border-radius: 6px;
-  background-color: var(--text-color);
+  background-color: var(--icon-wrapper-btn);
 
   margin-right: 8px;
 }

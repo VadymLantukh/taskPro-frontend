@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import dayjs from 'dayjs';
 import clsx from 'clsx';
@@ -8,15 +9,39 @@ import CustomDatePicker from '../CustomDatePicker/CustomDatePicker.jsx';
 import PriorityPicker from '../PriorityPicker/PriorityPicker.jsx';
 
 import { addCardSchema } from '../../helpers/addCardSchema.js';
+import {
+  selectCurrentTask,
+  selectIsError,
+  selectIsLoading,
+} from '../../redux/tasks/tasksSelectors.js';
+import { updateTask } from '../../redux/tasks/tasksOperations.js';
 
 import s from '../AddCard/AddCard.module.css';
 import t from '../../styles/Forms.module.css';
 
-const EditCard = ({ card, onSubmit }) => {
+const EditCard = ({ onSuccess }) => {
+  const dispatch = useDispatch();
+
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectIsError);
+  const card = useSelector(selectCurrentTask);
+
+  const [formActions, setFormActions] = useState(null);
   const [selectedPriority, setSelectedPriority] = useState(card.priority);
   const [selectedDate, setSelectedDate] = useState(
     card.deadline ? new Date(card.deadline) : null
   );
+
+  useEffect(() => {
+    if (formActions && !isLoading && !isError) {
+      formActions.resetForm();
+      setSelectedPriority('Without');
+      setSelectedDate(null);
+      setFormActions(null);
+
+      if (onSuccess) onSuccess();
+    }
+  }, [isLoading, isError, formActions, onSuccess]);
 
   const initialValues = {
     title: card.title,
@@ -29,13 +54,28 @@ const EditCard = ({ card, onSubmit }) => {
     setSelectedPriority(value);
   };
 
-  const handleSubmit = (values, action) => {
-    onSubmit({
+  const handleSubmit = (values, actions) => {
+    const task = {
       ...values,
       priority: selectedPriority,
       deadline: selectedDate ? dayjs(selectedDate).toISOString() : null,
-    });
-    action.resetForm();
+    };
+
+    if (selectedDate) {
+      task.deadline = dayjs(selectedDate).toISOString();
+    } else {
+      delete task.deadline;
+    }
+
+    dispatch(
+      updateTask({
+        task,
+        id: card._id,
+      })
+    );
+
+    // action.resetForm();
+    setFormActions(actions);
   };
 
   return (

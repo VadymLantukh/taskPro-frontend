@@ -29,9 +29,9 @@ const ScreensPage = () => {
   const { boardId } = useParams();
 
   // //? fetch board
-  // useEffect(() => {
-  //   dispatch(fetchBoard({ id: boardId }));
-  // }, [dispatch, boardId]);
+  useEffect(() => {
+    dispatch(fetchBoard({ id: boardId }));
+  }, [dispatch, boardId]);
 
   // ? add board
   // useEffect(() => {
@@ -60,8 +60,8 @@ const ScreensPage = () => {
   // useEffect(() => {
   //   dispatch(
   //     addColumn({
-  //       title: '4234234234x',
-  //       boardId: '673dbfbfeac731198c9663d5',
+  //       title: 'sobaku',
+  //       boardId: '673dfdae67e6bca8c6472d93',
   //     })
   //   );
   // }, [dispatch, boardId]);
@@ -78,7 +78,16 @@ const ScreensPage = () => {
 
   //? add task
   // useEffect(() => {
-  //   dispatch(addTask(task));
+  //   dispatch(
+  //     addTask({
+  //       title: 'Update homepage styles',
+  //       description: 'Modify the current homepage layout.',
+  //       priority: 'Medium',
+  //       deadline: '2024-11-21T00:00:00Z',
+  //       columnId: '673de8c9eac731198c966a6f',
+  //       boardId: '673dbfbfeac731198c9663d5',
+  //     })
+  //   );
   // }, [dispatch]);
 
   // const task = {

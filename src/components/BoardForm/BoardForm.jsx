@@ -15,7 +15,10 @@ const BoardForm = ({
   onSubmit,
 }) => {
   const validationSchema = Yup.object().shape({
-    title: Yup.string().trim().required('Title is required'),
+    title: Yup.string()
+      .trim()
+      .min(3, 'Title must be at least 3 characters long') 
+      .required('Title is required'), 
   });
 
   const initialValues = {
@@ -30,14 +33,9 @@ const BoardForm = ({
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          if (onSubmit) {
-            onSubmit(values);
-          }
-          setSubmitting(false);
-        }}
+        onSubmit={onSubmit}
       >
-        {({ values, setFieldValue, isSubmitting }) => (
+        {({ values, setFieldValue }) => (
           <Form className={s.form}>
             <Field
               type="text"
@@ -109,7 +107,7 @@ const BoardForm = ({
               })}
             </div>
 
-            <Button text={buttonText} showIcon={true} disabled={isSubmitting} />
+            <Button text={buttonText} showIcon={true} type="submit" />
           </Form>
         )}
       </Formik>

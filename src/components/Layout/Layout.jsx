@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import Loader from '../Loader/Loader';
-
-import { getUserThunk } from '../../redux/auth/authOperations';
 import { setTheme } from '../../redux/auth/authSlice';
 import { selectTheme } from '../../redux/auth/authSelectors';
 
@@ -17,16 +15,16 @@ export const Layout = () => {
   const onBurgerClick = () => setIsSidebarOpen(!isSidebarOpen);
   const dispatch = useDispatch();
   const sidebarRef = document.getElementById('sidebar');
+  const modalWrapperRef = document.getElementById('wrapperModal');
   const theme = useSelector(selectTheme);
 
   const handleClickOutside = event => {
-    if (sidebarRef && !sidebarRef.contains(event.target)) {
+    if (sidebarRef && modalWrapperRef && !sidebarRef.contains(event.target)) {
       setIsSidebarOpen(false);
     }
   };
   useEffect(() => {
     dispatch(setTheme());
-    dispatch(getUserThunk());
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -46,6 +44,7 @@ export const Layout = () => {
           </div>
         </main>
       </div>
+      {isSidebarOpen && <div className={s.blur} onClick={onBurgerClick}></div>}
     </div>
   );
 };
