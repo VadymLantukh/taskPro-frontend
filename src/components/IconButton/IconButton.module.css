@@ -1,5 +1,5 @@
 .icon {
-    color:var(--third-text-color);
+    color: var(--icon-color);
     transition: color 0.3s ease;
 }
 
