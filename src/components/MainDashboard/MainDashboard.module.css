@@ -1,0 +1,13 @@
+.button {
+    max-width: 334px;
+    padding: 14px;
+    background-color: var(--add-column-button-background);
+}
+
+.columns-container {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+

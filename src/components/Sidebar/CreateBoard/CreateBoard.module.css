@@ -2,15 +2,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid;
-    border-top: 1px solid;
+    border-bottom: 1px solid var(--thumb-color);
+    border-top: 1px solid var(--thumb-color);
     padding: 14px 0;
-    margin: 8px auto 40px 14px;
-    width: 197px;
+    width: 100%;
+    text-align: center;
+    gap: 77px;
 }
 
 .createBoardBtn {
-    background-color: #bedbb0;
+    background-color: var(--accent);
+    color: var(--text-color);
     border-radius: 6px;
     width: 40px;
     height: 36px;
@@ -20,9 +22,32 @@
     align-items: center;
     justify-content: center;
 
+    transition: background-color 0.3s ease;
+
+    :hover,
+    :focus {
+        background-color: var(--accentBtn);
+        border-radius: 6px;
+    }
+
 }
 
 .btnPlus {
     height: 36px;
     stroke: #121212;
 }
+
+.createText {
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    color: var(--text-color);
+}
+
+
+
+
+@media (min-width: 768px) {}
+
+@media (min-width: 1440px) {}

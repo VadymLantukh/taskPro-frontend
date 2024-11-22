@@ -16,9 +16,13 @@
   --without: rgba(255, 255, 255, 0.3);
   --hight: #bedbb0;
   --accentBtn: #9dc888;
+  --filter-color: rgba(22, 22, 22, 0.8);
+  --add-column-button-background: rgba(255, 255, 255, 1);
+  --icon-wrapper-btn: #161616;
+  --icon-modal-close: #161616;
 }
 
-.dark-theme {
+.dark {
   --background-color: #1f1f1f;
   --header-background-color: #161616;
   --sidebar-background-color: #121212;
@@ -26,9 +30,13 @@
   --text-color: #fff;
   --secondary-text-color: rgba(255, 255, 255, 0.7);
   --third-text-color: rgba(255, 255, 255, 0.5);
+  --filter-color: rgba(255, 255, 255, 0.8);
+  --add-column-button-background: rgba(18, 18, 18, 1);
+  --icon-wrapper-btn: #161616;
+  --icon-modal-close: #fff;
 }
 
-.violet-theme {
+.violet {
   --logo-background: #ecedfd;
   --logo-icon: #5255bc;
   --background-color: #ecedfd;
@@ -40,4 +48,7 @@
   --third-text-color: rgba(255, 255, 255, 0.5);
   --accent: #5255bc;
   --accentBtn: #7b7ede;
+  --add-column-button-background: rgba(255, 255, 255, 1);
+  --icon-wrapper-btn: #fff;
+  --icon-modal-close: #161616;
 }

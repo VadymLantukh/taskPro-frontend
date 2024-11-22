@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  overflow-x: hidden;
 }
 
 .outlet {
@@ -15,22 +16,29 @@
   height: 100%;
 }
 
-@media (min-width: 375px) {
-  .wrapper {
-    max-width: 375px;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 768px) {
-  .wrapper {
-    max-width: 768px;
-  }
-}
-
 @media (min-width: 1440px) {
   .wrapper {
-    max-width: 100%;
     flex-direction: row;
   }
+}
+
+.violet-theme .Toastify__toast {
+  background-color: #6a4c9c;
+  color: white;
+}
+
+.violet-theme .Toastify__toast--success {
+  background-color: #8e7dc3;
+}
+
+.violet-theme .Toastify__toast--error {
+  background-color: #9c6a86;
+}
+
+.violet-theme .Toastify__toast--warning {
+  background-color: #c68fcb;
+}
+
+.violet-theme .Toastify__toast--info {
+  background-color: #b0a0d1;
 }
