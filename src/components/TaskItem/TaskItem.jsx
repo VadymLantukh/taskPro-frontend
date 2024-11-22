@@ -26,6 +26,21 @@ const TaskItem = ({ tasks }) => {
 
   const taskArr = tasks;
 
+  const formatDate = isoDate => {
+    const date = new Date(isoDate);
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Місяці від 0 до 11
+    const day = String(date.getDate()).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${month}/${day}/${year}`;
+  };
+
+  // Функція для перевірки, чи дедлайн сьогодні
+  const isDeadlineToday = isoDate => {
+    const deadlineDate = new Date(isoDate).toDateString();
+    const todayDate = new Date().toDateString();
+    return deadlineDate === todayDate;
+  };
+
   const getPriorityClass = priority => {
     const priorityMap = {
       without: s.priority_without,
@@ -35,22 +50,6 @@ const TaskItem = ({ tasks }) => {
     };
     return priorityMap[priority.toLowerCase()] || s.priority_without;
   };
-
-  // const parseDeadline = dateString => {
-  //   const [day, month, year] = dateString.split('/');
-  //   return new Date(year, month - 1, day);
-  // };
-
-  // const isDeadlineToday = deadlineString => {
-  //   const today = new Date();
-  //   const deadline = parseDeadline(deadlineString);
-
-  //   return (
-  //     today.getDate() === deadline.getDate() &&
-  //     today.getMonth() === deadline.getMonth() &&
-  //     today.getFullYear() === deadline.getFullYear()
-  //   );
-  // };
 
   return (
     <>
@@ -69,23 +68,31 @@ const TaskItem = ({ tasks }) => {
               />
               <span className={s.separator}></span>
               <div className={s.task_footer}>
-                <div
-                  className={clsx(
-                    s.task_priority,
-                    getPriorityClass(taskCard.priority)
-                  )}
-                >
-                  <span>{taskCard.priority}</span>
-                </div>
-                {taskCard.deadline && (
-                  <div className={s.task_meta}>
-                    <span>{taskCard.deadline}</span>
+                <container className={s.task_container_wrapper}>
+                  <span className={s.wrapper_title}>Priority</span>
+                  <div
+                    className={clsx(
+                      s.task_priority,
+                      getPriorityClass(taskCard.priority)
+                    )}
+                  >
+                    <span className={s.task_priority_text}>
+                      {taskCard.priority}
+                    </span>
                   </div>
+                </container>
+                {taskCard.deadline && (
+                  <container className={s.task_container_wrapper}>
+                    <span className={s.wrapper_title}>Deadline</span>
+                    <div className={s.task_deadline}>
+                      <span>{formatDate(taskCard.deadline)}</span>
+                    </div>
+                  </container>
                 )}
                 <div className={s.actions}>
-                  {/* {isDeadlineToday(taskCard.deadline) && (
+                  {isDeadlineToday(taskCard.deadline) && (
                     <Icon className={s.bell_icon} name="icon-bell" />
-                  )} */}
+                  )}
                   <button className={s.action_button}>
                     <Icon className={s.icon} name="icon-right" />
                   </button>
