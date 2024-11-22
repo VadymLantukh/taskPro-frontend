@@ -22,7 +22,11 @@ export const Column = ({ column }) => {
         onClick={handleOpen}
       />
       <ModalWrapper open={open} onClose={handleClose}>
-        <AddCard />
+        <AddCard
+          boardId={column?.boardId}
+          columnId={column?._id}
+          onSuccess={handleClose}
+        />
       </ModalWrapper>
     </div>
   );
