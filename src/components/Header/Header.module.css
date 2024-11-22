@@ -53,7 +53,16 @@
 .profile {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.profile:hover {
+  border-bottom-color: var(--accent);
 }
 
 @media (min-width: 768px) {
