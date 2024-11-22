@@ -18,7 +18,7 @@ export const Column = ({ column }) => {
 
   return (
     <div className={s.container}>
-      <HeaderColumn title={title} />
+      <HeaderColumn title={title} columnId={column?._id} />
       <TasksList columnId={column?._id} />
       <Button
         text="Add another card"
@@ -26,7 +26,11 @@ export const Column = ({ column }) => {
         onClick={handleOpenModal}
       />
       <ModalWrapper open={isModalOpen} onClose={handleCloseModal}>
-        <AddCard />
+        <AddCard
+          boardId={column?.boardId}
+          columnId={column?._id}
+          onSuccess={handleCloseModal}
+        />
       </ModalWrapper>
     </div>
   );

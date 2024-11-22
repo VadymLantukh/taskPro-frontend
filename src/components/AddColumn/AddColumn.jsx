@@ -1,42 +1,93 @@
-import { useState } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import { useParams } from 'react-router-dom';
 import Button from '../Button/Button';
-import s from '../NewBoard/NewBoard.module.css';
+import {
+  addColumn,
+  updateColumn,
+} from '../../redux/columns/columnsOperations.js';
+import s from '../BoardForm/BoardForm.module.css';
+import t from '../../styles/Forms.module.css';
+import { useDispatch } from 'react-redux';
 
-const AddColumn = ({ title = '', columnId = null }) => {
-  const [title, setTitle] = useState('');
+const AddColumn = ({
+  title = '',
+  columnId = null,
+  onClose,
+  formName = 'Add column',
+  buttonText = 'Add',
+}) => {
+  const dispatch = useDispatch();
+  const { boardId } = useParams();
 
-  const handleTitleChange = e => {
-    setTitle(e.target.value);
-  };
+  const handleSubmit = (values, { setSubmitting }) => {
+    const trimmedTitle = values.title.trim();
 
-  const addColumnHandleClick = e => {
-    e.preventDefault();
+    if (trimmedTitle === '') {
+      setSubmitting(false);
+      return;
+    }
 
-    if (title.trim() === '') {
-      setTitleError('Title is required');
-      console.log('Title is required');
-    } else {
-      setTitleError('');
+    try {
       if (columnId !== null) {
-        console.log('Column renamed: ', e.target.value);
+        console.log(
+          'editing column: columnId: ',
+          columnId,
+          ', title: ',
+          trimmedTitle
+        );
+
+        dispatch(updateColumn({ id: columnId, title: trimmedTitle }));
       } else {
-        console.log('New column added: ', e.target.value);
+        console.log(
+          'adding column: boardId: ',
+          boardId,
+          ', title: ',
+          trimmedTitle
+        );
+        dispatch(addColumn({ boardId, title: trimmedTitle }));
       }
+      onClose();
+    } catch (error) {
+      console.error('Error adding/updating column:', error);
+    } finally {
+      setSubmitting(false);
     }
   };
 
+  const validationSchema = Yup.object().shape({
+    title: Yup.string().trim().required('Title is required'),
+  });
+
   return (
-    <div>
-      <h2 className={s.newBoardTitle}>Add column</h2>
-      <form className={s.form}>
-        <input
-          type="text"
-          value={title}
-          onChange={handleTitleChange}
-          className={s.newBoardTitleInput}
-        />
-        <Button onClick={addColumnHandleClick} text="Add" showIcon={true} />
-      </form>
+    <div className={s.boardContainer}>
+      <h2 className={s.newBoardTitle} style={{ marginBottom: '24px' }}>
+        {formName}
+      </h2>
+      <Formik
+        initialValues={{ title }}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ isSubmitting }) => (
+          <Form className={s.form}>
+            <Field
+              type="text"
+              name="title"
+              placeholder="Title"
+              className={t.input}
+            />
+            <ErrorMessage name="title" component="span" className={s.error} />
+            <Button
+              type="submit"
+              text={buttonText}
+              disabled={isSubmitting}
+              showIcon={true}
+              style={{ marginTop: '24px' }}
+            />
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };
