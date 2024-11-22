@@ -51,7 +51,7 @@ export const deleteBoard = createAsyncThunk(
 
 export const updateBoard = createAsyncThunk(
   'boards/updateBoard',
-  async (board, thunkAPI) => {
+  async ({ board, id }, thunkAPI) => {
     try {
       const { id, ...updateFields } = board; 
 
