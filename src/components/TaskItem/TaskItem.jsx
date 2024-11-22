@@ -121,7 +121,7 @@ const TaskItem = ({ tasks }) => {
           );
         })}
       <ModalWrapper open={isModalOpen} onClose={handleCloseModal}>
-        <EditCard />
+        <EditCard onSuccess={handleCloseModal} />
       </ModalWrapper>
     </>
   );

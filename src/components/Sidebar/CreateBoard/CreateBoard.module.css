@@ -11,7 +11,7 @@
 }
 
 .createBoardBtn {
-    background-color: var(--accent);
+    background-color: var(--accentBtn);
     color: var(--text-color);
     border-radius: 6px;
     width: 40px;
@@ -33,8 +33,8 @@
 }
 
 .btnPlus {
-    height: 36px;
-    stroke: #121212;
+    height: 20px;
+    stroke: var(--icon-wrapper-btn);
 }
 
 .createText {
