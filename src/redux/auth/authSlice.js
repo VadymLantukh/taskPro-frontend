@@ -52,6 +52,10 @@ const authSlice = createSlice({
       .addCase(operation.updateUserThemeThunk.fulfilled, (state, action) => {
         state.user.theme = action.payload.theme;
       })
+      .addCase(operation.updateUserThunk.fulfilled, (state, action) => {
+        state.user = { ...state.user, ...action.payload };
+      })
+
       .addCase(operation.getUserThunk.pending, state => {
         state.isRefreshing = true;
       })
