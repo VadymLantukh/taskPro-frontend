@@ -4,10 +4,16 @@ import s from './Header.module.css';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/authSelectors';
 import { useScreenWidth } from '../../hooks/useScreenWidth';
+import { useState } from 'react';
+import EditProfile from '../EditProfile/EditProfile';
 
 const Header = ({ onBurgerClick }) => {
   const user = useSelector(selectUser);
   const { isLargeScreen } = useScreenWidth();
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <header className={s.header}>
@@ -18,23 +24,23 @@ const Header = ({ onBurgerClick }) => {
       )}
       <div className={s.theme_user_wrap}>
         <HeaderTheme />
-        <div className={s.profile}>
+
+        <button className={s.profile} onClick={handleOpen}>
           <p className={s.userName}>{user.name}</p>
-          <button>
-            {user?.avatar ? (
-              <img
-                src={user.avatar}
-                alt="user photo"
-                className={s.profile_image}
-              />
-            ) : (
-              <div className={s.userIconWrapper}>
-                <Icon name={'icon-user'} className={s.userIcon} />
-              </div>
-            )}
-          </button>
-        </div>
+          {user?.avatar ? (
+            <img
+              src={user.avatar}
+              alt="user photo"
+              className={s.profile_image}
+            />
+          ) : (
+            <div className={s.userIconWrapper}>
+              <Icon name={'icon-user'} className={s.userIcon} />
+            </div>
+          )}
+        </button>
       </div>
+      <EditProfile open={open} onClose={handleClose} />
     </header>
   );
 };
