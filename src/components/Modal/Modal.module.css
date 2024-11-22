@@ -20,10 +20,10 @@
   width: 16px;
   height: 16px;
 
-  stroke: var(--icon-modal-close);
+  stroke: var(--text-color);
 }
 
-@media (min-width: 375px) {
+@media (max-width: 375px) {
   .modalContainer {
     width: 335px;
     padding: 24px;
@@ -40,7 +40,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .modalContainer {
     width: 350px;
   }
