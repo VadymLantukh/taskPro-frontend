@@ -20,6 +20,7 @@
   --add-column-button-background: rgba(255, 255, 255, 1);
   --icon-wrapper-btn: #161616;
   --icon-modal-close: #161616;
+  --icon-logout: #bedbb0;
   --label-color: rgba(22, 22, 22, 1);
 }
 
@@ -35,6 +36,7 @@
   --add-column-button-background: rgba(18, 18, 18, 1);
   --icon-wrapper-btn: #161616;
   --icon-modal-close: #fff;
+  --icon-logout: #bedbb0;
   --label-color: rgba(22, 22, 22, 1);
 }
 
@@ -53,5 +55,6 @@
   --add-column-button-background: rgba(255, 255, 255, 1);
   --icon-wrapper-btn: #fff;
   --icon-modal-close: #161616;
+  --icon-logout: #fff;
   --label-color: rgba(255, 255, 255, 1);
 }
