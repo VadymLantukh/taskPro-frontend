@@ -17,7 +17,7 @@ const CreateBoard = () => {
       </button>
       {isModalOpen && (
         <Modal open={isModalOpen} onClose={handleCloseModal}>
-          <NewBoard />
+          <NewBoard onClose={handleCloseModal}/>
         </Modal>
       )}
     </div>
