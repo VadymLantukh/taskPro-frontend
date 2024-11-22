@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Icon from '../Icon/Icon';
 import PersonMobile1x from '../../images/person_mobile@1x.webp';
@@ -37,14 +37,14 @@ const Welcome = () => {
       </p>
       <ul className={s.list}>
         <li>
-          <NavLink className={s.register} to="/auth/register">
+          <Link className={s.register} to="/auth/register">
             Registration
-          </NavLink>
+          </Link>
         </li>
         <li>
-          <NavLink className={s.login} to="/auth/login">
+          <Link className={s.login} to="/auth/login">
             Log In
-          </NavLink>
+          </Link>
         </li>
       </ul>
     </div>
