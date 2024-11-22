@@ -22,6 +22,7 @@
   --icon-modal-close: #161616;
   --icon-logout: #bedbb0;
   --label-color: rgba(22, 22, 22, 1);
+  --icon-color: rgba(22, 22, 22, 0.5);
 }
 
 .dark {
@@ -37,7 +38,8 @@
   --icon-wrapper-btn: #161616;
   --icon-modal-close: #fff;
   --icon-logout: #bedbb0;
-  --label-color: rgba(22, 22, 22, 1);
+  --label-color: rgba(255, 255, 255, 1);
+  --icon-color:#888888;
 }
 
 .violet {
@@ -56,5 +58,6 @@
   --icon-wrapper-btn: #fff;
   --icon-modal-close: #161616;
   --icon-logout: #fff;
-  --label-color: rgba(255, 255, 255, 1);
+  --label-color: rgba(22, 22, 22, 1);
+  --icon-color: rgba(22, 22, 22, 0.5);
 }
