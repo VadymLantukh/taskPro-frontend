@@ -43,6 +43,7 @@ export const Layout = () => {
           </div>
         </main>
       </div>
+      {isSidebarOpen && <div className={s.blur} onClick={onBurgerClick}></div>}
     </div>
   );
 };
