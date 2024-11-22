@@ -15,7 +15,10 @@ const BoardForm = ({
   onSubmit,
 }) => {
   const validationSchema = Yup.object().shape({
-    title: Yup.string().trim().required('Title is required'),
+    title: Yup.string()
+      .trim()
+      .min(3, 'Title must be at least 3 characters long') 
+      .required('Title is required'), 
   });
 
   const initialValues = {
