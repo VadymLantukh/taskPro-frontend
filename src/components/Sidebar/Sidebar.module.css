@@ -30,7 +30,7 @@
   margin-bottom: 8px;
   font-size: 12px;
   letter-spacing: -0.02em;
-  color: rgba(22, 22, 22, 0.5);
+  color: var(--third-text-color);
 }
 
 .sidedbarLogout {

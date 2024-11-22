@@ -16,7 +16,7 @@
 
 .iconlogout {
   fill: none;
-  stroke: #bedbb0;
+  stroke: var(--icon-logout);
   height: 32px;
   width: 32px;
 }

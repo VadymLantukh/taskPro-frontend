@@ -20,6 +20,7 @@
   --add-column-button-background: rgba(255, 255, 255, 1);
   --icon-wrapper-btn: #161616;
   --icon-modal-close: #161616;
+  --icon-logout: #bedbb0;
 }
 
 .dark {
@@ -34,6 +35,7 @@
   --add-column-button-background: rgba(18, 18, 18, 1);
   --icon-wrapper-btn: #161616;
   --icon-modal-close: #fff;
+  --icon-logout: #bedbb0;
 }
 
 .violet {
@@ -51,4 +53,5 @@
   --add-column-button-background: rgba(255, 255, 255, 1);
   --icon-wrapper-btn: #fff;
   --icon-modal-close: #161616;
+  --icon-logout: #fff;
 }

@@ -11,7 +11,7 @@
 }
 
 .createBoardBtn {
-    background-color: var(--accent);
+    background-color: var(--accentBtn);
     color: var(--text-color);
     border-radius: 6px;
     width: 40px;
