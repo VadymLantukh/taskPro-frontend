@@ -1,4 +1,5 @@
-import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+// import { createSlice } from '@reduxjs/toolkit';
 import * as operation from './authOperations';
 import { addBoard, deleteBoard, updateBoard } from '../board/boardOperations';
 
@@ -51,11 +52,17 @@ const authSlice = createSlice({
       .addCase(operation.updateUserThemeThunk.fulfilled, (state, action) => {
         state.user.theme = action.payload.theme;
       })
-      .addCase(operation.updateUserThunk.fulfilled, (state, action) => {
-        state.user.theme = action.payload.theme;
+      .addCase(operation.getUserThunk.pending, state => {
+        state.isRefreshing = true;
       })
       .addCase(operation.getUserThunk.fulfilled, (state, action) => {
         state.user = { ...state.user, ...action.payload.data };
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(operation.getUserThunk.rejected, state => {
+        state.isRefreshing = false;
+        state.isLoggedIn = false;
       })
       .addCase(addBoard.fulfilled, (state, action) => {
         state.user.boards.push(action.payload);

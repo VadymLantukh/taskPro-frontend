@@ -22,9 +22,9 @@ const Sidebar = ({ isOpen, onClose }) => {
 
     if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+      // document.body.style.overflow = 'hidden'; (це блок скролла)
+      // } else {
+      //   document.body.style.overflow = '';
     }
     return () => {
       window.removeEventListener('keydown', handleKeyDown);

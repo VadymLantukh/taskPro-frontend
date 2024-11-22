@@ -51,14 +51,12 @@ export const deleteBoard = createAsyncThunk(
 
 export const updateBoard = createAsyncThunk(
   'boards/updateBoard',
-  async (board, thunkAPI) => {
+  async ({ id, data }, thunkAPI) => {
     try {
-      const { data } = await axios.patch(`/boards/${board.id}`, board);
-      return data.data.data;
+      
+      const response = await axios.patch(`/boards/${id}`, data);
+      return response.data.data; 
     } catch (error) {
-      //   toast.error(
-      //     'Unable to update the board. Please check the details and try again.',
-      //   );
       return thunkAPI.rejectWithValue(error.message);
     }
   }

@@ -8,7 +8,7 @@
 
 .menu_icon {
   stroke-width: 2.5px;
-  stroke: var(--text-color);
+  stroke: var(--icon-modal-close);
   width: 24px;
   height: 24px;
 }
@@ -25,6 +25,7 @@
   border-radius: 8px;
   object-fit: cover;
 }
+
 .userIconWrapper {
   position: relative;
   width: 32px;
@@ -66,7 +67,7 @@
 
 @media (min-width: 768px) {
   .header {
-    padding: 18px 20px;
+    padding: 18px 32px;
     max-height: 68px;
   }
 
@@ -78,6 +79,7 @@
 
 @media (min-width: 1440px) {
   .header {
+    padding: 18px 24px;
     justify-content: flex-end;
   }
 }
