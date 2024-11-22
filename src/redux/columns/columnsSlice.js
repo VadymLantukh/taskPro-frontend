@@ -3,6 +3,7 @@ import { handleFulFilled, handlePending, handleRejected } from '../handlers';
 import { fetchBoard } from '../board/boardOperations';
 import { addColumn, deleteColumn, updateColumn } from './columnsOperations';
 import { addTask, deleteTask, updateTask } from '../tasks/tasksOperations';
+import { logOutThunk } from '../auth/authOperations';
 
 const initialState = {
   columns: [],
@@ -21,14 +22,21 @@ const slice = createSlice({
   },
   extraReducers: builder => {
     builder
+      .addCase(logOutThunk.fulfilled, () => {
+        return initialState;
+      })
       .addCase(fetchBoard.fulfilled, (state, action) => {
         state.columns = action.payload.columns?.map(({ tasks, ...rest }) => ({
           ...rest,
-          tasksIds: tasks.map(task => task._id) || [],
+          tasksIds: tasks ? tasks.map(task => task._id) : [],
         }));
       })
       .addCase(addColumn.fulfilled, (state, action) => {
-        state.columns.push(action.payload);
+        const { tasks, ...rest } = action.payload;
+        state.columns.push({
+          ...rest,
+          tasksIds: tasks ? tasks.map(task => task._id) : [],
+        });
       })
       .addCase(deleteColumn.fulfilled, (state, action) => {
         state.columns = state.columns.filter(
@@ -38,7 +46,9 @@ const slice = createSlice({
       })
       .addCase(updateColumn.fulfilled, (state, action) => {
         state.columns = state.columns.map(column =>
-          column._id === action.payload._id ? action.payload : column
+          column._id === action.payload._id
+            ? { ...action.payload, tasksIds: [...column.tasksIds] }
+            : column
         );
       })
       .addCase(addTask.fulfilled, (state, action) => {
@@ -61,8 +71,6 @@ const slice = createSlice({
         }
       })
       .addCase(updateTask.fulfilled, (state, action) => {
-        console.log(action.payload);
-
         const { _id: taskId, columnId: newColumnId } = action.payload;
 
         const oldColumn = state.columns.find(col =>
