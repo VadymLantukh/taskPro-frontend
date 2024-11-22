@@ -15,12 +15,12 @@ export const MainDashboard = () => {
 
   const board = useSelector(selectBoard);
   const columns = useSelector(state => selectColumnsForBoard(state, board.id));
-  const isEmptyColumn = board?.columns?.length === 0;
 
   return (
-    <>
-      {isEmptyColumn && (
-        <div>
+      <div className={s['columns-container']}>
+        {columns.map(column => (
+          <Column key={column._id} column={column} />
+        ))}
           <Button
             showIcon={true}
             text="Add another column"
@@ -32,14 +32,7 @@ export const MainDashboard = () => {
               <AddColumn onClose={handleClose} />
             </Modal>
           )}
-        </div>
-      )}
-      <div className={s['columns-container']}>
-        {columns.map(column => (
-          <Column key={column._id} column={column} />
-        ))}
       </div>
-    </>
   );
 };
 

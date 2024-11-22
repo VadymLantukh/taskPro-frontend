@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { PrivateRoute } from '../PrivateRoute';
 import { PublicRoute } from '../PublicRoute';
 import Loader from '../Loader/Loader';
+
 import {
   selectIsRefreshing,
   selectTheme,
