@@ -15,10 +15,11 @@ export const Layout = () => {
   const onBurgerClick = () => setIsSidebarOpen(!isSidebarOpen);
   const dispatch = useDispatch();
   const sidebarRef = document.getElementById('sidebar');
+  const modalWrapperRef = document.getElementById('wrapperModal');
   const theme = useSelector(selectTheme);
 
   const handleClickOutside = event => {
-    if (sidebarRef && !sidebarRef.contains(event.target)) {
+    if (sidebarRef && modalWrapperRef && !sidebarRef.contains(event.target)) {
       setIsSidebarOpen(false);
     }
   };
@@ -43,6 +44,7 @@ export const Layout = () => {
           </div>
         </main>
       </div>
+      {isSidebarOpen && <div className={s.blur} onClick={onBurgerClick}></div>}
     </div>
   );
 };

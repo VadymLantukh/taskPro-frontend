@@ -25,10 +25,9 @@ const NeedHelp = () => {
           If you need help with <span className={s.task}>TaskPro</span>, check
           out our support resources or reach out to our customer support team.
         </p>
+
         <div className={s.needHelp}>
-          <svg className={s.icon} width={20} height={20}>
-            <use href={`${Icon}#icon-help`} />
-          </svg>
+          <Icon name="icon-help" className={s.icon} width={20} height={20} />
           <button className={s.button} onClick={handleOpen}>
             Need help?
           </button>
