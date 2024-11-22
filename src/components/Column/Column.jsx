@@ -26,7 +26,11 @@ export const Column = ({ column }) => {
         onClick={handleOpenModal}
       />
       <ModalWrapper open={isModalOpen} onClose={handleCloseModal}>
-        <AddCard />
+        <AddCard
+          boardId={column?.boardId}
+          columnId={column?._id}
+          onSuccess={handleCloseModal}
+        />
       </ModalWrapper>
     </div>
   );

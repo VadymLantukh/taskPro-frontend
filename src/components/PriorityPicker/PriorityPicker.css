@@ -20,22 +20,22 @@
   z-index: 5 !important;
 }
 
-.priority-picker-radio-none:before {
+.priority-picker-radio-Without:before {
   background-color: #c9b7b7 !important;
   border-color: #c9b7b7 !important;
 }
 
-.priority-picker-radio-low:before {
+.priority-picker-radio-Low:before {
   background-color: #8fa1d0 !important;
   border-color: #8fa1d0 !important;
 }
 
-.priority-picker-radio-medium:before {
+.priority-picker-radio-Medium:before {
   background-color: #e09cb5 !important;
   border-color: #e09cb5 !important;
 }
 
-.priority-picker-radio-high:before {
+.priority-picker-radio-High:before {
   background-color: #bedbb0 !important;
   border-color: #bedbb0 !important;
 }
@@ -52,18 +52,18 @@
   display: none !important;
 }
 
-.priority-picker-radio-none {
+.priority-picker-radio-Without {
   color: #c9b7b7 !important;
 }
 
-.priority-picker-radio-low {
+.priority-picker-radio-Low {
   color: #8fa1d0 !important;
 }
 
-.priority-picker-radio-medium {
+.priority-picker-radio-Medium {
   color: #e09cb5 !important;
 }
 
-.priority-picker-radio-high {
+.priority-picker-radio-High {
   color: #bedbb0 !important;
 }
