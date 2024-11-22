@@ -22,7 +22,7 @@ export const registerThunk = createAsyncThunk(
     try {
       const res = await axios.post('/auth/register', credentials);
       setAuthHeader(res.data.token);
-      toast.success('Registration successfull!', {
+      toast.success('Registration successful!', {
         position: 'bottom-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -57,7 +57,7 @@ export const logInThunk = createAsyncThunk(
     try {
       const { data } = await axios.post('/auth/login', credentials);
       setAuthHeader(data.data.accessToken);
-      toast.success('Successfull login!', {
+      toast.success('Successful login!', {
         position: 'bottom-right',
         autoClose: 5000,
         hideProgressBar: false,

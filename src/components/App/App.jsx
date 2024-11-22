@@ -8,13 +8,6 @@ import { PrivateRoute } from '../PrivateRoute';
 import { PublicRoute } from '../PublicRoute';
 import Loader from '../Loader/Loader';
 
-import '../../styles/common.css';
-import { ToastContainer } from 'react-toastify';
-import { useSelector } from 'react-redux';
-import { selectTheme } from '../../redux/auth/authSelectors';
-import 'react-toastify/dist/ReactToastify.css';
-
-// import { selectIsRefreshing } from '../../redux/auth/selectors';
 import {
   selectIsRefreshing,
   selectTheme,
