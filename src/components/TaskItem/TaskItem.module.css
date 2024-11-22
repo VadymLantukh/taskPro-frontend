@@ -107,15 +107,15 @@
 }
 
 .priority_low::before {
-  background-color: var(--low);
+  background-color: #8fa1d0;
 }
 
 .priority_medium::before {
-  background-color: var(--medium);
+  background-color: #e09cb5;
 }
 
 .priority_high::before {
-  background-color: var(--accent);
+  background-color: #bedbb0;
 }
 
 .task_priority::before {
@@ -164,8 +164,8 @@
   width: 16px;
   height: 16px;
   fill: none;
-  color: var(--secondary-text-color);
-  stroke: var(--secondary-text-color);
+  color: var(--text-color);
+  stroke: var(--text-color);
   opacity: 0.5;
 }
 
