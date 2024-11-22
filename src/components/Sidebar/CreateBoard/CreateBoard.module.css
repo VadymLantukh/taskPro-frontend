@@ -34,7 +34,7 @@
 
 .btnPlus {
     height: 20px;
-    stroke: #121212;
+    stroke: var(--icon-wrapper-btn);
 }
 
 .createText {
