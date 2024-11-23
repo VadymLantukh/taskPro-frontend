@@ -25,6 +25,8 @@
   --icon-logout: #bedbb0;
   --label-color: rgba(22, 22, 22, 1);
   --icon-color: rgba(22, 22, 22, 0.5);
+  --scrollbar-background: #fff;
+  --scrollbar-thumb: #e8e8e8;
 }
 
 .dark {
@@ -43,6 +45,8 @@
   --icon-logout: #bedbb0;
   --label-color: rgba(255, 255, 255, 1);
   --icon-color: #888888;
+  --scrollbar-background: #161616;
+  --scrollbar-thumb: rgba(255, 255, 255, 0.1);
 }
 
 .violet {
@@ -65,4 +69,6 @@
   --icon-logout: #fff;
   --label-color: rgba(22, 22, 22, 1);
   --icon-color: rgba(22, 22, 22, 0.5);
+  --scrollbar-background: #fff;
+  --scrollbar-thumb: #b8bcfd;
 }
