@@ -28,13 +28,12 @@ const TaskItem = ({ tasks }) => {
 
   const formatDate = isoDate => {
     const date = new Date(isoDate);
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Місяці від 0 до 11
+    const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
     const year = date.getFullYear();
     return `${month}/${day}/${year}`;
   };
 
-  // Функція для перевірки, чи дедлайн сьогодні
   const isDeadlineToday = isoDate => {
     const deadlineDate = new Date(isoDate).toDateString();
     const todayDate = new Date().toDateString();
