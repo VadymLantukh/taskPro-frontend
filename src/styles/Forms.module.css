@@ -21,7 +21,7 @@
   border: 1px solid var(--hight);
   border-radius: 8px;
   background-color: transparent;
-  color: var(--text-color);
+  color: var(--text-header-color);
   opacity: 0.4;
   transition: all 0.3s ease-in-out;
   &:hover,
@@ -42,7 +42,7 @@
   border: 1px solid var(--hight);
   border-radius: 8px;
   background-color: transparent;
-  color: var(--text-color);
+  color: var(--text-header-color);
   opacity: 0.4;
   transition: all 0.3s ease-in-out;
   resize: none;
