@@ -59,17 +59,19 @@ const EditProfile = ({ open, onClose, user }) => {
           {({ isSubmitting }) => (
             <Form className={s.form}>
               <div className={s.avatarWrapper}>
-                {avatarPreview ? (
-                  <img
-                    src={avatarPreview}
-                    alt="User Avatar"
-                    className={s.avatar}
-                  />
-                ) : (
-                  <div className={s.userIconWrapper}>
-                    <Icon name="icon-user" className={s.userIcon} />
-                  </div>
-                )}
+                <div>
+                  {avatarPreview ? (
+                    <img
+                      src={avatarPreview}
+                      alt="User Avatar"
+                      className={s.avatar}
+                    />
+                  ) : (
+                    <div className={s.userIconWrapper}>
+                      <Icon name="icon-user" className={s.userIcon} />
+                    </div>
+                  )}
+                </div>
                 <label className={s.uploadButton}>
                   <input
                     type="file"
@@ -77,10 +79,12 @@ const EditProfile = ({ open, onClose, user }) => {
                     ref={fileInputRef}
                     onChange={handleAvatarChange}
                     hidden
+                    className={s.uploadInput}
                   />
-                  <span>+</span>
+                  <span className={s.plusButton}>+</span>
                 </label>
               </div>
+
               <div className={s.fieldWrapper}>
                 <Field
                   name="name"
@@ -116,12 +120,7 @@ const EditProfile = ({ open, onClose, user }) => {
                   className={s.error}
                 />
               </div>
-              <Button
-                type="submit"
-                text="Send"
-                disabled={isSubmitting}
-                className={s.button}
-              />
+              <Button type="submit" text="Send" disabled={isSubmitting} />
             </Form>
           )}
         </Formik>

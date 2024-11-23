@@ -6,7 +6,7 @@
 .formTitle {
   font-size: 18px;
   font-weight: 500;
-  color: var(--text-color);
+  color: var(--text-header-color);
   margin-bottom: 24px;
 }
 
@@ -104,14 +104,13 @@
   border-radius: 6px;
 }
 
-.backgroundIcon{
+.backgroundIcon {
   width: 28px;
   height: 28px;
   transition: border 0.3s ease;
   border-radius: 6px;
   stroke: rgba(22, 22, 22, 0.5);
   fill: none;
-
 }
 
 .selected .backgroundImage,
