@@ -1,13 +1,28 @@
 import Icon from '../Icon/Icon';
 import HeaderTheme from '../HeaderTheme/HeaderTheme';
 import s from './Header.module.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '../../redux/auth/authSelectors';
+import { getUserThunk } from '../../redux/auth/authOperations';
 import { useScreenWidth } from '../../hooks/useScreenWidth';
+import { useEffect, useState } from 'react';
+import EditProfile from '../EditProfile/EditProfile';
 
 const Header = ({ onBurgerClick }) => {
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
+
   const { isLargeScreen } = useScreenWidth();
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  useEffect(() => {
+    if (!user.name) {
+      dispatch(getUserThunk());
+    }
+  }, [dispatch, user.name]);
 
   return (
     <header className={s.header}>
@@ -18,23 +33,23 @@ const Header = ({ onBurgerClick }) => {
       )}
       <div className={s.theme_user_wrap}>
         <HeaderTheme />
-        <div className={s.profile}>
-          <p className={s.userName}>{user.name}</p>
-          <button>
-            {user?.avatar ? (
-              <img
-                src={user.avatar}
-                alt="user photo"
-                className={s.profile_image}
-              />
-            ) : (
-              <div className={s.userIconWrapper}>
-                <Icon name={'icon-user'} className={s.userIcon} />
-              </div>
-            )}
-          </button>
-        </div>
+
+        <button className={s.profile} onClick={handleOpen}>
+          <p className={s.userName}>{user.name || 'Loading...'}</p>
+          {user?.avatar ? (
+            <img
+              src={user.avatar}
+              alt="user photo"
+              className={s.profile_image}
+            />
+          ) : (
+            <div className={s.userIconWrapper}>
+              <Icon name={'icon-user'} className={s.userIcon} />
+            </div>
+          )}
+        </button>
       </div>
+      <EditProfile open={open} onClose={handleClose} user={user} />
     </header>
   );
 };
