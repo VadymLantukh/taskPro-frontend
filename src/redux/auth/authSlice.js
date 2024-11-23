@@ -73,15 +73,11 @@ const authSlice = createSlice({
         state.user.boards.push(action.payload);
       })
       .addCase(deleteBoard.fulfilled, (state, action) => {
-        console.log(action.payload);
-
         state.user.boards = state.user.boards.filter(
           board => board._id !== action.payload
         );
       })
       .addCase(updateBoard.fulfilled, (state, action) => {
-        console.log(action.payload);
-
         state.user.boards = state.user.boards.map(board =>
           board._id === action.payload._id ? action.payload : board
         );
