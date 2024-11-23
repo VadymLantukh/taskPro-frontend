@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { handleFulFilled, handlePending, handleRejected } from '../handlers';
 import { addColumn, deleteColumn } from '../columns/columnsOperations';
 import { fetchBoard } from './boardOperations';
+import { logOutThunk } from '../auth/authOperations';
 
 const initialState = {
   board: {
@@ -26,6 +27,9 @@ const slice = createSlice({
   },
   extraReducers: builder => {
     builder
+      .addCase(logOutThunk.fulfilled, () => {
+        return initialState;
+      })
       .addCase(fetchBoard.fulfilled, (state, action) => {
         state.board = {
           id: action.payload._id,
