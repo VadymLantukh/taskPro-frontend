@@ -10,6 +10,10 @@
   margin-bottom: 24px;
 }
 
+.newBoardTitle {
+  color: var(--label-color);
+}
+
 .titleInput {
   border: none;
   border: 1px solid #bedbb0;
