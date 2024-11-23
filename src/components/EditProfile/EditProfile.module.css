@@ -31,6 +31,14 @@
   position: relative;
 }
 
+.userIcon {
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+  object-fit: cover;
+  position: relative;
+}
+
 .uploadButton {
   position: absolute;
   top: 100%;
