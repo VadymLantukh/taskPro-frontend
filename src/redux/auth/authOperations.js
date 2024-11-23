@@ -31,7 +31,6 @@ export const registerThunk = createAsyncThunk(
         draggable: true,
         progress: undefined,
       });
-      console.log(res.data); //TODO remove this
       return res.data;
     } catch (error) {
       toast.error(`${error.response.data.data.message}`, {
@@ -158,7 +157,7 @@ export const updateUserThemeThunk = createAsyncThunk(
         theme: credentials,
       };
       const { data } = await axios.patch('/auth', payload);
-      return data;
+      return data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
