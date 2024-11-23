@@ -1,46 +1,35 @@
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { useToggle } from '../../../hooks/useToggle.js';
+import { deleteColumn } from '../../../redux/columns/columnsOperations.js';
 import IconButton from '../../IconButton/IconButton.jsx';
 import Modal from '../../ModalWrapper/ModalWrapper.jsx';
-
-import s from './HeaderColumn.module.css';
 import EditColumn from '../../EditColumn/EditColumn.jsx';
 
+import s from './HeaderColumn.module.css';
+
 export const HeaderColumn = ({ title, columnId }) => {
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const openEditModal = () => setIsEditModalOpen(true);
-  const closeEditModal = () => setIsEditModalOpen(false);
+  const {open,  handleClose, handleOpen} = useToggle()
+  const dispatch = useDispatch();
 
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const openDeleteModal = () => setIsDeleteModalOpen(true);
-  const closeDeleteModal = () => setIsDeleteModalOpen(false);
+  const handleDelete = () => {
+    dispatch(deleteColumn(columnId));
+  };
 
-  const handlePencilClick = () => {
-    openEditModal();
-  };
-  const handleTrashClick = () => {
-    openDeleteModal();
-  };
   return (
     <div className={s.container}>
-      <h3 className={s.title}>{title}</h3>
+      {title && <h3 className={s.title}>{title}</h3>}
       <div className={s['icon-container']}>
-        <IconButton name="icon-pencil" onClick={handlePencilClick} />
-        <IconButton name="icon-trash" onClick={handleTrashClick} />
+        <IconButton name="icon-pencil" onClick={handleOpen} />
+        <IconButton name="icon-trash" onClick={handleDelete}  />
 
-        {isEditModalOpen && (
-          <Modal open={isEditModalOpen} onClose={closeEditModal}>
+        {open && (
+          <Modal open={open} onClose={handleClose}>
             <EditColumn
-              onClose={closeEditModal}
+              onClose={handleClose}
               columnId={columnId}
               title={title}
             />
-          </Modal>
-        )}
-
-        {isDeleteModalOpen && (
-          <Modal open={isDeleteModalOpen} onClose={closeDeleteModal}>
-            <EditColumn onClose={closeDeleteModal} />
-            {/* //! Change to Delete */}
           </Modal>
         )}
       </div>

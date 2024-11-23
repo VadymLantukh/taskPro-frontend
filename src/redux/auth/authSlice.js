@@ -52,7 +52,12 @@ const authSlice = createSlice({
       .addCase(operation.updateUserThemeThunk.fulfilled, (state, action) => {
         state.user.theme = action.payload.theme;
       })
+      .addCase(operation.updateUserThunk.fulfilled, (state, action) => {
+        state.user = { ...state.user, ...action.payload };
+      })
+
       .addCase(operation.getUserThunk.pending, state => {
+        if (!state.isLoggedIn || state.isRefreshing) return;
         state.isRefreshing = true;
       })
       .addCase(operation.getUserThunk.fulfilled, (state, action) => {
@@ -68,15 +73,11 @@ const authSlice = createSlice({
         state.user.boards.push(action.payload);
       })
       .addCase(deleteBoard.fulfilled, (state, action) => {
-        console.log(action.payload);
-
         state.user.boards = state.user.boards.filter(
           board => board._id !== action.payload
         );
       })
       .addCase(updateBoard.fulfilled, (state, action) => {
-        console.log(action.payload);
-
         state.user.boards = state.user.boards.map(board =>
           board._id === action.payload._id ? action.payload : board
         );

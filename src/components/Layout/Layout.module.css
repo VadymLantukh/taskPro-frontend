@@ -26,20 +26,6 @@
   z-index: 98;
 }
 
-
-@media (min-width: 375px) {
-  .wrapper {
-    max-width: 375px;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 768px) {
-  .wrapper {
-    max-width: 768px;
-  }
-}
-
 @media (min-width: 1440px) {
   .wrapper {
     flex-direction: row;
