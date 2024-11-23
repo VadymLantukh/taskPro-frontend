@@ -41,7 +41,7 @@ const Welcome = () => {
             Registration
           </Link>
         </li>
-        <li>
+        <li className={s.loginWrapper}>
           <Link className={s.login} to="/auth/login">
             Log In
           </Link>
