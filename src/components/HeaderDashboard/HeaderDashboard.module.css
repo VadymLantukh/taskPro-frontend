@@ -38,10 +38,18 @@
   .container {
     margin-bottom: 26px;
   }
+
+  .title {
+    font-size: 18px;
+  }
 }
 
 @media (min-width: 1440px) {
   .container {
     margin-bottom: 10px;
+  }
+
+  .title {
+    font-size: 18px;
   }
 }
