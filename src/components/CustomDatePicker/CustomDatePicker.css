@@ -55,7 +55,7 @@
 }
 
 .MuiPickersCalendarHeader-root .MuiIconButton-root {
-  color: #8c8c8c !important;
+  color: #aaaaaa !important;
 }
 
 .MuiPickersCalendarHeader-label {
@@ -97,7 +97,7 @@
 }
 
 .MuiPickersDay-root.Mui-disabled {
-  color: #e0e0e0 !important;
+  color: #aaaaaa !important;
 }
 
 .MuiPickersActionBar-root {
@@ -133,7 +133,7 @@
 
 .MuiDayCalendar-weekDayLabel {
   font-size: 14px !important;
-  color: #8c8c8c !important;
+  color: #aaaaaa !important;
 }
 
 .MuiPickersArrowSwitcher-root {
