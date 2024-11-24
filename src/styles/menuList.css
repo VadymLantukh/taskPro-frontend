@@ -25,6 +25,11 @@
   background-color: transparent !important;
 }
 
+.MuiMenuItem-root:hover div svg {
+  stroke: var(--accent);
+  opacity: 1;
+}
+
 .Mui-focusVisible {
   background-color: transparent !important;
 }
