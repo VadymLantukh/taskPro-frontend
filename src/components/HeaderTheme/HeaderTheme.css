@@ -1,0 +1,29 @@
+.MuiPaper-root {
+  border-radius: 8px !important;
+  padding: 10px 0px !important;
+  min-width: 100px !important;
+  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1) !important;
+}
+
+.MuiList-root {
+  padding: 0 !important;
+}
+
+.MuiMenuItem-root {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-color);
+  line-height: 1.5;
+  transition: color 0.2s ease, color 0.2s ease;
+  padding: 4px 18px;
+}
+
+.MuiMenuItem-root:hover {
+  color: var(--accent);
+  background-color: transparent !important;
+}
+
+.Mui-focusVisible {
+  background-color: transparent !important;
+}

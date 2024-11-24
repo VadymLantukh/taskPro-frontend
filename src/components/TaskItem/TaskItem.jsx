@@ -67,7 +67,7 @@ const TaskItem = ({ tasks }) => {
               />
               <span className={s.separator}></span>
               <div className={s.task_footer}>
-                <container className={s.task_container_wrapper}>
+                <div className={s.task_container_wrapper}>
                   <span className={s.wrapper_title}>Priority</span>
                   <div
                     className={clsx(
@@ -79,14 +79,14 @@ const TaskItem = ({ tasks }) => {
                       {taskCard.priority}
                     </span>
                   </div>
-                </container>
+                </div>
                 {taskCard.deadline && (
-                  <container className={s.task_container_wrapper}>
+                  <div className={s.task_container_wrapper}>
                     <span className={s.wrapper_title}>Deadline</span>
                     <div className={s.task_deadline}>
                       <span>{formatDate(taskCard.deadline)}</span>
                     </div>
-                  </container>
+                  </div>
                 )}
                 <div className={s.actions}>
                   {isDeadlineToday(taskCard.deadline) && (

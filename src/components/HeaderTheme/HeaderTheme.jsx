@@ -1,15 +1,24 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Menu, MenuItem } from '@mui/material';
 
 import Icon from '../Icon/Icon';
 
-import s from './HeaderTheme.module.css';
-import { useDispatch } from 'react-redux';
 import { updateUserThemeThunk } from '../../redux/auth/authOperations';
+
+import s from './HeaderTheme.module.css';
+import './HeaderTheme.css';
+import { changeTheme } from '../../redux/auth/authSlice';
 
 const HeaderTheme = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    return () => {
+      setAnchorEl(null);
+    };
+  }, []);
 
   const handleOpenMenu = event => {
     setAnchorEl(event.currentTarget);
@@ -21,6 +30,7 @@ const HeaderTheme = () => {
 
   const handleThemeChange = selectedTheme => {
     dispatch(updateUserThemeThunk(selectedTheme));
+    dispatch(changeTheme(selectedTheme));
     handleCloseMenu();
   };
 
@@ -35,26 +45,10 @@ const HeaderTheme = () => {
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleCloseMenu}
-        classes={{ paper: s.menuPaper }}
       >
-        <MenuItem
-          onClick={() => handleThemeChange('light')}
-          className={s.menuItem}
-        >
-          Light
-        </MenuItem>
-        <MenuItem
-          onClick={() => handleThemeChange('dark')}
-          className={s.menuItem}
-        >
-          Dark
-        </MenuItem>
-        <MenuItem
-          onClick={() => handleThemeChange('violet')}
-          className={s.menuItem}
-        >
-          Violet
-        </MenuItem>
+        <MenuItem onClick={() => handleThemeChange('light')}>Light</MenuItem>
+        <MenuItem onClick={() => handleThemeChange('dark')}>Dark</MenuItem>
+        <MenuItem onClick={() => handleThemeChange('violet')}>Violet</MenuItem>
       </Menu>
     </div>
   );
