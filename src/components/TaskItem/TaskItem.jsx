@@ -10,9 +10,9 @@ import MoveTaskMenu from '../MoveTaskMenu/MoveTaskMenu';
 
 import { deleteTask, updateTask } from '../../redux/tasks/tasksOperations';
 import { setCurrentTask } from '../../redux/tasks/tasksSlice';
+import { selectColumnsForBoard } from '../../redux/columns/columnsSelectors';
 
 import s from './TaskItem.module.css';
-import { selectColumnsForBoard } from '../../redux/columns/columnsSelectors';
 
 const TaskItem = ({ tasks, boardId }) => {
   const dispatch = useDispatch();
