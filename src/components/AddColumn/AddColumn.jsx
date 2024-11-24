@@ -20,6 +20,14 @@ const AddColumn = ({
   const dispatch = useDispatch();
   const { boardId } = useParams();
 
+  const validationSchema = Yup.object().shape({
+    title: Yup.string()
+      .trim()
+      .min(3, 'The title must have at least 3 characters.')
+      .max(30, 'The title must not exceed 30 characters.')
+      .required('The title is required.'),
+  });
+
   const handleSubmit = (values, { setSubmitting }) => {
     const trimmedTitle = values.title.trim();
 
@@ -54,10 +62,6 @@ const AddColumn = ({
       setSubmitting(false);
     }
   };
-
-  const validationSchema = Yup.object().shape({
-    title: Yup.string().trim().required('Title is required'),
-  });
 
   return (
     <div className={s.boardContainer}>
