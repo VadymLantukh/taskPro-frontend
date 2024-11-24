@@ -25,6 +25,7 @@
   --icon-logout: #bedbb0;
   --label-color: rgba(22, 22, 22, 1);
   --icon-color: rgba(22, 22, 22, 0.5);
+  --icon-color-background: #f6f6f7;
 }
 
 .dark {
@@ -43,6 +44,7 @@
   --icon-logout: #bedbb0;
   --label-color: rgba(255, 255, 255, 1);
   --icon-color: #888888;
+  --icon-color-background: #1f1f1f;
 }
 
 .violet {
@@ -65,4 +67,5 @@
   --icon-logout: #fff;
   --label-color: rgba(22, 22, 22, 1);
   --icon-color: rgba(22, 22, 22, 0.5);
+  --icon-color-background: #ecedfd;
 }
