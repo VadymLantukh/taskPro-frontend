@@ -22,7 +22,7 @@ export const registerThunk = createAsyncThunk(
     try {
       const res = await axios.post('/auth/register', credentials);
       setAuthHeader(res.data.token);
-      toast.success('Registration successfull!', {
+      toast.success(`${res.data.message}`, {
         position: 'bottom-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -31,10 +31,9 @@ export const registerThunk = createAsyncThunk(
         draggable: true,
         progress: undefined,
       });
-      console.log(res.data); //TODO remove this
       return res.data;
     } catch (error) {
-      toast.error(`${error.message}`, {
+      toast.error(`${error.response.data.data.message}`, {
         position: 'bottom-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -57,20 +56,18 @@ export const logInThunk = createAsyncThunk(
     try {
       const { data } = await axios.post('/auth/login', credentials);
       setAuthHeader(data.data.accessToken);
-      // !data.data.accessToken;
-      // toast.success('Successfull login!', {
-      //   position: 'bottom-right',
-      //   autoClose: 5000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      // });
-      /// !return data.data;
+      toast.success(`${data.message}`, {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return data.data;
     } catch (error) {
-      toast.error(`${error.message}`, {
+      toast.error(`${error.response.data.data.message}`, {
         position: 'bottom-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -160,7 +157,7 @@ export const updateUserThemeThunk = createAsyncThunk(
         theme: credentials,
       };
       const { data } = await axios.patch('/auth', payload);
-      return data;
+      return data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

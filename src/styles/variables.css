@@ -1,11 +1,13 @@
 :root {
   --logo-background: #1f1f1f;
   --logo-icon: #fff;
+  --logo-header-icon: #fff;
   --background-color: #f6f6f7;
   --header-background-color: #fcfcfc;
   --sidebar-background-color: #fff;
   --sidebar-card-background: #f6f6f7;
   --text-color: #161616;
+  --text-header-color: #161616;
   --secondary-text-color: rgba(255, 255, 255, 0.8);
   --third-text-color: rgba(22, 22, 22, 0.5);
   --thumb-color: rgba(22, 22, 22, 0.1);
@@ -13,7 +15,7 @@
   --accent: #bedbb0;
   --low: #8fa1d0;
   --medium: #e09cb5;
-  --without: rgba(255, 255, 255, 0.3);
+  --without: #bababa;
   --hight: #bedbb0;
   --accentBtn: #9dc888;
   --filter-color: rgba(22, 22, 22, 0.8);
@@ -22,6 +24,11 @@
   --icon-modal-close: #161616;
   --icon-logout: #bedbb0;
   --label-color: rgba(22, 22, 22, 1);
+  --icon-color: rgba(22, 22, 22, 0.5);
+  --scrollbar-background: #fff;
+  --scrollbar-thumb: #e8e8e8;
+  --card-label: rgba(22, 22, 22, 0.5);
+  --icon-color-background: #f6f6f7;
 }
 
 .dark {
@@ -30,6 +37,7 @@
   --sidebar-background-color: #121212;
   --sidebar-card-background: #1f1f1f;
   --text-color: #fff;
+  --text-header-color: #fff;
   --secondary-text-color: rgba(255, 255, 255, 0.7);
   --third-text-color: rgba(255, 255, 255, 0.5);
   --filter-color: rgba(255, 255, 255, 0.8);
@@ -37,17 +45,24 @@
   --icon-wrapper-btn: #161616;
   --icon-modal-close: #fff;
   --icon-logout: #bedbb0;
-  --label-color: rgba(22, 22, 22, 1);
+  --label-color: rgba(255, 255, 255, 1);
+  --icon-color: #888888;
+  --scrollbar-background: #161616;
+  --scrollbar-thumb: rgba(255, 255, 255, 0.1);
+  --card-label: rgba(255, 255, 255, 0.5);
+  --icon-color-background: #1f1f1f;
 }
 
 .violet {
   --logo-background: #ecedfd;
   --logo-icon: #5255bc;
+  --logo-header-icon: #fff;
   --background-color: #ecedfd;
   --header-background-color: #fff;
   --sidebar-background-color: #5255bc;
   --sidebar-card-background: rgba(236, 237, 253, 0.4);
   --text-color: #fff;
+  --text-header-color: #161616;
   --secondary-text-color: rgba(255, 255, 255, 0.7);
   --third-text-color: rgba(255, 255, 255, 0.5);
   --accent: #5255bc;
@@ -56,5 +71,10 @@
   --icon-wrapper-btn: #fff;
   --icon-modal-close: #161616;
   --icon-logout: #fff;
-  --label-color: rgba(255, 255, 255, 1);
+  --label-color: rgba(22, 22, 22, 1);
+  --icon-color: rgba(22, 22, 22, 0.5);
+  --scrollbar-background: #fff;
+  --scrollbar-thumb: #b8bcfd;
+  --card-label: rgba(22, 22, 22, 0.5);
+  --icon-color-background: #ecedfd;
 }

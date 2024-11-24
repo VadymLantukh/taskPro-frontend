@@ -1,13 +1,13 @@
 .title {
   font-size: 18px;
   font-weight: 500;
-  color: var(--text-color);
+  color: var(--text-header-color);
   margin-bottom: 24px;
 }
 
 .label {
   font-size: 12px;
-  color: var(--third-text-color);
+  color: var(--card-label);
   margin-bottom: 5px;
   line-height: 1.5;
 }

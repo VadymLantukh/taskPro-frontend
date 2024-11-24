@@ -15,20 +15,21 @@ const EditBoard = ({ boardToEdit = {}, onClose }) => {
 
   const handleUpdateBoard = async updatedBoardData => {
     const updatedData = {
-      id: boardToEdit.id,
       title: updatedBoardData.title,
       icon: updatedBoardData.selectedIcon,
     };
-
     updatedData.backgroundImage =
       updatedBoardData.selectedBackground === 'iconBackground'
         ? null
         : updatedBoardData.selectedBackground;
-
-    console.log('Data for update', updatedData);
-
+  
+    console.log('Data for update', { id: boardToEdit.id, data: updatedData });
+  
     try {
-      const response = await dispatch(updateBoard(updatedData)).unwrap();
+      const response = await dispatch(
+        updateBoard({ id: boardToEdit.id, data: updatedData })
+      ).unwrap();
+  
       console.log('Success update', response);
       onClose();
     } catch (err) {

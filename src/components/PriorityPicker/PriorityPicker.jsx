@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 import './PriorityPicker.css';
 
-const PriorityPicker = ({ selectedValue = 'none', onChange }) => {
+const PriorityPicker = ({ selectedValue = 'Without', onChange }) => {
   const options = [
     { value: 'Without', label: 'Without', color: '#c9b7b7' },
     { value: 'Low', label: 'Low', color: '#8fa1d0' },

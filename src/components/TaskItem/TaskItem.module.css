@@ -103,7 +103,7 @@
 }
 
 .priority_without::before {
-  background-color: rgba(22, 22, 22, 0.3);
+  background-color: var(--without);
 }
 
 .priority_low::before {
@@ -115,7 +115,7 @@
 }
 
 .priority_high::before {
-  background-color: var(--accent);
+  background-color: var(--hight);
 }
 
 .task_priority::before {
@@ -137,7 +137,7 @@
   width: 16px;
   height: 16px;
   fill: none;
-  stroke: #bedbb0;
+  stroke: var(--accent);
   opacity: 1;
   animation: pulse 1.5s infinite;
 }
@@ -164,8 +164,8 @@
   width: 16px;
   height: 16px;
   fill: none;
-  color: var(--secondary-text-color);
-  stroke: var(--secondary-text-color);
+  color: var(--text-color);
+  stroke: var(--text-color);
   opacity: 0.5;
 }
 

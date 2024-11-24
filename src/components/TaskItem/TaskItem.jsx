@@ -28,13 +28,12 @@ const TaskItem = ({ tasks }) => {
 
   const formatDate = isoDate => {
     const date = new Date(isoDate);
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Місяці від 0 до 11
+    const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
     const year = date.getFullYear();
     return `${month}/${day}/${year}`;
   };
 
-  // Функція для перевірки, чи дедлайн сьогодні
   const isDeadlineToday = isoDate => {
     const deadlineDate = new Date(isoDate).toDateString();
     const todayDate = new Date().toDateString();
@@ -68,7 +67,7 @@ const TaskItem = ({ tasks }) => {
               />
               <span className={s.separator}></span>
               <div className={s.task_footer}>
-                <container className={s.task_container_wrapper}>
+                <div className={s.task_container_wrapper}>
                   <span className={s.wrapper_title}>Priority</span>
                   <div
                     className={clsx(
@@ -80,14 +79,14 @@ const TaskItem = ({ tasks }) => {
                       {taskCard.priority}
                     </span>
                   </div>
-                </container>
+                </div>
                 {taskCard.deadline && (
-                  <container className={s.task_container_wrapper}>
+                  <div className={s.task_container_wrapper}>
                     <span className={s.wrapper_title}>Deadline</span>
                     <div className={s.task_deadline}>
                       <span>{formatDate(taskCard.deadline)}</span>
                     </div>
-                  </container>
+                  </div>
                 )}
                 <div className={s.actions}>
                   {isDeadlineToday(taskCard.deadline) && (
