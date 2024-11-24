@@ -7,6 +7,7 @@ import s from './BoardsList.module.css';
 const BoardsList = () => {
   const { boards } = useSelector(selectUser);
   // const isModalOpen = useSelector(selectEditBoard);
+
   return (
     <>
       <ul className={s.list}>
