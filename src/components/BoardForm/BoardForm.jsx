@@ -17,7 +17,8 @@ const BoardForm = ({
   const validationSchema = Yup.object().shape({
     title: Yup.string()
       .trim()
-      .min(3, 'Title must be at least 3 characters long') 
+      .min(3, 'Title must be at least 3 characters long')
+      .max(30, 'Title must not exceed 30 characters')
       .required('Title is required'), 
   });
 
