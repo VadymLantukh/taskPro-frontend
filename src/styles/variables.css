@@ -15,7 +15,7 @@
   --accent: #bedbb0;
   --low: #8fa1d0;
   --medium: #e09cb5;
-  --without: rgba(255, 255, 255, 0.3);
+  --without: #bababa;
   --hight: #bedbb0;
   --accentBtn: #9dc888;
   --filter-color: rgba(22, 22, 22, 0.8);
@@ -27,6 +27,8 @@
   --icon-color: rgba(22, 22, 22, 0.5);
   --scrollbar-background: #fff;
   --scrollbar-thumb: #e8e8e8;
+  --card-label: rgba(22, 22, 22, 0.5);
+  --icon-color-background: #f6f6f7;
 }
 
 .dark {
@@ -47,6 +49,8 @@
   --icon-color: #888888;
   --scrollbar-background: #161616;
   --scrollbar-thumb: rgba(255, 255, 255, 0.1);
+  --card-label: rgba(255, 255, 255, 0.5);
+  --icon-color-background: #1f1f1f;
 }
 
 .violet {
@@ -71,4 +75,6 @@
   --icon-color: rgba(22, 22, 22, 0.5);
   --scrollbar-background: #fff;
   --scrollbar-thumb: #b8bcfd;
+  --card-label: rgba(22, 22, 22, 0.5);
+  --icon-color-background: #ecedfd;
 }
