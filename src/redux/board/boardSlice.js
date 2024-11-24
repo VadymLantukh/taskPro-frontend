@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { handleFulFilled, handlePending, handleRejected } from '../handlers';
 import { addColumn, deleteColumn } from '../columns/columnsOperations';
-import { fetchBoard } from './boardOperations';
+import { fetchBoard, updateBoard } from './boardOperations';
 import { logOutThunk } from '../auth/authOperations';
 
 const initialState = {
@@ -37,6 +37,14 @@ const slice = createSlice({
           backgroundImage: action.payload.backgroundImage,
           icon: action.payload.icon,
           columns: action.payload.columns?.map(column => column._id) || [],
+        };
+      })
+      .addCase(updateBoard.fulfilled, (state, action) => {
+        state.board = {
+          ...state.board,
+          title: action.payload.title,
+          backgroundImage: action.payload.backgroundImage,
+          icon: action.payload.icon,
         };
       })
       .addCase(addColumn.fulfilled, (state, action) => {
