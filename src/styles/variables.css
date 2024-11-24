@@ -15,7 +15,7 @@
   --accent: #bedbb0;
   --low: #8fa1d0;
   --medium: #e09cb5;
-  --without: rgba(255, 255, 255, 0.3);
+  --without: #bababa;
   --hight: #bedbb0;
   --accentBtn: #9dc888;
   --filter-color: rgba(22, 22, 22, 0.8);
@@ -25,6 +25,7 @@
   --icon-logout: #bedbb0;
   --label-color: rgba(22, 22, 22, 1);
   --icon-color: rgba(22, 22, 22, 0.5);
+  --card-label: rgba(22, 22, 22, 0.5);
   --icon-color-background: #f6f6f7;
 }
 
@@ -44,6 +45,7 @@
   --icon-logout: #bedbb0;
   --label-color: rgba(255, 255, 255, 1);
   --icon-color: #888888;
+  --card-label: rgba(255, 255, 255, 0.5);
   --icon-color-background: #1f1f1f;
 }
 
@@ -67,5 +69,6 @@
   --icon-logout: #fff;
   --label-color: rgba(22, 22, 22, 1);
   --icon-color: rgba(22, 22, 22, 0.5);
+  --card-label: rgba(22, 22, 22, 0.5);
   --icon-color-background: #ecedfd;
 }

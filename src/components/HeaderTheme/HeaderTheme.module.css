@@ -31,24 +31,3 @@
   width: 16px;
   height: 16px;
 }
-
-.menuPaper {
-  border-radius: 8px;
-  padding: 18px;
-
-  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
-}
-
-.menuItem {
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--text-color);
-  line-height: 1;
-  transition: color 0.2s ease, color 0.2s ease;
-}
-
-.menuItem:hover {
-  color: var(--accent);
-  background-color: transparent !important;
-}
