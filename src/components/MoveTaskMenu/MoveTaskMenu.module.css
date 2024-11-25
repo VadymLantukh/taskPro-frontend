@@ -1,0 +1,17 @@
+.iconBox {
+  margin-left: auto;
+  padding-left: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  color: var(--text-color);
+  stroke: var(--text-color);
+  opacity: 0.5;
+  transition: all 0.2s ease-in-out;
+}

@@ -5,10 +5,9 @@ import { Menu, MenuItem } from '@mui/material';
 import Icon from '../Icon/Icon';
 
 import { updateUserThemeThunk } from '../../redux/auth/authOperations';
+import { changeTheme } from '../../redux/auth/authSlice';
 
 import s from './HeaderTheme.module.css';
-import './HeaderTheme.css';
-import { changeTheme } from '../../redux/auth/authSlice';
 
 const HeaderTheme = () => {
   const [anchorEl, setAnchorEl] = useState(null);
