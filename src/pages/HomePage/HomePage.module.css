@@ -8,7 +8,7 @@
 .text {
   width: 335px;
   text-align: center;
-  color: var(--text-color);
+  color: var(--text-header-color);
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;

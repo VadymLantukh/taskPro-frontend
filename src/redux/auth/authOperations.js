@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+import { showToast } from '../toastHelper';
 
 // TODO: change
 axios.defaults.baseURL = 'https://task-manager-0qvm.onrender.com/';
@@ -22,27 +22,10 @@ export const registerThunk = createAsyncThunk(
     try {
       const res = await axios.post('/auth/register', credentials);
       setAuthHeader(res.data.token);
-      toast.success('Registration successfull!', {
-        position: 'bottom-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      console.log(res.data); //TODO remove this
+      showToast(res.data.message, 'success');
       return res.data;
     } catch (error) {
-      toast.error(`${error.message}`, {
-        position: 'bottom-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      showToast(error.response.data.data.message, 'error');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -57,28 +40,10 @@ export const logInThunk = createAsyncThunk(
     try {
       const { data } = await axios.post('/auth/login', credentials);
       setAuthHeader(data.data.accessToken);
-      // !data.data.accessToken;
-      // toast.success('Successfull login!', {
-      //   position: 'bottom-right',
-      //   autoClose: 5000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      // });
-      /// !return data.data;
+      showToast(data.message, 'success');
       return data.data;
     } catch (error) {
-      toast.error(`${error.message}`, {
-        position: 'bottom-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      showToast(error.response.data.data.message, 'error');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -160,7 +125,7 @@ export const updateUserThemeThunk = createAsyncThunk(
         theme: credentials,
       };
       const { data } = await axios.patch('/auth', payload);
-      return data;
+      return data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -179,26 +144,11 @@ export const sendEmail = createAsyncThunk(
     try {
       setAuthHeader(persistedToken);
       const { data } = await axios.post('/help/send-email', credentials);
-      toast.success('Message sent successfully!', {
-        position: 'bottom-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+
+      showToast('Message sent successfully!', 'success');
       return data;
     } catch (error) {
-      toast.error(`${error.message} Message was not sent, please retry`, {
-        position: 'bottom-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      showToast(`${error.message} Message was not sent, please retry`, 'error');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

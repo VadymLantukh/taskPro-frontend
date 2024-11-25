@@ -3,13 +3,6 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0) 25%,
-    #bedbb0 92.19%
-  );
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .wrapper {
@@ -59,7 +52,7 @@
   font-size: 18px;
   line-height: 27px;
   letter-spacing: -0.36px;
-  color: var(--logo-icon);
+  color: #fff;
   opacity: 0.4;
 }
 
@@ -69,7 +62,7 @@
   font-size: 18px;
   line-height: normal;
   letter-spacing: -0.36px;
-  color: var(--logo-icon);
+  color: #fff;
 }
 
 .input {
@@ -81,8 +74,8 @@
   letter-spacing: -0.28px;
   border: 1px solid var(--hight);
   border-radius: 8px;
-  background-color: var(--logo-background);
-  color: var(--logo-icon);
+  background-color: #1f1f1f;
+  color: #fff;
   opacity: 0.4;
   transition: all 0.3s ease-in-out;
   &:hover,
@@ -112,7 +105,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--logo-icon);
+  color: #fff;
   opacity: 0.4;
 }
 
@@ -124,9 +117,9 @@
   font-weight: 500;
   letter-spacing: -0.02em;
   text-align: center;
-  color: var(--text-color);
+  color: #161616;
   border-radius: 8px;
-  background-color: var(--accent);
+  background-color: var(--hight);
   transition: all 0.3s ease-in-out;
   &:hover {
     cursor: pointer;

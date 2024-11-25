@@ -1,8 +1,12 @@
 .icon {
   width: 18px;
   height: 18px;
-  stroke: #bedbb0;
-  fill: transparent;
+  stroke: var(--accent) !important;
+  fill: transparent !important;
+}
+
+.MuiDateCalendar-root {
+  background-color: var(--header-background-color);
 }
 
 .MuiInputBase-root {
@@ -16,7 +20,7 @@
 
 .MuiInputBase-input {
   font-size: 16px !important;
-  color: #bedbb0 !important;
+  color: var(--accent) !important;
   text-align: left !important;
   cursor: pointer !important;
   padding: 0 !important;
@@ -47,15 +51,16 @@
 .MuiPickersCalendarHeader-root .MuiTypography-root {
   font-size: 16px !important;
   font-weight: bold !important;
-  color: #4a4a4a !important;
+  color: var(--text-color) !important;
 }
 
 .MuiPickersCalendarHeader-root .MuiIconButton-root {
-  color: #8c8c8c !important;
+  color: #aaaaaa !important;
 }
 
 .MuiPickersCalendarHeader-label {
   font-weight: 600 !important;
+  color: var(--text-header-color) !important;
 }
 
 .MuiPickersCalendarHeader-switchViewIcon {
@@ -72,12 +77,13 @@
 .MuiPickersDay-root {
   font-size: 14px;
   font-weight: 600 !important;
-  color: #4a4a4a !important;
+  color: var(--text-header-color) !important;
 }
 
 .MuiPickersDay-root.Mui-selected {
-  background-color: #bedbb0 !important;
+  background-color: var(--accent) !important;
   font-weight: 600 !important;
+  color: var(--text-color) !important;
 }
 
 .MuiPickersDay-root:not(.Mui-selected) {
@@ -86,11 +92,12 @@
 
 .MuiPickersDay-root:hover,
 .MuiPickersDay-root:focus {
-  background-color: #d9ecd2 !important;
+  background-color: var(--accent) !important;
+  color: var(--text-color) !important;
 }
 
 .MuiPickersDay-root.Mui-disabled {
-  color: #e0e0e0 !important;
+  color: #aaaaaa !important;
 }
 
 .MuiPickersActionBar-root {
@@ -99,19 +106,21 @@
 
 .MuiPickersYear-yearButton {
   font-family: inherit !important;
+  color: var(--text-color) !important;
 }
 
 .MuiPickersYear-yearButton:hover,
 .MuiPickersYear-yearButton:focus {
-  background-color: #d9ecd2 !important;
+  background-color: var(--accent) !important;
+  color: var(--text-color) !important;
 }
 
 .MuiPickersArrowSwitcher-button svg {
-  fill: #bedbb0 !important;
+  fill: var(--accent) !important;
 }
 
 .Mui-disabled svg {
-  fill: #161616 !important;
+  fill: var(--text-color) !important;
 }
 
 .MuiButtonBase-root {
@@ -124,6 +133,7 @@
 
 .MuiDayCalendar-weekDayLabel {
   font-size: 14px !important;
+  color: #aaaaaa !important;
 }
 
 .MuiPickersArrowSwitcher-root {
@@ -132,10 +142,19 @@
 }
 
 .MuiInputBase-root.Mui-focused .MuiInputBase-input {
-  color: #bedbb0 !important;
+  color: var(--accent) !important;
   opacity: 1 !important;
 }
 
 .MuiInputBase-input::placeholder {
-  color: #bedbb0 !important;
+  color: var(--accent) !important;
+}
+
+.MuiPickersToolbar-root {
+  display: none !important;
+}
+
+.Mui-selected {
+  background-color: var(--accent) !important;
+  color: var(--text-color) !important;
 }

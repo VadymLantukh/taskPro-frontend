@@ -4,9 +4,10 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { PrivateRoute } from '../PrivateRoute';
 import { PublicRoute } from '../PublicRoute';
+import { PrivateRoute } from '../PrivateRoute';
 import Loader from '../Loader/Loader';
+
 import {
   selectIsRefreshing,
   selectTheme,

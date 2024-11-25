@@ -1,13 +1,27 @@
 .button {
-    max-width: 334px;
-    padding: 14px;
-    background-color: var(--add-column-button-background);
+  min-width: 334px;
+  max-width: 334px;
+  height: fit-content;
+  padding: 14px;
+  background-color: var(--add-column-button-background);
+  color: var(--label-color);
+
+  svg {
+    stroke: var(--add-column-button-background);
+  }
+}
+
+.button span:first-of-type {
+  background: var(--label-color);
+}
+
+.btn:focus {
+  background-color: var(--add-column-button-background);
 }
 
 .columns-container {
-    display: flex;
-    gap: 18px;
-    overflow-x: auto;
-    overflow-y: hidden;
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
-

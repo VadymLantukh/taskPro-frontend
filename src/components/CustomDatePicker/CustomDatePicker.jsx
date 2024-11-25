@@ -42,7 +42,7 @@ const CustomDatePicker = ({ value, onChange, disablePast = false }) => {
               onFocus: handleFocus,
             },
           }}
-          minDate={dayjs().startOf('year')}
+          minDate={dayjs().startOf('day')}
           maxDate={dayjs().add(31, 'year').endOf('year')}
         />
       </LocalizationProvider>
