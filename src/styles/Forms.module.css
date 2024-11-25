@@ -18,7 +18,7 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.28px;
-  border: 1px solid var(--hight);
+  border: 1px solid var(--accent);
   border-radius: 8px;
   background-color: transparent;
   color: var(--text-header-color);
@@ -28,6 +28,9 @@
   &:focus {
     opacity: 1;
     outline: none;
+  }
+  &:not(:placeholder-shown) {
+    opacity: 1;
   }
 }
 
@@ -39,7 +42,7 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.28px;
-  border: 1px solid var(--hight);
+  border: 1px solid var(--accent);
   border-radius: 8px;
   background-color: transparent;
   color: var(--text-header-color);
@@ -50,6 +53,9 @@
   &:focus {
     opacity: 1;
     outline: none;
+  }
+  &:not(:placeholder-shown) {
+    opacity: 1;
   }
 }
 

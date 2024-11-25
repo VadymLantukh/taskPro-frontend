@@ -19,6 +19,10 @@ import { updateTask } from '../../redux/tasks/tasksOperations.js';
 import s from '../AddCard/AddCard.module.css';
 import t from '../../styles/Forms.module.css';
 
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+
+dayjs.extend(isSameOrAfter);
+
 const EditCard = ({ onSuccess }) => {
   const dispatch = useDispatch();
 
@@ -55,14 +59,18 @@ const EditCard = ({ onSuccess }) => {
   };
 
   const handleSubmit = (values, actions) => {
+    let updatedDeadline =
+      selectedDate && dayjs(selectedDate).isSameOrAfter(dayjs().startOf('day'))
+        ? dayjs(selectedDate).toISOString()
+        : null;
+
     const task = {
       ...values,
       priority: selectedPriority,
-      deadline: selectedDate ? dayjs(selectedDate).toISOString() : null,
     };
 
-    if (selectedDate) {
-      task.deadline = dayjs(selectedDate).toISOString();
+    if (updatedDeadline) {
+      task.deadline = updatedDeadline;
     } else {
       delete task.deadline;
     }
@@ -74,7 +82,6 @@ const EditCard = ({ onSuccess }) => {
       })
     );
 
-    // action.resetForm();
     setFormActions(actions);
   };
 
@@ -121,9 +128,14 @@ const EditCard = ({ onSuccess }) => {
               <CustomDatePicker
                 value={selectedDate}
                 onChange={date => {
-                  setSelectedDate(date);
+                  const validDate =
+                    date && dayjs(date).isSameOrAfter(dayjs().startOf('day'))
+                      ? date
+                      : null;
+                  setSelectedDate(validDate);
                   setFieldValue('deadline', date ? new Date(date) : null);
                 }}
+                disablePast
               />
             </label>
 

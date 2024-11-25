@@ -19,6 +19,7 @@
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "formik": "^2.4.6",
+    "framer-motion": "^11.11.17",
     "modern-normalize": "^3.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
