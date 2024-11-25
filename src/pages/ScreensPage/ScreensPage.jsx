@@ -9,16 +9,18 @@ import { fetchBoard } from '../../redux/board/boardOperations';
 import { selectBoard } from '../../redux/board/boardSelectors.js';
 import Images from '../../images/Image.js';
 import { useScreenWidth } from '../../hooks/useScreenWidth.js';
+import { selectFilterPriority } from '../../redux/filter/filterSelectors.js';
 
 const ScreensPage = () => {
   const board = useSelector(selectBoard);
   const dispatch = useDispatch();
 
   const { boardId } = useParams();
+  const priority = useSelector(selectFilterPriority);
 
   useEffect(() => {
-    dispatch(fetchBoard({ id: boardId }));
-  }, [dispatch, boardId]);
+    dispatch(fetchBoard({ id: boardId, priority }));
+  }, [dispatch, boardId, priority]);
 
   const backgroundImage = Images[board.backgroundImage];
 
