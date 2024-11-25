@@ -5,24 +5,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import Loader from '../Loader/Loader';
+
 import { setTheme } from '../../redux/auth/authSlice';
 import { selectTheme } from '../../redux/auth/authSelectors';
 
 import s from './Layout.module.css';
 
 export const Layout = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const onBurgerClick = () => setIsSidebarOpen(!isSidebarOpen);
   const dispatch = useDispatch();
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   const sidebarRef = document.getElementById('sidebar');
   const modalWrapperRef = document.getElementById('wrapperModal');
+
   const theme = useSelector(selectTheme);
 
-  const handleClickOutside = event => {
-    if (sidebarRef && modalWrapperRef && !sidebarRef.contains(event.target)) {
-      setIsSidebarOpen(false);
-    }
-  };
   useEffect(() => {
     dispatch(setTheme());
     document.addEventListener('mousedown', handleClickOutside);
@@ -30,6 +28,14 @@ export const Layout = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isSidebarOpen, dispatch, theme]);
+
+  const onBurgerClick = () => setIsSidebarOpen(!isSidebarOpen);
+
+  const handleClickOutside = event => {
+    if (sidebarRef && modalWrapperRef && !sidebarRef.contains(event.target)) {
+      setIsSidebarOpen(false);
+    }
+  };
 
   return (
     <div className={s.page}>

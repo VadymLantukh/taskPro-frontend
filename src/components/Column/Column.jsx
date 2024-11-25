@@ -9,18 +9,14 @@ import AddCard from '../../components/AddCard/AddCard';
 import s from './Column.module.css';
 
 export const Column = ({ column }) => {
-  const {open, handleOpen, handleClose} = useToggle()
+  const { open, handleOpen, handleClose } = useToggle();
   const title = column?.title ?? '';
 
   return (
     <div className={s.container}>
       <HeaderColumn title={title} columnId={column?._id} />
-      <TasksList columnId={column?._id} />
-      <Button
-        text="Add another card"
-        showIcon={true}
-        onClick={handleOpen}
-      />
+      <TasksList columnId={column?._id} boardId={column?.boardId} />
+      <Button text="Add another card" showIcon={true} onClick={handleOpen} />
       <ModalWrapper open={open} onClose={handleClose}>
         <AddCard
           boardId={column?.boardId}
