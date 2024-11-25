@@ -13,5 +13,8 @@ export const addCardSchema = Yup.object({
   deadline: Yup.date()
     .nullable()
     .notRequired()
-    .min(new Date(), 'Deadline cannot be in the past'),
+    .min(
+      new Date(new Date().setHours(0, 0, 0, 0)),
+      'Deadline cannot be in the past'
+    ),
 });
