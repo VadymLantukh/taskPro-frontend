@@ -7,21 +7,22 @@ import Icon from '../Icon/Icon';
 import ModalWrapper from '../../components/ModalWrapper/ModalWrapper';
 import EditCard from '../../components/EditCard/EditCard';
 import MoveTaskMenu from '../MoveTaskMenu/MoveTaskMenu';
+import IconButton from '../IconButton/IconButton';
 
 import { deleteTask, updateTask } from '../../redux/tasks/tasksOperations';
 import { setCurrentTask } from '../../redux/tasks/tasksSlice';
 import { selectColumnsForBoard } from '../../redux/columns/columnsSelectors';
 
 import s from './TaskItem.module.css';
-import IconButton from '../IconButton/IconButton';
 
 const TaskItem = ({ tasks, boardId }) => {
-  const dispatch = useDispatch();
-  const columns = useSelector(state => selectColumnsForBoard(state, boardId));
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [taskToEdit, setTaskToEdit] = useState(null);
+  const [loadingTaskId, setLoadingTaskId] = useState(null);
+
+  const dispatch = useDispatch();
+  const columns = useSelector(state => selectColumnsForBoard(state, boardId));
 
   useEffect(() => {
     return () => {
@@ -59,6 +60,18 @@ const TaskItem = ({ tasks, boardId }) => {
     );
 
     handleCloseMenu();
+  };
+
+  const handleDeleteTask = taskCard => {
+    setLoadingTaskId(taskCard._id);
+    dispatch(
+      deleteTask({
+        id: taskCard._id,
+        columnId: taskCard.columnId,
+      })
+    ).finally(() => {
+      setLoadingTaskId(null);
+    });
   };
 
   const taskArr = tasks;
@@ -132,22 +145,19 @@ const TaskItem = ({ tasks, boardId }) => {
                   className={s.right_arrow}
                   name="icon-right"
                   onClick={event => handleOpenMenu(event, taskCard)}
-                ></IconButton>
+                />
                 <IconButton
                   name="icon-pencil"
                   onClick={() => handleOpenModal(taskCard)}
-                ></IconButton>
-                <IconButton
-                  name="icon-trash"
-                  onClick={() => {
-                    dispatch(
-                      deleteTask({
-                        id: taskCard._id,
-                        columnId: taskCard.columnId,
-                      })
-                    );
-                  }}
-                ></IconButton>
+                />
+                {loadingTaskId === taskCard._id ? (
+                  <div className={s.loader}></div>
+                ) : (
+                  <IconButton
+                    name="icon-trash"
+                    onClick={() => handleDeleteTask(taskCard)}
+                  />
+                )}
               </div>
             </div>
           </div>

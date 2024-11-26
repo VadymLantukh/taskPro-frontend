@@ -31,3 +31,7 @@
   width: 16px;
   height: 16px;
 }
+
+.activeItem {
+  color: var(--accent) !important;
+}

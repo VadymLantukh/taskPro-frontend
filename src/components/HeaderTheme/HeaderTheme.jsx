@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Menu, MenuItem } from '@mui/material';
 
 import Icon from '../Icon/Icon';
 
 import { updateUserThemeThunk } from '../../redux/auth/authOperations';
 import { changeTheme } from '../../redux/auth/authSlice';
+import { selectTheme } from '../../redux/auth/authSelectors';
 
 import s from './HeaderTheme.module.css';
 
 const HeaderTheme = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+
   const dispatch = useDispatch();
+  const activeTheme = useSelector(selectTheme);
 
   useEffect(() => {
     return () => {
@@ -44,10 +47,29 @@ const HeaderTheme = () => {
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleCloseMenu}
+        disableAutoFocus
       >
-        <MenuItem onClick={() => handleThemeChange('light')}>Light</MenuItem>
-        <MenuItem onClick={() => handleThemeChange('dark')}>Dark</MenuItem>
-        <MenuItem onClick={() => handleThemeChange('violet')}>Violet</MenuItem>
+        <MenuItem
+          className={activeTheme === 'light' ? s.activeItem : ''}
+          onClick={() => handleThemeChange('light')}
+          disabled={activeTheme === 'light'}
+        >
+          Light
+        </MenuItem>
+        <MenuItem
+          className={activeTheme === 'dark' ? s.activeItem : ''}
+          onClick={() => handleThemeChange('dark')}
+          disabled={activeTheme === 'dark'}
+        >
+          Dark
+        </MenuItem>
+        <MenuItem
+          className={activeTheme === 'violet' ? s.activeItem : ''}
+          onClick={() => handleThemeChange('violet')}
+          disabled={activeTheme === 'violet'}
+        >
+          Violet
+        </MenuItem>
       </Menu>
     </div>
   );
