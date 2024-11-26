@@ -32,9 +32,6 @@
 }
 
 .button {
-  /* font-weight: 500;
-  letter-spacing: -0.02em;
-   */
   font-family: Poppins;
   font-size: 12px;
   font-weight: 500;
@@ -42,6 +39,12 @@
   letter-spacing: -0.02em;
   color: var(--text-color);
 }
+
+.textHelp:hover,
+.textHelp:focus {
+  color: var(--accentBtn);
+}
+
 
 .icon {
   stroke: var(--text-color);

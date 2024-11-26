@@ -10,6 +10,7 @@ import EditBoard from '../EditBoard/EditBoard';
 import s from './BoardsItem.module.css';
 import { useToggle } from '../../hooks/useToggle.js';
 import { setIsSidebarOpen } from '../../redux/auth/authSlice.js';
+import { truncateString } from '../../utils/cateString.js';
 
 const BoardsItem = ({ title, id, icon, backgroundImage }) => {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ const BoardsItem = ({ title, id, icon, backgroundImage }) => {
           onClick={() => dispatch(setIsSidebarOpen(false))}
         >
           <Icon name={icon} fill="none" width={18} height={18} />
-          <p className={s.title}>{title}</p>
+          <p className={s.title}>{truncateString(title)}</p>
           <button onClick={handleOpen}>
             <Icon name={'icon-pencil'} fill="none" width={16} height={16} />
           </button>

@@ -5,7 +5,7 @@
   gap: 10px;
   background-color: var(--sidebar-background-color);
   width: 225px;
-  padding: 14px;
+  padding: 0;
   transition: all ease-in-out 300ms;
   /* height: calc(100vh - 10px) */
   height: 100%;
@@ -29,7 +29,7 @@
   margin-bottom: 8px;
   font-size: 12px;
   letter-spacing: -0.02em;
-  color: var(--third-text-color);
+  color: var(--title-item);
 }
 
 .sidedbarLogout {
@@ -66,8 +66,12 @@
   .sidebar {
     width: 100%;
     max-width: 260px;
-    padding: 24px;
+    padding: 0;
     /* overflow: hidden; */
+  }
+
+  .wrap {
+    padding: 24px;
   }
 }
 
@@ -75,4 +79,12 @@
   .sidebar {
     /* justify-content: flex-start; */
   }
+}
+
+.project {
+  margin-bottom: auto;
+}
+
+.wrap {
+  padding: 14px;
 }

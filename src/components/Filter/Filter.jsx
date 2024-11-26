@@ -37,7 +37,7 @@ const Filter = ({ open, handleClose }) => {
     <Modal open={open} onClose={handleClose}>
       <h2 className={clsx(s.text, s.title)}>Filters</h2>
       <div className={s.wrapper}>
-        <h3 className={clsx(s.text, s.subtitle)}>Filters</h3>
+        <h3 className={clsx(s.text, s.subtitle)}>Label color</h3>
         <button className={s.button} onClick={handleShowAll} type="button">
           Show all
         </button>
