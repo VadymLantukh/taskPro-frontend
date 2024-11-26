@@ -21,15 +21,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     transition: background-color 0.3s ease;
 
-    :hover,
-    :focus {
-        background-color: var(--accentBtn);
-        border-radius: 6px;
-    }
+}
 
+.createBoardBtn.btn:hover,
+.createBoardBtn.btn:focus {
+    background-color: var(--accentBtn);
+    border-radius: 6px;
 }
 
 .btnPlus {
