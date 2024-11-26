@@ -6,4 +6,10 @@
   gap: 4px;
   max-height: 200px;
   overflow-y: scroll;
+  padding: 0;
+  width: 100%;
+}
+
+.list::-webkit-scrollbar {
+  width: 0;
 }
