@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-import { selectUser } from '../../redux/auth/authSelectors.js';
+import { selectIsLoading, selectUser } from '../../redux/auth/authSelectors.js';
 import Icon from '../Icon/Icon';
 import { deleteBoard } from '../../redux/board/boardOperations';
 import Modal from '../ModalWrapper/ModalWrapper';
@@ -22,6 +22,8 @@ const BoardsItem = ({ title, id, icon, backgroundImage }) => {
   const navigate = useNavigate();
   const { boards } = useSelector(selectUser);
   const { open, handleClose, handleOpen } = useToggle();
+
+  const isLoading = useSelector(selectIsLoading);
 
   const board = { id, title, icon, background: backgroundImage };
 
@@ -55,7 +57,13 @@ const BoardsItem = ({ title, id, icon, backgroundImage }) => {
             className={s.board_style}
           />
           <p className={s.title}>{truncateString(title)}</p>
-          <button onClick={handleOpen}>
+          <button
+            onClick={e => {
+              e.stopPropagation();
+              e.preventDefault();
+              handleOpen();
+            }}
+          >
             <Icon
               name={'icon-pencil'}
               className={s.icon_color}
@@ -63,13 +71,23 @@ const BoardsItem = ({ title, id, icon, backgroundImage }) => {
               height={16}
             />
           </button>
-          <button onClick={handleDeleteBoard}>
-            <Icon
-              name={'icon-trash'}
-              className={s.icon_color}
-              width={16}
-              height={16}
-            />
+          <button
+            onClick={e => {
+              e.stopPropagation();
+              e.preventDefault();
+              handleDeleteBoard();
+            }}
+          >
+            {isLoading ? (
+              <div className={s.loader}></div>
+            ) : (
+              <Icon
+                name={'icon-trash'}
+                className={s.icon_color}
+                width={16}
+                height={16}
+              />
+            )}
           </button>
         </NavLink>
       </li>
