@@ -30,7 +30,7 @@ input::-webkit-inner-spin-button {
     stroke: var(--board-item-active-icon);
   }
   color: var(--text-color) !important;
-  stroke: var(--text-color) !important;
+  stroke: var(--text-color);
   background-color: var(--board-item-active-background);
   & :after {
     content: '';

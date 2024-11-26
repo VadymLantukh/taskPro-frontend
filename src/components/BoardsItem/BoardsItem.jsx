@@ -9,6 +9,7 @@ import EditBoard from '../EditBoard/EditBoard';
 
 import s from './BoardsItem.module.css';
 import { useToggle } from '../../hooks/useToggle.js';
+import { setIsSidebarOpen } from '../../redux/auth/authSlice.js';
 import { truncateString } from '../../utils/cateString.js';
 
 const BoardsItem = ({ title, id, icon, backgroundImage }) => {
@@ -36,20 +37,34 @@ const BoardsItem = ({ title, id, icon, backgroundImage }) => {
   return (
     <>
       <li>
-        <NavLink to={id} className={s.list_item}>
-          <Icon name={icon} fill="none" width={18} height={18} />
+        <NavLink
+          to={id}
+          className={s.list_item}
+          onClick={() => dispatch(setIsSidebarOpen(false))}
+        >
+          <Icon
+            name={icon}
+            width={18}
+            height={18}
+            fill="none"
+            className={s.board_style}
+          />
           <p className={s.title}>{truncateString(title)}</p>
           <button onClick={handleOpen}>
             <Icon
               name={'icon-pencil'}
-              fill="none"
-              className={s.iconPencil}
+              className={s.icon_color}
               width={16}
               height={16}
             />
           </button>
           <button onClick={handleDeleteBoard}>
-            <Icon name={'icon-trash'} fill="none" width={16} height={16} />
+            <Icon
+              name={'icon-trash'}
+              className={s.icon_color}
+              width={16}
+              height={16}
+            />
           </button>
         </NavLink>
       </li>
