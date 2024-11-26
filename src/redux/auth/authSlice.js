@@ -98,7 +98,8 @@ const authSlice = createSlice({
           operation.registerThunk.pending,
           operation.updateUserThemeThunk.pending,
           operation.updateUserThunk.pending,
-          operation.getUserThunk.pending
+          operation.getUserThunk.pending,
+          deleteBoard.pending
         ),
         handlePending
       )
@@ -109,7 +110,8 @@ const authSlice = createSlice({
           operation.registerThunk.fulfilled,
           operation.updateUserThemeThunk.fulfilled,
           operation.updateUserThunk.fulfilled,
-          operation.getUserThunk.fulfilled
+          operation.getUserThunk.fulfilled,
+          deleteBoard.fulfilled
         ),
         handleFulFilled
       )
@@ -120,7 +122,8 @@ const authSlice = createSlice({
           operation.registerThunk.rejected,
           operation.updateUserThemeThunk.rejected,
           operation.updateUserThunk.rejected,
-          operation.getUserThunk.rejected
+          operation.getUserThunk.rejected,
+          deleteBoard.rejected
         ),
         handleRejected
       ),
