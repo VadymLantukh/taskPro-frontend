@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { selectUser } from '../../redux/auth/authSelectors.js';
 import Icon from '../Icon/Icon';
@@ -11,6 +12,10 @@ import s from './BoardsItem.module.css';
 import { useToggle } from '../../hooks/useToggle.js';
 import { setIsSidebarOpen } from '../../redux/auth/authSlice.js';
 import { truncateString } from '../../utils/cateString.js';
+
+const buildLinkClass = ({ isActive }) => {
+  return clsx(s.list_item, isActive && s.list_item_active);
+};
 
 const BoardsItem = ({ title, id, icon, backgroundImage }) => {
   const dispatch = useDispatch();
@@ -39,7 +44,7 @@ const BoardsItem = ({ title, id, icon, backgroundImage }) => {
       <li>
         <NavLink
           to={id}
-          className={s.list_item}
+          className={buildLinkClass}
           onClick={() => dispatch(setIsSidebarOpen(false))}
         >
           <Icon
