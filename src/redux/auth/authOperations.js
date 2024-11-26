@@ -2,7 +2,6 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { showToast } from '../toastHelper';
 
-// TODO: change
 axios.defaults.baseURL = 'https://task-manager-0qvm.onrender.com/';
 
 const setAuthHeader = token => {
@@ -13,26 +12,37 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-//! POST  /auth/register
-//! body: { name, email, password }
-
 export const registerThunk = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/auth/register', credentials);
       setAuthHeader(res.data.token);
-      showToast(res.data.message, 'success');
+      showToast(
+        'You have successfully registered! You can now log in to your account.',
+        'success'
+      );
       return res.data;
     } catch (error) {
-      showToast(error.response.data.data.message, 'error');
+      const status = error.response?.status;
+      switch (status) {
+        case 409:
+          showToast(
+            'This email is already in use. Please use another one.',
+            'error'
+          );
+          break;
+        case 500:
+          showToast('Server error. Please try again later.', 'error');
+          break;
+        default:
+          showToast('Something went wrong!', 'error');
+          break;
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
-//!   POST  /users/login
-//!   body: { email, password }
 
 export const logInThunk = createAsyncThunk(
   'auth/login',
@@ -40,17 +50,33 @@ export const logInThunk = createAsyncThunk(
     try {
       const { data } = await axios.post('/auth/login', credentials);
       setAuthHeader(data.data.accessToken);
-      showToast(data.message, 'success');
       return data.data;
     } catch (error) {
-      showToast(error.response.data.data.message, 'error');
+      const status = error.response?.status;
+      switch (status) {
+        case 401:
+          showToast('Incorrect email or password. Please try again.', 'error');
+          break;
+        case 403:
+          showToast(
+            'Access forbidden. Please check your account permissions.',
+            'error'
+          );
+          break;
+        case 404:
+          showToast('User not found. Please register first.', 'error');
+          break;
+        case 500:
+          showToast('Server error. Please try again later.', 'error');
+          break;
+        default:
+          showToast('Something went wrong!', 'error');
+          break;
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
-//! POST  /auth/logout
-//! headers: Authorization: Bearer token
 
 export const logOutThunk = createAsyncThunk(
   'auth/logout',
@@ -64,32 +90,6 @@ export const logOutThunk = createAsyncThunk(
     }
   }
 );
-
-//! GET  /users/current
-//! headers: Authorization: Bearer token
-
-// export const refreshUser = createAsyncThunk(
-//   'auth/refresh',
-//   async (_, thunkAPI) => {
-//     const state = thunkAPI.getState();
-//     const persistedToken = state.auth.token;
-
-//     if (persistedToken === null) {
-//       return thunkAPI.rejectWithValue('Unable to fetch user');
-//     }
-
-//     try {
-//       setAuthHeader(persistedToken);
-//       const res = await axios.get('/auth/');
-//       return res.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
-//! PATCH  /user/
-//! headers: Authorization: Bearer token
 
 export const updateUserThunk = createAsyncThunk(
   'auth/profile',
