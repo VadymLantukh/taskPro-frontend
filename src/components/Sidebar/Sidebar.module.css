@@ -29,7 +29,7 @@
   margin-bottom: 8px;
   font-size: 12px;
   letter-spacing: -0.02em;
-  color: var(--third-text-color);
+  color: var(--title-item);
 }
 
 .sidedbarLogout {
@@ -69,6 +69,7 @@
     padding: 0;
     /* overflow: hidden; */
   }
+
   .wrap {
     padding: 24px;
   }
@@ -79,9 +80,11 @@
     /* justify-content: flex-start; */
   }
 }
+
 .project {
   margin-bottom: auto;
 }
+
 .wrap {
   padding: 14px;
 }

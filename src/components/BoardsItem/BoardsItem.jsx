@@ -40,7 +40,13 @@ const BoardsItem = ({ title, id, icon, backgroundImage }) => {
           <Icon name={icon} fill="none" width={18} height={18} />
           <p className={s.title}>{truncateString(title)}</p>
           <button onClick={handleOpen}>
-            <Icon name={'icon-pencil'} fill="none" width={16} height={16} />
+            <Icon
+              name={'icon-pencil'}
+              fill="none"
+              className={s.iconPencil}
+              width={16}
+              height={16}
+            />
           </button>
           <button onClick={handleDeleteBoard}>
             <Icon name={'icon-trash'} fill="none" width={16} height={16} />
