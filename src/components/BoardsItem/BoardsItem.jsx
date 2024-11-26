@@ -37,19 +37,29 @@ const BoardsItem = ({ title, id, icon, backgroundImage }) => {
     <>
       <li>
         <NavLink to={id} className={s.list_item}>
-          <Icon name={icon} fill="none" width={18} height={18} />
+          <Icon
+            name={icon}
+            width={18}
+            height={18}
+            fill="none"
+            className={s.board_style}
+          />
           <p className={s.title}>{truncateString(title)}</p>
           <button onClick={handleOpen}>
             <Icon
               name={'icon-pencil'}
-              fill="none"
-              className={s.iconPencil}
+              className={s.icon_color}
               width={16}
               height={16}
             />
           </button>
           <button onClick={handleDeleteBoard}>
-            <Icon name={'icon-trash'} fill="none" width={16} height={16} />
+            <Icon
+              name={'icon-trash'}
+              className={s.icon_color}
+              width={16}
+              height={16}
+            />
           </button>
         </NavLink>
       </li>
