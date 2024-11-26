@@ -13,6 +13,7 @@ import { setCurrentTask } from '../../redux/tasks/tasksSlice';
 import { selectColumnsForBoard } from '../../redux/columns/columnsSelectors';
 
 import s from './TaskItem.module.css';
+import IconButton from '../IconButton/IconButton';
 
 const TaskItem = ({ tasks, boardId }) => {
   const dispatch = useDispatch();
@@ -127,19 +128,17 @@ const TaskItem = ({ tasks, boardId }) => {
                 {isDeadlineToday(taskCard.deadline) && (
                   <Icon className={s.bell_icon} name="icon-bell" />
                 )}
-                <button
-                  className={s.action_button}
+                <IconButton
+                  className={s.right_arrow}
+                  name="icon-right"
                   onClick={event => handleOpenMenu(event, taskCard)}
-                >
-                  <Icon className={s.icon} name="icon-right" />
-                </button>
-                <button
-                  className={s.action_button}
+                ></IconButton>
+                <IconButton
+                  name="icon-pencil"
                   onClick={() => handleOpenModal(taskCard)}
-                >
-                  <Icon className={s.icon} name="icon-pencil" />
-                </button>
-                <button
+                ></IconButton>
+                <IconButton
+                  name="icon-trash"
                   onClick={() => {
                     dispatch(
                       deleteTask({
@@ -148,10 +147,7 @@ const TaskItem = ({ tasks, boardId }) => {
                       })
                     );
                   }}
-                  className={s.action_button}
-                >
-                  <Icon className={s.icon} name="icon-trash" />
-                </button>
+                ></IconButton>
               </div>
             </div>
           </div>

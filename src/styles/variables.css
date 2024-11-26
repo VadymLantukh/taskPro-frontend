@@ -31,6 +31,11 @@
   --scrollbar-thumb: #e8e8e8;
   --card-label: rgba(22, 22, 22, 0.5);
   --icon-color-background: #f6f6f7;
+  --card-background: #fff;
+  --card-secondary-text: rgba(22, 22, 22, 0.7);
+  --board-item-active-background: #f6f6f7;
+  --board-item-active-accent: #9dc888;
+  --board-item-active-icon: red;
 }
 
 .dark {
@@ -55,6 +60,11 @@
   --scrollbar-thumb: rgba(255, 255, 255, 0.1);
   --card-label: rgba(255, 255, 255, 0.5);
   --icon-color-background: #1f1f1f;
+  --card-background: #121212;
+  --card-secondary-text: rgba(255, 255, 255, 0.5);
+  --board-item-active-background: #1f1f1f;
+  --board-item-active-accent: white;
+  --board-item-active-icon: white;
 }
 
 .violet {
@@ -83,4 +93,9 @@
   --scrollbar-thumb: #b8bcfd;
   --card-label: rgba(22, 22, 22, 0.5);
   --icon-color-background: #ecedfd;
+  --card-background: #fff;
+  --card-secondary-text: rgba(22, 22, 22, 0.7);
+  --board-item-active-background: rgba(255, 255, 255, 0.1);
+  --board-item-active-accent: white;
+  --board-item-active-icon: white;
 }

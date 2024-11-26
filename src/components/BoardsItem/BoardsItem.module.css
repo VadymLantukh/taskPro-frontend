@@ -1,4 +1,5 @@
 .list_item {
+  width: 100%;
   min-height: 62px;
   display: flex;
   align-items: center;
@@ -19,4 +20,8 @@
 }
 .icon {
   stroke: inherit;
+}
+
+.list_item.active button svg {
+  stroke: var(--board-item-active-icon) !important;
 }
