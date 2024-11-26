@@ -11,7 +11,7 @@
 }
 
 .createBoardBtn {
-    background-color: var(--accentBtn);
+    background-color: var(--accent-btn-plus);
     color: var(--text-color);
     border-radius: 6px;
     width: 40px;
@@ -25,8 +25,8 @@
 
 }
 
-.createBoardBtn.btn:hover,
-.createBoardBtn.btn:focus {
+.createBoardBtn:hover,
+.createBoardBtn:focus {
     background-color: var(--accentBtn);
     border-radius: 6px;
 }
