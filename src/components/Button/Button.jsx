@@ -7,18 +7,30 @@ const Button = ({
   text,
   showIcon = false,
   className = '',
+  isLoading = false,
   ...props
 }) => {
   const buttonClasses = clsx(s.btn, showIcon ? s.withIcon : '', className);
 
   return (
-    <button onClick={onClick} className={buttonClasses} {...props}>
-      {showIcon && (
-        <span className={s.iconWrapper}>
-          <Icon name="icon-plus" className={s.icon} />
-        </span>
+    <button
+      onClick={onClick}
+      className={buttonClasses}
+      {...props}
+      disabled={isLoading}
+    >
+      {isLoading ? (
+        <div className={s.loader}></div>
+      ) : (
+        <>
+          {showIcon && (
+            <span className={s.iconWrapper}>
+              <Icon name="icon-plus" className={s.icon} />
+            </span>
+          )}
+          {text && <span className={s.text}>{text}</span>}
+        </>
       )}
-      {text && <span className={s.text}>{text}</span>}
     </button>
   );
 };

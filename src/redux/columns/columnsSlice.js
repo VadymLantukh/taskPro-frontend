@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { handleFulFilled, handlePending, handleRejected } from '../handlers';
 import { fetchBoard } from '../board/boardOperations';
 import { addColumn, deleteColumn, updateColumn } from './columnsOperations';
@@ -86,9 +86,42 @@ const slice = createSlice({
           newColumn.tasksIds.push(taskId);
         }
       })
-      .addMatcher(({ type }) => type.endsWith('pending'), handlePending)
-      .addMatcher(({ type }) => type.endsWith('rejected'), handleRejected)
-      .addMatcher(({ type }) => type.endsWith('fulfilled'), handleFulFilled);
+      .addMatcher(
+        isAnyOf(
+          fetchBoard.pending,
+          addColumn.pending,
+          deleteColumn.pending,
+          updateColumn.pending,
+          addTask.pending,
+          deleteTask.pending,
+          updateTask.pending
+        ),
+        handlePending
+      )
+      .addMatcher(
+        isAnyOf(
+          fetchBoard.rejected,
+          addColumn.rejected,
+          deleteColumn.rejected,
+          updateColumn.rejected,
+          addTask.rejected,
+          deleteTask.rejected,
+          updateTask.rejected
+        ),
+        handleRejected
+      )
+      .addMatcher(
+        isAnyOf(
+          fetchBoard.fulfilled,
+          addColumn.fulfilled,
+          deleteColumn.fulfilled,
+          updateColumn.fulfilled,
+          addTask.fulfilled,
+          deleteTask.fulfilled,
+          updateTask.fulfilled
+        ),
+        handleFulFilled
+      );
   },
 });
 
