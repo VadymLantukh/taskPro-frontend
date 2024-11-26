@@ -6,19 +6,25 @@ import MainDashboard from '../../components/MainDashboard/MainDashboard.jsx';
 
 import s from './ScreensPage.module.css';
 import { fetchBoard } from '../../redux/board/boardOperations';
-import { selectBoard } from '../../redux/board/boardSelectors.js';
+import {
+  selectBoard,
+  selectIsLoading,
+} from '../../redux/board/boardSelectors.js';
 import Images from '../../images/Image.js';
 import { useScreenWidth } from '../../hooks/useScreenWidth.js';
+import { selectFilterPriority } from '../../redux/filter/filterSelectors.js';
+import Loader from '../../components/Loader/Loader.jsx';
 
 const ScreensPage = () => {
   const board = useSelector(selectBoard);
   const dispatch = useDispatch();
-
+  const isLoading = useSelector(selectIsLoading);
   const { boardId } = useParams();
+  const priority = useSelector(selectFilterPriority);
 
   useEffect(() => {
-    dispatch(fetchBoard({ id: boardId }));
-  }, [dispatch, boardId]);
+    dispatch(fetchBoard({ id: boardId, priority }));
+  }, [dispatch, boardId, priority]);
 
   const backgroundImage = Images[board.backgroundImage];
 
@@ -53,7 +59,11 @@ const ScreensPage = () => {
       }
     : {};
 
-  return (
+  return isLoading ? (
+    <div>
+      <Loader />
+    </div>
+  ) : (
     <div className={s.container} style={style}>
       <HeaderDashboard />
       <MainDashboard />
