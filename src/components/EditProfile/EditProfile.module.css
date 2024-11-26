@@ -94,10 +94,28 @@
   color: var(--text-header-color);
   opacity: 0.4;
 }
-.error {
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.eyeButton {
   position: absolute;
-  bottom: -15px;
-  left: 0;
-  color: red;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--theme-text-color);
+  opacity: 0.4;
+}
+
+.error {
+  position: fixed;
   font-size: 11px;
+  color: red;
 }
