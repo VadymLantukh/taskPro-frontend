@@ -38,8 +38,10 @@
   line-height: 18px;
   letter-spacing: -0.02em;
   color: var(--text-color);
-  transition: color 0.3s ease;
+}
 
+.textHelp {
+  transition: color 0.3s ease;
 }
 
 .textHelp:hover,
@@ -47,13 +49,13 @@
   color: var(--accentBtn);
 }
 
-
 .icon {
   stroke: var(--text-color);
   fill: transparent;
 }
 
-@media (min-width: 375px) {}
+@media (min-width: 375px) {
+}
 
 @media (min-width: 768px) {
   .container {
@@ -76,4 +78,5 @@
   }
 }
 
-@media (min-width: 1440px) {}
+@media (min-width: 1440px) {
+}
