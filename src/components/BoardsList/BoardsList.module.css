@@ -9,7 +9,3 @@
   padding: 0;
   width: 100%;
 }
-
-.list::-webkit-scrollbar {
-  width: 0;
-}
