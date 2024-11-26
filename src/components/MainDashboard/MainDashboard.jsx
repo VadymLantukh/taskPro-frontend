@@ -41,7 +41,7 @@ export const MainDashboard = () => {
         container.scrollLeft += event.deltaY;
       };
 
-      container.addEventListener('wheel', handleWheel);
+      container.addEventListener('wheel', handleWheel, { passive: false });
 
       return () => {
         container.removeEventListener('wheel', handleWheel);

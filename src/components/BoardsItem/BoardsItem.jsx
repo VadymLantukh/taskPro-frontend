@@ -9,6 +9,7 @@ import EditBoard from '../EditBoard/EditBoard';
 
 import s from './BoardsItem.module.css';
 import { useToggle } from '../../hooks/useToggle.js';
+import { setIsSidebarOpen } from '../../redux/auth/authSlice.js';
 import { truncateString } from '../../utils/cateString.js';
 
 const BoardsItem = ({ title, id, icon, backgroundImage }) => {
@@ -36,7 +37,11 @@ const BoardsItem = ({ title, id, icon, backgroundImage }) => {
   return (
     <>
       <li>
-        <NavLink to={id} className={s.list_item}>
+        <NavLink
+          to={id}
+          className={s.list_item}
+          onClick={() => dispatch(setIsSidebarOpen(false))}
+        >
           <Icon
             name={icon}
             width={18}
