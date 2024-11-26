@@ -1,8 +1,7 @@
-import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 // import { createSlice } from '@reduxjs/toolkit';
 import * as operation from './authOperations';
 import { addBoard, deleteBoard, updateBoard } from '../board/boardOperations';
-import { handleFulFilled, handlePending, handleRejected } from '../handlers';
 
 const initialState = {
   user: {
@@ -16,9 +15,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
-  isLoading: false,
-  isError: null,
-  isSidebarOpen: false,
+  //add loading indicator
 };
 
 const authSlice = createSlice({
@@ -30,9 +27,6 @@ const authSlice = createSlice({
     },
     changeTheme(state, action) {
       state.user.theme = action.payload;
-    },
-    setIsSidebarOpen(state, action) {
-      state.isSidebarOpen = action.payload;
     },
   },
   extraReducers: builder =>
@@ -90,41 +84,8 @@ const authSlice = createSlice({
         state.user.boards = state.user.boards.map(board =>
           board._id === action.payload._id ? action.payload : board
         );
-      })
-      .addMatcher(
-        isAnyOf(
-          operation.logInThunk.pending,
-          operation.logOutThunk.pending,
-          operation.registerThunk.pending,
-          operation.updateUserThemeThunk.pending,
-          operation.updateUserThunk.pending,
-          operation.getUserThunk.pending
-        ),
-        handlePending
-      )
-      .addMatcher(
-        isAnyOf(
-          operation.logInThunk.fulfilled,
-          operation.logOutThunk.fulfilled,
-          operation.registerThunk.fulfilled,
-          operation.updateUserThemeThunk.fulfilled,
-          operation.updateUserThunk.fulfilled,
-          operation.getUserThunk.fulfilled
-        ),
-        handleFulFilled
-      )
-      .addMatcher(
-        isAnyOf(
-          operation.logInThunk.rejected,
-          operation.logOutThunk.rejected,
-          operation.registerThunk.rejected,
-          operation.updateUserThemeThunk.rejected,
-          operation.updateUserThunk.rejected,
-          operation.getUserThunk.rejected
-        ),
-        handleRejected
-      ),
+      }),
 });
 
 export const authReducer = authSlice.reducer;
-export const { setTheme, changeTheme, setIsSidebarOpen } = authSlice.actions;
+export const { setTheme, changeTheme } = authSlice.actions;

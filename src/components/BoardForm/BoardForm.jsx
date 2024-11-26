@@ -1,14 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useSelector } from 'react-redux';
-
+import Images from '../../images/Image.js';
+import s from './BoardForm.module.css';
 import Icon from '../Icon/Icon';
 import Button from '../Button/Button';
-
-import Images from '../../images/Image.js';
-import { selectIsLoading } from '../../redux/board/boardSelectors.js';
-
-import s from './BoardForm.module.css';
 import t from '../../styles/Forms.module.css';
 
 const BoardForm = ({
@@ -19,14 +14,12 @@ const BoardForm = ({
   buttonText = 'Create',
   onSubmit,
 }) => {
-  const isLoading = useSelector(selectIsLoading);
-
   const validationSchema = Yup.object().shape({
     title: Yup.string()
       .trim()
       .min(3, 'Title must be at least 3 characters long')
       .max(30, 'Title must not exceed 30 characters')
-      .required('Title is required'),
+      .required('Title is required'), 
   });
 
   const initialValues = {
@@ -115,12 +108,7 @@ const BoardForm = ({
               })}
             </div>
 
-            <Button
-              text={buttonText}
-              showIcon={true}
-              type="submit"
-              isLoading={isLoading}
-            />
+            <Button text={buttonText} showIcon={true} type="submit" />
           </Form>
         )}
       </Formik>

@@ -139,7 +139,7 @@ const EditCard = ({ onSuccess }) => {
               />
             </label>
 
-            <Button text="Edit" showIcon type="submit" isLoading={isLoading} />
+            <Button text="Edit" showIcon type="submit" />
           </Form>
         )}
       </Formik>

@@ -1,14 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useState, useRef } from 'react';
 
 import ModalWrapper from '../ModalWrapper/ModalWrapper';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
-
 import { getUserThunk, updateUserThunk } from '../../redux/auth/authOperations';
 import { validationSchema } from '../../helpers/editUserSchema';
-import { selectIsLoading } from '../../redux/auth/authSelectors';
 
 import s from './EditProfile.module.css';
 
@@ -17,8 +15,6 @@ const EditProfile = ({ open, onClose, user }) => {
   const { name, email, avatar } = user;
   const [avatarPreview, setAvatarPreview] = useState(avatar);
   const fileInputRef = useRef(null);
-
-  const isLoading = useSelector(selectIsLoading);
 
   const handleClose = () => {
     onClose();
@@ -124,12 +120,7 @@ const EditProfile = ({ open, onClose, user }) => {
                   className={s.error}
                 />
               </div>
-              <Button
-                type="submit"
-                text="Send"
-                disabled={isSubmitting}
-                isLoading={isLoading}
-              />
+              <Button type="submit" text="Send" disabled={isSubmitting} />
             </Form>
           )}
         </Formik>

@@ -1,4 +1,4 @@
-import { Suspense, useCallback, useEffect } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -6,32 +6,20 @@ import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import Loader from '../Loader/Loader';
 
-import { setIsSidebarOpen, setTheme } from '../../redux/auth/authSlice';
-import {
-  selectIsSidebarOpen,
-  selectTheme,
-} from '../../redux/auth/authSelectors';
+import { setTheme } from '../../redux/auth/authSlice';
+import { selectTheme } from '../../redux/auth/authSelectors';
 
 import s from './Layout.module.css';
 
 export const Layout = () => {
   const dispatch = useDispatch();
 
-  const isSidebarOpen = useSelector(selectIsSidebarOpen);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const sidebarRef = document.getElementById('sidebar');
   const modalWrapperRef = document.getElementById('wrapperModal');
 
   const theme = useSelector(selectTheme);
-
-  const handleClickOutside = useCallback(
-    event => {
-      if (sidebarRef && modalWrapperRef && !sidebarRef.contains(event.target)) {
-        dispatch(setIsSidebarOpen(false));
-      }
-    },
-    [dispatch, sidebarRef, modalWrapperRef]
-  );
 
   useEffect(() => {
     dispatch(setTheme());
@@ -39,9 +27,15 @@ export const Layout = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isSidebarOpen, dispatch, theme, handleClickOutside]);
+  }, [isSidebarOpen, dispatch, theme]);
 
-  const onBurgerClick = () => dispatch(setIsSidebarOpen(!isSidebarOpen));
+  const onBurgerClick = () => setIsSidebarOpen(!isSidebarOpen);
+
+  const handleClickOutside = event => {
+    if (sidebarRef && modalWrapperRef && !sidebarRef.contains(event.target)) {
+      setIsSidebarOpen(false);
+    }
+  };
 
   return (
     <div className={s.page}>

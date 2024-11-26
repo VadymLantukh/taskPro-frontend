@@ -1,4 +1,4 @@
-import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { handleFulFilled, handlePending, handleRejected } from '../handlers';
 import { fetchBoard } from '../board/boardOperations';
 import { addTask, deleteTask, updateTask } from './tasksOperations';
@@ -27,7 +27,9 @@ const slice = createSlice({
       .addCase(fetchBoard.fulfilled, (state, action) => {
         state.tasks =
           action.payload.columns?.flatMap(column =>
-            column.tasks.map(task => task)
+            column.tasks.map(task => ({
+              ...task,
+            }))
           ) || [];
       })
       .addCase(addTask.fulfilled, (state, action) => {
@@ -45,18 +47,9 @@ const slice = createSlice({
           task._id === updatedTask._id ? updatedTask : task
         );
       })
-      .addMatcher(
-        isAnyOf(addTask.pending, deleteTask.pending, updateTask.pending),
-        handlePending
-      )
-      .addMatcher(
-        isAnyOf(addTask.rejected, deleteTask.rejected, updateTask.rejected),
-        handleRejected
-      )
-      .addMatcher(
-        isAnyOf(addTask.fulfilled, deleteTask.fulfilled, updateTask.fulfilled),
-        handleFulFilled
-      );
+      .addMatcher(({ type }) => type.endsWith('pending'), handlePending)
+      .addMatcher(({ type }) => type.endsWith('rejected'), handleRejected)
+      .addMatcher(({ type }) => type.endsWith('fulfilled'), handleFulFilled);
   },
 });
 

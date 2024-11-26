@@ -123,7 +123,7 @@ const AddCard = ({ boardId, columnId, onSuccess }) => {
               />
             </label>
 
-            <Button text="Add" showIcon type="submit" isLoading={isLoading} />
+            <Button text="Add" showIcon type="submit" />
           </Form>
         )}
       </Formik>
