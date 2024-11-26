@@ -51,12 +51,6 @@
   fill: transparent;
 }
 
-/* 
-.icon:hover,
-.icon:focus {
-  stroke: var(--accentBtn);
-} */
-
 @media (min-width: 375px) {}
 
 @media (min-width: 768px) {

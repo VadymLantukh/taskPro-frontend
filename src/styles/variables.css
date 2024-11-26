@@ -36,6 +36,8 @@
   --board-item-active-background: #f6f6f7;
   --board-item-active-accent: #9dc888;
   --board-item-active-icon: red;
+  --vector-item-liner: rgba(22, 22, 22, 0.1);
+  --title-item: rgba(22, 22, 22, 0.5);
 }
 
 .dark {
@@ -65,6 +67,8 @@
   --board-item-active-background: #1f1f1f;
   --board-item-active-accent: white;
   --board-item-active-icon: white;
+  --vector-item-liner: rgba(255, 255, 255, 0.1);
+  --title-item: rgba(255, 255, 255, 0.5);
 }
 
 .violet {
@@ -98,4 +102,6 @@
   --board-item-active-background: rgba(255, 255, 255, 0.1);
   --board-item-active-accent: white;
   --board-item-active-icon: white;
+  --vector-item-liner: rgba(255, 255, 255, 0.1);
+  --title-item: rgba(255, 255, 255, 0.5);
 }
