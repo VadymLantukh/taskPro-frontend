@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--third-text-color);
+  color: var(--title-item);
   stroke: var(--third-text-color);
   padding: 20px 24px;
   justify-content: space-between;
@@ -20,8 +20,17 @@
 }
 .icon {
   stroke: inherit;
+  color: var(--text-color) !important;
 }
 
 .list_item.active button svg {
   stroke: var(--board-item-active-icon) !important;
+}
+
+.icon_color {
+  color: var(--text-color);
+}
+
+.board_style {
+  stroke: var(--title-item);
 }

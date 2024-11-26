@@ -38,6 +38,7 @@
   --board-item-active-icon: red;
   --vector-item-liner: rgba(22, 22, 22, 0.1);
   --title-item: rgba(22, 22, 22, 0.5);
+  --accent-btn-plus: #bedbb0;
 }
 
 .dark {
@@ -69,6 +70,7 @@
   --board-item-active-icon: white;
   --vector-item-liner: rgba(255, 255, 255, 0.1);
   --title-item: rgba(255, 255, 255, 0.5);
+  --accent-btn-plus: #bedbb0;
 }
 
 .violet {
@@ -104,4 +106,5 @@
   --board-item-active-icon: white;
   --vector-item-liner: rgba(255, 255, 255, 0.1);
   --title-item: rgba(255, 255, 255, 0.5);
+  --accent-btn-plus: #b8bcfd;
 }
