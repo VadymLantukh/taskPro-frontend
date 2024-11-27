@@ -21,7 +21,3 @@ export const selectTasksForColumn = createSelector(
       .filter(Boolean);
   }
 );
-
-// ? як використати в компоненті (Column):
-// const tasks = useSelector(state => selectTasksForColumn(state, column._id));
-// tasks.map(task => <Task key={task._id} task={task} />

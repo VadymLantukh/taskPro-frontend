@@ -35,10 +35,12 @@
   --card-secondary-text: rgba(22, 22, 22, 0.7);
   --board-item-active-background: #f6f6f7;
   --board-item-active-accent: #9dc888;
-  --board-item-active-icon: red;
+  --board-item-active-icon: #161616;
   --vector-item-liner: rgba(22, 22, 22, 0.1);
   --title-item: rgba(22, 22, 22, 0.5);
   --accent-btn-plus: #bedbb0;
+  --accent-plus-profile: #bedbb0;
+  --accent-plus-profile-active: #9dc888;
 }
 
 .dark {
@@ -71,6 +73,8 @@
   --vector-item-liner: rgba(255, 255, 255, 0.1);
   --title-item: rgba(255, 255, 255, 0.5);
   --accent-btn-plus: #bedbb0;
+  --accent-plus-profile: #bedbb0;
+  --accent-plus-profile-active: #9dc888;
 }
 
 .violet {
@@ -107,4 +111,6 @@
   --vector-item-liner: rgba(255, 255, 255, 0.1);
   --title-item: rgba(255, 255, 255, 0.5);
   --accent-btn-plus: #b8bcfd;
+  --accent-plus-profile: #ecedfd;
+  --accent-plus-profile-active: #d6d8ff;
 }

@@ -33,3 +33,7 @@
 .Mui-focusVisible {
   background-color: transparent !important;
 }
+
+.Mui-disabled {
+  opacity: 1 !important;
+}

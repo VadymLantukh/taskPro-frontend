@@ -54,9 +54,6 @@
   fill: transparent;
 }
 
-@media (min-width: 375px) {
-}
-
 @media (min-width: 768px) {
   .container {
     width: 212px;
@@ -76,7 +73,4 @@
     letter-spacing: -0.02em;
     margin-bottom: 18px;
   }
-}
-
-@media (min-width: 1440px) {
 }

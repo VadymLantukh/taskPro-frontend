@@ -1,12 +1,14 @@
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import Icon from '../Icon/Icon';
 import HeaderTheme from '../HeaderTheme/HeaderTheme';
-import s from './Header.module.css';
-import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '../../redux/auth/authSelectors';
 import { getUserThunk } from '../../redux/auth/authOperations';
 import { useScreenWidth } from '../../hooks/useScreenWidth';
-import { useEffect, useState } from 'react';
 import EditProfile from '../EditProfile/EditProfile';
+
+import s from './Header.module.css';
 
 const Header = ({ onBurgerClick }) => {
   const dispatch = useDispatch();

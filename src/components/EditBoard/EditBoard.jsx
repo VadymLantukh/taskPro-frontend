@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+
 import { updateBoard } from '../../redux/board/boardOperations';
 import BoardForm from '../BoardForm/BoardForm';
 
@@ -22,19 +23,12 @@ const EditBoard = ({ boardToEdit = {}, onClose }) => {
       updatedBoardData.selectedBackground === 'iconBackground'
         ? null
         : updatedBoardData.selectedBackground;
-  
-    console.log('Data for update', { id: boardToEdit.id, data: updatedData });
-  
-    try {
-      const response = await dispatch(
-        updateBoard({ id: boardToEdit.id, data: updatedData })
-      ).unwrap();
-  
-      console.log('Success update', response);
-      onClose();
-    } catch (err) {
-      console.error('Error', err.response?.data || err.message);
-    }
+
+    await dispatch(
+      updateBoard({ id: boardToEdit.id, data: updatedData })
+    ).unwrap();
+
+    onClose();
   };
 
   return (

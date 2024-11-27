@@ -2,16 +2,17 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
+
 import { selectIsLoading, selectUser } from '../../redux/auth/authSelectors.js';
 import Icon from '../Icon/Icon';
 import { deleteBoard } from '../../redux/board/boardOperations';
 import Modal from '../ModalWrapper/ModalWrapper';
 import EditBoard from '../EditBoard/EditBoard';
-
-import s from './BoardsItem.module.css';
 import { useToggle } from '../../hooks/useToggle.js';
 import { setIsSidebarOpen } from '../../redux/auth/authSlice.js';
 import { truncateString } from '../../utils/cateString.js';
+
+import s from './BoardsItem.module.css';
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(s.list_item, isActive && s.list_item_active);

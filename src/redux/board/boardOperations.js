@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+
 import { showToast } from '../toastHelper';
 
 export const fetchBoard = createAsyncThunk(

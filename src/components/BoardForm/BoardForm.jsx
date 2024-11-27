@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 import Icon from '../Icon/Icon';
 import Button from '../Button/Button';
-
 import Images from '../../images/Image.js';
 import { selectIsLoading } from '../../redux/board/boardSelectors.js';
 

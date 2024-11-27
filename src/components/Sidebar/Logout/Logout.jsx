@@ -1,7 +1,9 @@
-import Icon from '../../Icon/Icon.jsx';
-import s from './Logout.module.css';
 import { useDispatch } from 'react-redux';
+
+import Icon from '../../Icon/Icon.jsx';
 import { logOutThunk } from '../../../redux/auth/authOperations.js';
+
+import s from './Logout.module.css';
 
 const LogOut = () => {
   const dispatch = useDispatch();

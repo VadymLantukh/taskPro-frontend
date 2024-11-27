@@ -1,4 +1,4 @@
-import '../../styles/variables.css'
+import '../../styles/variables.css';
 import s from './Loader.module.css';
 
 const Loader = () => {

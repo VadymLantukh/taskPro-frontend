@@ -1,14 +1,16 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 import Button from '../Button/Button';
 import {
   addColumn,
   updateColumn,
 } from '../../redux/columns/columnsOperations.js';
+
 import s from '../BoardForm/BoardForm.module.css';
 import t from '../../styles/Forms.module.css';
-import { useDispatch } from 'react-redux';
 
 const AddColumn = ({
   title = '',
@@ -38,21 +40,8 @@ const AddColumn = ({
 
     try {
       if (columnId !== null) {
-        console.log(
-          'editing column: columnId: ',
-          columnId,
-          ', title: ',
-          trimmedTitle
-        );
-
         dispatch(updateColumn({ id: columnId, title: trimmedTitle }));
       } else {
-        console.log(
-          'adding column: boardId: ',
-          boardId,
-          ', title: ',
-          trimmedTitle
-        );
         dispatch(addColumn({ boardId, title: trimmedTitle }));
       }
       onClose();

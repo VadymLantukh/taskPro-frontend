@@ -19,8 +19,3 @@ export const selectColumnsForBoard = createSelector(
     );
   }
 );
-
-// ? як використати в компоненті (ColumnList):
-// const board = useSelector(selectBoard);
-// const columns = useSelector(state => selectColumnsForBoard(state, board.id));
-// columns.map(column => <Column key={column._id} column={column} />);

@@ -1,4 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+
 import { addColumn, deleteColumn } from '../columns/columnsOperations';
 import { addBoard, fetchBoard, updateBoard } from './boardOperations';
 import { logOutThunk } from '../auth/authOperations';
