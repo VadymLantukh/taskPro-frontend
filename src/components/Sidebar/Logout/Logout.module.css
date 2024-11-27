@@ -15,9 +15,14 @@
   height: 32px;
 }
 
-.iconlogout:hover,
-.iconlogout:focus {
-  stroke: var(--accentBtn);
+.logoutBtn:hover,
+.logoutBtn:focus {
+  & p {
+    color: var(--accentBtn);
+  }
+  & svg {
+    stroke: var(--accentBtn);
+  }
 }
 
 .iconlogout {
@@ -32,6 +37,7 @@
   font-size: 14px;
   color: var(--text-color);
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 @media (min-width: 1440px) {

@@ -29,6 +29,19 @@
 .needHelp {
   display: flex;
   gap: 8px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.needHelp:hover,
+.needHelp:focus {
+  & p {
+    color: var(--accentBtn);
+  }
+
+  & svg {
+    stroke: var(--accentBtn);
+  }
 }
 
 .button {
@@ -52,6 +65,7 @@
 .icon {
   stroke: var(--text-color);
   fill: transparent;
+  transition: color 0.3s ease;
 }
 
 @media (min-width: 768px) {
