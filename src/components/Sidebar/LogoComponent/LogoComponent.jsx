@@ -14,4 +14,5 @@ const LogoComponent = () => {
     </Link>
   );
 };
+
 export default LogoComponent;

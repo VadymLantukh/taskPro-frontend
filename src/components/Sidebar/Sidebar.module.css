@@ -62,7 +62,7 @@
 }
 
 .wrap {
-  padding-left: 14px;
+  padding: 14px;
 }
 
 @media (min-width: 768px) {
