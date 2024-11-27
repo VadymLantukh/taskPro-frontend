@@ -1,4 +1,4 @@
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addBoard } from '../../redux/board/boardOperations';
 import BoardForm from '../BoardForm/BoardForm';
@@ -17,15 +17,10 @@ const NewBoard = ({ onClose }) => {
       requestData.backgroundImage = boardData.selectedBackground;
     }
 
-    try {
-     const newBoard = await dispatch(addBoard(requestData)).unwrap();
-      navigate(`/home/${newBoard._id}`);
-      onClose();
-    } catch (err) {
-      console.error('Failed to create board:', err.response?.data || err.message);
-    }
+    const newBoard = await dispatch(addBoard(requestData)).unwrap();
+    navigate(`/home/${newBoard._id}`);
+    onClose();
   };
-
 
   return (
     <div>
