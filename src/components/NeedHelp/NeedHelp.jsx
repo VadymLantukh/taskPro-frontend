@@ -29,7 +29,7 @@ const NeedHelp = () => {
         <div className={s.needHelp}>
           <Icon name="icon-help" className={s.icon} width={20} height={20} />
           <button className={s.button} onClick={handleOpen}>
-            Need help?
+            <p className={s.textHelp}> Need help?</p>
           </button>
         </div>
       </div>

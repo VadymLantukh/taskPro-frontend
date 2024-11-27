@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   padding-left: 24px;
+  padding-bottom: 24px;
 }
 
 .logoutBtn {
@@ -14,11 +15,17 @@
   height: 32px;
 }
 
+.iconlogout:hover,
+.iconlogout:focus {
+  stroke: var(--accentBtn);
+}
+
 .iconlogout {
   fill: none;
   stroke: var(--icon-logout);
   height: 32px;
   width: 32px;
+  transition: stroke 0.3s ease;
 }
 
 .textLogout {
@@ -26,7 +33,6 @@
   color: var(--text-color);
   font-weight: 500;
 }
-
 
 @media (min-width: 1440px) {
   .textLogout {

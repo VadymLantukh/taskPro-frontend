@@ -1,8 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { handleFulFilled, handlePending, handleRejected } from '../handlers';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { addColumn, deleteColumn } from '../columns/columnsOperations';
-import { fetchBoard, updateBoard } from './boardOperations';
+import { addBoard, fetchBoard, updateBoard } from './boardOperations';
 import { logOutThunk } from '../auth/authOperations';
+import { handlePending, handleRejected, handleFulFilled } from '../handlers';
 
 const initialState = {
   board: {
@@ -30,6 +30,7 @@ const slice = createSlice({
       .addCase(logOutThunk.fulfilled, () => {
         return initialState;
       })
+      .addCase(addBoard.fulfilled)
       .addCase(fetchBoard.fulfilled, (state, action) => {
         state.board = {
           id: action.payload._id,
@@ -55,9 +56,36 @@ const slice = createSlice({
           id => id !== action.payload
         );
       })
-      .addMatcher(({ type }) => type.endsWith('pending'), handlePending)
-      .addMatcher(({ type }) => type.endsWith('rejected'), handleRejected)
-      .addMatcher(({ type }) => type.endsWith('fulfilled'), handleFulFilled);
+      .addMatcher(
+        isAnyOf(
+          addBoard.pending,
+          fetchBoard.pending,
+          updateBoard.pending,
+          addColumn.pending,
+          deleteColumn.pending
+        ),
+        handlePending
+      )
+      .addMatcher(
+        isAnyOf(
+          addBoard.rejected,
+          fetchBoard.rejected,
+          updateBoard.rejected,
+          addColumn.rejected,
+          deleteColumn.rejected
+        ),
+        handleRejected
+      )
+      .addMatcher(
+        isAnyOf(
+          addBoard.fulfilled,
+          fetchBoard.fulfilled,
+          updateBoard.fulfilled,
+          addColumn.fulfilled,
+          deleteColumn.fulfilled
+        ),
+        handleFulFilled
+      );
   },
 });
 

@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--thumb-color);
-    border-top: 1px solid var(--thumb-color);
+    border-bottom: 1px solid var(--vector-item-liner);
+    border-top: 1px solid var(--vector-item-liner);
     padding: 14px 0;
     width: 100%;
     text-align: center;
@@ -11,7 +11,7 @@
 }
 
 .createBoardBtn {
-    background-color: var(--accentBtn);
+    background-color: var(--accent-btn-plus);
     color: var(--text-color);
     border-radius: 6px;
     width: 40px;
@@ -21,15 +21,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     transition: background-color 0.3s ease;
 
-    :hover,
-    :focus {
-        background-color: var(--accentBtn);
-        border-radius: 6px;
-    }
+}
 
+.createBoardBtn:hover,
+.createBoardBtn:focus {
+    background-color: var(--accentBtn);
+    border-radius: 6px;
 }
 
 .btnPlus {

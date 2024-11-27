@@ -10,6 +10,6 @@
 
 @media (min-width: 1440px) {
   .container {
-    padding: 10px 24px 8px;
+    padding: 10px 0px 8px 24px;
   }
 }

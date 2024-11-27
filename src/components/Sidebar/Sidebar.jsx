@@ -22,9 +22,6 @@ const Sidebar = ({ isOpen, onClose }) => {
 
     if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
-      // document.body.style.overflow = 'hidden'; (це блок скролла)
-      // } else {
-      //   document.body.style.overflow = '';
     }
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
@@ -40,7 +37,7 @@ const Sidebar = ({ isOpen, onClose }) => {
       )}
       onClick={handleSidebarClick}
     >
-      <div>
+      <div className={s.wrap}>
         <div>
           <LogoComponent />
         </div>
@@ -48,9 +45,9 @@ const Sidebar = ({ isOpen, onClose }) => {
         <div>
           <CreateBoard />
         </div>
-        <div className={s.project}>
-          <BoardsList />
-        </div>
+      </div>
+      <div className={s.project}>
+        <BoardsList />
       </div>
       <div>
         <div>

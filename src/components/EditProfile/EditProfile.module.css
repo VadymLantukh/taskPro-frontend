@@ -1,5 +1,5 @@
 .title {
-  color: var(--text-color);
+  color: var(--text-header-color);
   font-size: 18px;
   font-weight: 500;
   line-height: normal;
@@ -80,7 +80,7 @@
   border: 1px solid var(--hight);
   border-radius: 8px;
   background-color: transparent;
-  color: var(--text-color);
+  color: var(--text-header-color);
   opacity: 0.4;
   transition: all 0.3s ease-in-out;
   &:hover,
@@ -89,10 +89,33 @@
     outline: none;
   }
 }
-.error {
+
+.field::placeholder {
+  color: var(--text-header-color);
+  opacity: 0.4;
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.eyeButton {
   position: absolute;
-  bottom: -15px;
-  left: 0;
-  color: red;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--theme-text-color);
+  opacity: 0.4;
+}
+
+.error {
+  position: fixed;
   font-size: 11px;
+  color: red;
 }

@@ -32,9 +32,6 @@
 }
 
 .button {
-  /* font-weight: 500;
-  letter-spacing: -0.02em;
-   */
   font-family: Poppins;
   font-size: 12px;
   font-weight: 500;
@@ -43,12 +40,22 @@
   color: var(--text-color);
 }
 
+.textHelp {
+  transition: color 0.3s ease;
+}
+
+.textHelp:hover,
+.textHelp:focus {
+  color: var(--accentBtn);
+}
+
 .icon {
   stroke: var(--text-color);
   fill: transparent;
 }
 
-@media (min-width: 375px) {}
+@media (min-width: 375px) {
+}
 
 @media (min-width: 768px) {
   .container {
@@ -71,4 +78,5 @@
   }
 }
 
-@media (min-width: 1440px) {}
+@media (min-width: 1440px) {
+}
