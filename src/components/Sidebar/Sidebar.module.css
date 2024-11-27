@@ -7,7 +7,6 @@
   width: 225px;
   padding: 0;
   transition: all ease-in-out 300ms;
-  /* height: calc(100vh - 10px) */
   height: 100%;
 }
 
@@ -29,7 +28,7 @@
   margin-bottom: 8px;
   font-size: 12px;
   letter-spacing: -0.02em;
-  color: var(--third-text-color);
+  color: var(--title-item);
 }
 
 .sidedbarLogout {
@@ -62,26 +61,24 @@
   font-weight: 500;
 }
 
+.wrap {
+  padding-left: 14px;
+}
+
 @media (min-width: 768px) {
   .sidebar {
     width: 100%;
     max-width: 260px;
     padding: 0;
-    /* overflow: hidden; */
   }
+
   .wrap {
     padding: 24px;
   }
 }
 
 @media (min-width: 1440px) {
-  .sidebar {
-    /* justify-content: flex-start; */
+  .project {
+    margin-bottom: auto;
   }
-}
-.project {
-  margin-bottom: auto;
-}
-.wrap {
-  padding: 14px;
 }

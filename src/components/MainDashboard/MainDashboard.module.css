@@ -21,7 +21,13 @@
 
 .columns-container {
   display: flex;
-  gap: 18px;
+  gap: 11px;
   overflow-x: auto;
   overflow-y: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+  .columns-container {
+    gap: 18px;
+  }
 }

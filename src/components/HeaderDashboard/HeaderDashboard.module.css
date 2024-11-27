@@ -52,4 +52,8 @@
   .title {
     font-size: 18px;
   }
+
+  .button {
+    margin-right: 24px;
+  }
 }

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import dayjs from 'dayjs';
 import clsx from 'clsx';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 
 import Button from '../Button/Button.jsx';
 import CustomDatePicker from '../CustomDatePicker/CustomDatePicker.jsx';
@@ -18,8 +19,6 @@ import { updateTask } from '../../redux/tasks/tasksOperations.js';
 
 import s from '../AddCard/AddCard.module.css';
 import t from '../../styles/Forms.module.css';
-
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 
 dayjs.extend(isSameOrAfter);
 
@@ -139,7 +138,7 @@ const EditCard = ({ onSuccess }) => {
               />
             </label>
 
-            <Button text="Edit" showIcon type="submit" />
+            <Button text="Edit" showIcon type="submit" isLoading={isLoading} />
           </Form>
         )}
       </Formik>

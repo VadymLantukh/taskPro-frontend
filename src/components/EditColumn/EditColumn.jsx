@@ -6,7 +6,7 @@ const EditColumn = ({ title, columnId, onClose }) => {
       title={title}
       columnId={columnId}
       formName="Edit column"
-      buttonText="Save"
+      buttonText="Add"
       onClose={onClose}
     />
   );

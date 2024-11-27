@@ -40,24 +40,19 @@
   color: var(--text-color);
 }
 
+.textHelp {
+  transition: color 0.3s ease;
+}
+
 .textHelp:hover,
 .textHelp:focus {
   color: var(--accentBtn);
 }
 
-
 .icon {
   stroke: var(--text-color);
   fill: transparent;
 }
-
-/* 
-.icon:hover,
-.icon:focus {
-  stroke: var(--accentBtn);
-} */
-
-@media (min-width: 375px) {}
 
 @media (min-width: 768px) {
   .container {
@@ -79,5 +74,3 @@
     margin-bottom: 18px;
   }
 }
-
-@media (min-width: 1440px) {}

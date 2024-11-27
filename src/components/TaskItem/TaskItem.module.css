@@ -45,7 +45,7 @@
   width: 100%;
   height: 1px;
   border-radius: 8px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #161616;
   margin-bottom: 14px;
   opacity: 0.1;
 }
@@ -181,4 +181,25 @@
 
 .action-button:hover {
   opacity: 1;
+}
+
+.loader {
+  border: 2px solid var(--title-item);
+  border-top: 2px solid var(--board-item-active-icon);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 2s linear infinite;
+  &::after {
+    content: none;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

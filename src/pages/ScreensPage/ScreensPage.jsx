@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
+
 import HeaderDashboard from '../../components/HeaderDashboard/HeaderDashboard.jsx';
 import MainDashboard from '../../components/MainDashboard/MainDashboard.jsx';
-
-import s from './ScreensPage.module.css';
 import { fetchBoard } from '../../redux/board/boardOperations';
 import {
   selectBoard,
@@ -14,6 +13,8 @@ import Images from '../../images/Image.js';
 import { useScreenWidth } from '../../hooks/useScreenWidth.js';
 import { selectFilterPriority } from '../../redux/filter/filterSelectors.js';
 import Loader from '../../components/Loader/Loader.jsx';
+
+import s from './ScreensPage.module.css';
 
 const ScreensPage = () => {
   const board = useSelector(selectBoard);

@@ -1,29 +1,29 @@
 .logoBox {
-    cursor: pointer;
-    justify-content: start;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-top: 14px;
-    margin-bottom: 70px;
-
+  cursor: pointer;
+  justify-content: start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 70px;
 }
 
 .box {
-    background-color: var(--logo-background);
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
+  background-color: var(--logo-background);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
 }
 
 .logo {
-    height: 16px;
-    fill: var(--logo-icon);
+  fill: var(--logo-icon);
 }
 
 .text {
-    color: var(--text-color);
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.04em;
 }

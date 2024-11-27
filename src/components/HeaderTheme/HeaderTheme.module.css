@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100px;
-
   align-items: flex-start;
   gap: 4px;
   border-bottom: 2px solid transparent;
@@ -32,4 +30,8 @@
   stroke: var(--filter-color);
   width: 16px;
   height: 16px;
+}
+
+.activeItem {
+  color: var(--accent) !important;
 }

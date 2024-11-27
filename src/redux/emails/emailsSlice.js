@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { sendEmail } from '../auth/authOperations';
 
 const emailSlice = createSlice({

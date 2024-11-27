@@ -15,9 +15,9 @@
   height: 32px;
 }
 
-.textLogout:hover,
-.textLogout:focus {
-  color: var(--accentBtn);
+.iconlogout:hover,
+.iconlogout:focus {
+  stroke: var(--accentBtn);
 }
 
 .iconlogout {
@@ -25,6 +25,7 @@
   stroke: var(--icon-logout);
   height: 32px;
   width: 32px;
+  transition: stroke 0.3s ease;
 }
 
 .textLogout {
