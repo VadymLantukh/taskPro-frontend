@@ -1,12 +1,14 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { MdOutlineRemoveRedEye, MdOutlineVisibilityOff } from 'react-icons/md';
+
+import Button from '../Button/Button.jsx';
 
 import { logInThunk } from '../../redux/auth/authOperations.js';
 import { logInSchema } from '../../helpers/logInSchema.js';
-
-import { MdOutlineRemoveRedEye, MdOutlineVisibilityOff } from 'react-icons/md';
+import { selectIsLoading } from '../../redux/auth/authSelectors.js';
 
 import s from './LoginForm.module.css';
 
@@ -14,6 +16,7 @@ const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
 
   const initialValues = { email: '', password: '' };
 
@@ -84,9 +87,7 @@ const LoginForm = () => {
                 className={s.errorMessage}
               />
             </label>
-            <button type="submit" className={s.btnSubmit}>
-              Log In Now
-            </button>
+            <Button text="Log In Now" type="submit" isLoading={isLoading} />
           </Form>
         </Formik>
       </div>
