@@ -14,19 +14,16 @@ const AuthPage = () => {
       clipPath: 'circle(0% at 50% 50%)',
       opacity: 0,
       transform: 'scale(0.8)',
-      boxShadow: 'none',
     },
     animate: {
       clipPath: 'circle(100% at 50% 50%)',
       opacity: 1,
       transform: 'scale(1)',
-      boxShadow: '20px 20px 100px 100px rgba(0, 0, 0, 0.2)',
     },
     exit: {
       clipPath: 'circle(0% at 50% 50%)',
       opacity: 0,
       transform: 'scale(0.8)',
-      boxShadow: 'none',
     },
     transition: {
       duration: 1.4,
