@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Menu, MenuItem } from '@mui/material';
 
 import Icon from '../Icon/Icon';
-
 import { updateUserThemeThunk } from '../../redux/auth/authOperations';
 import { changeTheme } from '../../redux/auth/authSlice';
 

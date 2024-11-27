@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-// import { createSlice } from '@reduxjs/toolkit';
+
 import * as operation from './authOperations';
 import { addBoard, deleteBoard, updateBoard } from '../board/boardOperations';
 import { handleFulFilled, handlePending, handleRejected } from '../handlers';
@@ -54,10 +54,6 @@ const authSlice = createSlice({
         state.user._id = action.payload.userId;
         state.isLoggedIn = true;
       })
-      .addCase(operation.registerThunk.fulfilled, (state, action) => {
-        console.log(action.payload);
-        //TODO add TOAST
-      })
       .addCase(operation.updateUserThemeThunk.fulfilled, (state, action) => {
         state.user.theme = action.payload.theme;
       })
@@ -66,7 +62,6 @@ const authSlice = createSlice({
       })
 
       .addCase(operation.getUserThunk.pending, state => {
-        // if (!state.isLoggedIn || state.isRefreshing) return;
         state.isRefreshing = true;
       })
       .addCase(operation.getUserThunk.fulfilled, (state, action) => {

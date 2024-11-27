@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import s from '../NeedHelp/NeedHelp.module.css';
+
 import Icon from '../Icon/Icon';
 import flowerpot from '../../images/flowerpot.webp';
 import HelpForm from './HelpForm/HelpForm.jsx';
+
+import s from '../NeedHelp/NeedHelp.module.css';
 
 const NeedHelp = () => {
   const [open, setOpen] = useState(false);

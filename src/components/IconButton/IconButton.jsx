@@ -1,5 +1,6 @@
-import Icon from '../Icon/Icon.jsx';
 import clsx from 'clsx';
+
+import Icon from '../Icon/Icon.jsx';
 
 import s from './IconButton.module.css';
 

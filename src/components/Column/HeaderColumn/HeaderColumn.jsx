@@ -9,7 +9,7 @@ import EditColumn from '../../EditColumn/EditColumn.jsx';
 import s from './HeaderColumn.module.css';
 
 export const HeaderColumn = ({ title, columnId }) => {
-  const {open,  handleClose, handleOpen} = useToggle()
+  const { open, handleClose, handleOpen } = useToggle();
   const dispatch = useDispatch();
 
   const handleDelete = () => {
@@ -21,7 +21,7 @@ export const HeaderColumn = ({ title, columnId }) => {
       {title && <h3 className={s.title}>{title}</h3>}
       <div className={s['icon-container']}>
         <IconButton name="icon-pencil" onClick={handleOpen} />
-        <IconButton name="icon-trash" onClick={handleDelete}  />
+        <IconButton name="icon-trash" onClick={handleDelete} />
 
         {open && (
           <Modal open={open} onClose={handleClose}>

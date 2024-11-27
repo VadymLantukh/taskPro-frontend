@@ -1,7 +1,9 @@
 import { useSelector } from 'react-redux';
+
 import TaskItem from '../TaskItem/TaskItem';
-import s from './TasksList.module.css';
 import { selectTasksForColumn } from '../../redux/tasks/tasksSelectors';
+
+import s from './TasksList.module.css';
 
 const TasksList = ({ columnId, boardId }) => {
   const tasks = useSelector(state => selectTasksForColumn(state, columnId));

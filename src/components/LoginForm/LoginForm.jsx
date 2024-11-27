@@ -2,11 +2,10 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { MdOutlineRemoveRedEye, MdOutlineVisibilityOff } from 'react-icons/md';
 
 import { logInThunk } from '../../redux/auth/authOperations.js';
 import { logInSchema } from '../../helpers/logInSchema.js';
-
-import { MdOutlineRemoveRedEye, MdOutlineVisibilityOff } from 'react-icons/md';
 
 import s from './LoginForm.module.css';
 

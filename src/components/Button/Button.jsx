@@ -1,6 +1,8 @@
-import s from './Button.module.css';
-import Icon from '../Icon/Icon';
 import clsx from 'clsx';
+
+import Icon from '../Icon/Icon';
+
+import s from './Button.module.css';
 
 const Button = ({
   onClick,

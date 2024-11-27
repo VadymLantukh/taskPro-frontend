@@ -1,8 +1,10 @@
-import s from './CreateBoard.module.css';
-import Icon from '../../Icon/Icon.jsx';
 import { useState } from 'react';
+
+import Icon from '../../Icon/Icon.jsx';
 import Modal from '../../ModalWrapper/ModalWrapper.jsx';
 import NewBoard from '../../NewBoard/NewBoard.jsx';
+
+import s from './CreateBoard.module.css';
 
 const CreateBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

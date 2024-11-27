@@ -116,7 +116,7 @@
   stroke: var(--icon-modal-close);
   fill: none;
   background-color: var(---icon-color-background);
-  stroke-opacity:0.1;
+  stroke-opacity: 0.1;
 }
 
 .selected .backgroundImage,
