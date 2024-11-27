@@ -38,6 +38,9 @@
   line-height: 18px;
   letter-spacing: -0.02em;
   color: var(--text-color);
+}
+
+.textHelp {
   transition: color 0.3s ease;
 }
 
