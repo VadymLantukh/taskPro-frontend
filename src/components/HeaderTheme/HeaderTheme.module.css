@@ -4,6 +4,14 @@
   justify-content: center;
   align-items: flex-start;
   gap: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.themeWrapper:hover {
+  border-bottom-color: var(--accent);
 }
 
 .themeToggle {
@@ -24,23 +32,6 @@
   height: 16px;
 }
 
-.menuPaper {
-  border-radius: 8px;
-  padding: 18px;
-
-  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
-}
-
-.menuItem {
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--text-color);
-  line-height: 1;
-  transition: color 0.2s ease, color 0.2s ease;
-}
-
-.menuItem:hover {
-  color: var(--accent);
-  background-color: transparent !important;
+.activeItem {
+  color: var(--accent) !important;
 }

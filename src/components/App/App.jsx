@@ -1,14 +1,17 @@
-import { lazy, Suspense } from 'react';
-import { useSelector } from 'react-redux';
+import { lazy, Suspense, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { PrivateRoute } from '../PrivateRoute';
 import { PublicRoute } from '../PublicRoute';
+import { PrivateRoute } from '../PrivateRoute';
 import Loader from '../Loader/Loader';
-import { selectTheme } from '../../redux/auth/authSelectors';
-// import { selectIsRefreshing } from '../../redux/auth/selectors';
+
+import {
+  selectIsRefreshing,
+  selectTheme,
+} from '../../redux/auth/authSelectors';
 
 const Layout = lazy(() => import('../Layout/Layout'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -17,15 +20,22 @@ const ScreensPage = lazy(() => import('../../pages/ScreensPage/ScreensPage'));
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 
 import '../../styles/common.css';
+import { getUserThunk } from '../../redux/auth/authOperations';
 
 const App = () => {
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
   const theme = useSelector(selectTheme);
   const toastTheme = theme === 'violet' ? 'light' : theme;
 
-  const isRefreshing = false;
+  useEffect(() => {
+    dispatch(getUserThunk());
+  }, [dispatch]);
 
   return isRefreshing ? (
-    <div>Loading...</div>
+    <div>
+      <Loader />
+    </div>
   ) : (
     <Suspense fallback={<Loader />}>
       <ToastContainer

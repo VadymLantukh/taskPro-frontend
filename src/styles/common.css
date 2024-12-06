@@ -1,77 +1,29 @@
-*::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 8px;
+  height: 12px;
+  scrollbar-width: thin;
 }
 
-*::-webkit-scrollbar-track {
-  background-color: rgba(232, 232, 232, 1);
-  border-radius: 12px;
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-background);
+  border-radius: 10px;
 }
 
-*::-webkit-scrollbar-thumb {
-  background-color: rgba(22, 22, 22, 0.1);
-  border-radius: 12px;
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+  transition: 0.2s ease-in-out;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  /* -webkit-text-fill-color: rgba(255, 255, 255, 0.6);
-  transition: background-color 5000s;
-  background-color: transparent !important; */
-}
-input::placeholder {
-  /* color: rgba(255, 255, 255, 0.6);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 27px; */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  /* -webkit-appearance: none; */
+  -webkit-appearance: none;
 }
 
 body {
   background-color: var(--sidebar-card-background);
-  scrollbar-width: thin;
-  scrollbar-color: rgba(22, 22, 22, 0.1) rgba(232, 232, 232, 1);
-}
-
-.active {
-  & button {
-    display: block !important;
-    stroke: var(--third-text-color);
-  }
-  color: var(--text-color) !important;
-  stroke: var(--text-color) !important;
-  background-color: var(--third-text-color);
-  & :after {
-    content: '';
-    background-color: var(--accent);
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 4px;
-    height: 100%;
-    border-radius: 4px 0 0 4px;
-  }
-}
-
-::-webkit-scrollbar {
-  width: 8px; /* Ширина всего элемента навигации */
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background-thumb-color); /* Цвет дорожки */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--thumb-color); /* Цвет бегунка */
-  border-radius: 12px; /* Округление бегунка */
-  border: none; /* Оформление границ бегунка */
-}
-
-::-webkit-scrollbar-button {
-  height: 0;
 }

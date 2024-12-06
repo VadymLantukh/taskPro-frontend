@@ -1,9 +1,13 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import Images from '../../images/Image.js';
-import s from './BoardForm.module.css';
+import { useSelector } from 'react-redux';
+
 import Icon from '../Icon/Icon';
 import Button from '../Button/Button';
+import Images from '../../images/Image.js';
+import { selectIsLoading } from '../../redux/board/boardSelectors.js';
+
+import s from './BoardForm.module.css';
 import t from '../../styles/Forms.module.css';
 
 const BoardForm = ({
@@ -14,8 +18,14 @@ const BoardForm = ({
   buttonText = 'Create',
   onSubmit,
 }) => {
+  const isLoading = useSelector(selectIsLoading);
+
   const validationSchema = Yup.object().shape({
-    title: Yup.string().trim().required('Title is required'),
+    title: Yup.string()
+      .trim()
+      .min(3, 'Title must be at least 3 characters long')
+      .max(30, 'Title must not exceed 30 characters')
+      .required('Title is required'),
   });
 
   const initialValues = {
@@ -30,14 +40,9 @@ const BoardForm = ({
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          if (onSubmit) {
-            onSubmit(values);
-          }
-          setSubmitting(false);
-        }}
+        onSubmit={onSubmit}
       >
-        {({ values, setFieldValue, isSubmitting }) => (
+        {({ values, setFieldValue }) => (
           <Form className={s.form}>
             <Field
               type="text"
@@ -109,7 +114,12 @@ const BoardForm = ({
               })}
             </div>
 
-            <Button text={buttonText} showIcon={true} disabled={isSubmitting} />
+            <Button
+              text={buttonText}
+              showIcon={true}
+              type="submit"
+              isLoading={isLoading}
+            />
           </Form>
         )}
       </Formik>

@@ -1,15 +1,16 @@
 import { useSelector } from 'react-redux';
+
 import TaskItem from '../TaskItem/TaskItem';
-import s from './TasksList.module.css';
 import { selectTasksForColumn } from '../../redux/tasks/tasksSelectors';
 
-const TasksList = ({ columnId }) => {
+import s from './TasksList.module.css';
+
+const TasksList = ({ columnId, boardId }) => {
   const tasks = useSelector(state => selectTasksForColumn(state, columnId));
-  console.log(tasks);
 
   return (
     <div className={s.taskItem}>
-      <TaskItem tasks={tasks} />
+      <TaskItem tasks={tasks} boardId={boardId} />
     </div>
   );
 };

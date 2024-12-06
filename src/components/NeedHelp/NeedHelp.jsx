@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import s from '../NeedHelp/NeedHelp.module.css';
+
 import Icon from '../Icon/Icon';
 import flowerpot from '../../images/flowerpot.webp';
 import HelpForm from './HelpForm/HelpForm.jsx';
+
+import s from '../NeedHelp/NeedHelp.module.css';
 
 const NeedHelp = () => {
   const [open, setOpen] = useState(false);
@@ -25,12 +27,11 @@ const NeedHelp = () => {
           If you need help with <span className={s.task}>TaskPro</span>, check
           out our support resources or reach out to our customer support team.
         </p>
+
         <div className={s.needHelp}>
-          <svg className={s.icon} width={20} height={20}>
-            <use href={`${Icon}#icon-help`} />
-          </svg>
+          <Icon name="icon-help" className={s.icon} width={20} height={20} />
           <button className={s.button} onClick={handleOpen}>
-            Need help?
+            <p className={s.textHelp}> Need help?</p>
           </button>
         </div>
       </div>

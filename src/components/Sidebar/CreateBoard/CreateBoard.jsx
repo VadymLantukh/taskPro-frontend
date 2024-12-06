@@ -1,8 +1,10 @@
-import s from './CreateBoard.module.css';
-import Icon from '../../Icon/Icon.jsx';
 import { useState } from 'react';
+
+import Icon from '../../Icon/Icon.jsx';
 import Modal from '../../ModalWrapper/ModalWrapper.jsx';
 import NewBoard from '../../NewBoard/NewBoard.jsx';
+
+import s from './CreateBoard.module.css';
 
 const CreateBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,7 +19,7 @@ const CreateBoard = () => {
       </button>
       {isModalOpen && (
         <Modal open={isModalOpen} onClose={handleCloseModal}>
-          <NewBoard />
+          <NewBoard onClose={handleCloseModal} />
         </Modal>
       )}
     </div>
@@ -25,5 +27,3 @@ const CreateBoard = () => {
 };
 
 export default CreateBoard;
-
-// <Button onClick={handleClick} showIcon={true} className={s.btnCreate} />;

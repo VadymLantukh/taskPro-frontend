@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useCallback, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -6,32 +6,42 @@ import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import Loader from '../Loader/Loader';
 
-import { getUserThunk } from '../../redux/auth/authOperations';
-import { setTheme } from '../../redux/auth/authSlice';
-import { selectTheme } from '../../redux/auth/authSelectors';
+import { setIsSidebarOpen, setTheme } from '../../redux/auth/authSlice';
+import {
+  selectIsSidebarOpen,
+  selectTheme,
+} from '../../redux/auth/authSelectors';
 
 import s from './Layout.module.css';
 
 export const Layout = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const onBurgerClick = () => setIsSidebarOpen(!isSidebarOpen);
   const dispatch = useDispatch();
+
+  const isSidebarOpen = useSelector(selectIsSidebarOpen);
+
   const sidebarRef = document.getElementById('sidebar');
+  const modalWrapperRef = document.getElementById('wrapperModal');
+
   const theme = useSelector(selectTheme);
 
-  const handleClickOutside = event => {
-    if (sidebarRef && !sidebarRef.contains(event.target)) {
-      setIsSidebarOpen(false);
-    }
-  };
+  const handleClickOutside = useCallback(
+    event => {
+      if (sidebarRef && modalWrapperRef && !sidebarRef.contains(event.target)) {
+        dispatch(setIsSidebarOpen(false));
+      }
+    },
+    [dispatch, sidebarRef, modalWrapperRef]
+  );
+
   useEffect(() => {
     dispatch(setTheme());
-    dispatch(getUserThunk());
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isSidebarOpen, dispatch, theme]);
+  }, [isSidebarOpen, dispatch, theme, handleClickOutside]);
+
+  const onBurgerClick = () => dispatch(setIsSidebarOpen(!isSidebarOpen));
 
   return (
     <div className={s.page}>
@@ -46,6 +56,7 @@ export const Layout = () => {
           </div>
         </main>
       </div>
+      {isSidebarOpen && <div className={s.blur} onClick={onBurgerClick}></div>}
     </div>
   );
 };

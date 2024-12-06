@@ -1,28 +1,50 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import dayjs from 'dayjs';
 import clsx from 'clsx';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 
 import Button from '../Button/Button.jsx';
 import CustomDatePicker from '../CustomDatePicker/CustomDatePicker.jsx';
 import PriorityPicker from '../PriorityPicker/PriorityPicker.jsx';
 
 import { addCardSchema } from '../../helpers/addCardSchema.js';
+import {
+  selectCurrentTask,
+  selectIsError,
+  selectIsLoading,
+} from '../../redux/tasks/tasksSelectors.js';
+import { updateTask } from '../../redux/tasks/tasksOperations.js';
 
 import s from '../AddCard/AddCard.module.css';
 import t from '../../styles/Forms.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentTask } from '../../redux/tasks/tasksSelectors.js';
-import { updateTask } from '../../redux/tasks/tasksOperations.js';
 
-const EditCard = () => {
+dayjs.extend(isSameOrAfter);
+
+const EditCard = ({ onSuccess }) => {
   const dispatch = useDispatch();
+
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectIsError);
   const card = useSelector(selectCurrentTask);
 
+  const [formActions, setFormActions] = useState(null);
   const [selectedPriority, setSelectedPriority] = useState(card.priority);
   const [selectedDate, setSelectedDate] = useState(
     card.deadline ? new Date(card.deadline) : null
   );
+
+  useEffect(() => {
+    if (formActions && !isLoading && !isError) {
+      formActions.resetForm();
+      setSelectedPriority('Without');
+      setSelectedDate(null);
+      setFormActions(null);
+
+      if (onSuccess) onSuccess();
+    }
+  }, [isLoading, isError, formActions, onSuccess]);
 
   const initialValues = {
     title: card.title,
@@ -35,12 +57,22 @@ const EditCard = () => {
     setSelectedPriority(value);
   };
 
-  const handleSubmit = (values, action) => {
+  const handleSubmit = (values, actions) => {
+    let updatedDeadline =
+      selectedDate && dayjs(selectedDate).isSameOrAfter(dayjs().startOf('day'))
+        ? dayjs(selectedDate).toISOString()
+        : null;
+
     const task = {
       ...values,
       priority: selectedPriority,
-      deadline: selectedDate ? dayjs(selectedDate).toISOString() : null,
     };
+
+    if (updatedDeadline) {
+      task.deadline = updatedDeadline;
+    } else {
+      delete task.deadline;
+    }
 
     dispatch(
       updateTask({
@@ -49,7 +81,7 @@ const EditCard = () => {
       })
     );
 
-    action.resetForm();
+    setFormActions(actions);
   };
 
   return (
@@ -95,13 +127,18 @@ const EditCard = () => {
               <CustomDatePicker
                 value={selectedDate}
                 onChange={date => {
-                  setSelectedDate(date);
+                  const validDate =
+                    date && dayjs(date).isSameOrAfter(dayjs().startOf('day'))
+                      ? date
+                      : null;
+                  setSelectedDate(validDate);
                   setFieldValue('deadline', date ? new Date(date) : null);
                 }}
+                disablePast
               />
             </label>
 
-            <Button text="Edit" showIcon type="submit" />
+            <Button text="Edit" showIcon type="submit" isLoading={isLoading} />
           </Form>
         )}
       </Formik>

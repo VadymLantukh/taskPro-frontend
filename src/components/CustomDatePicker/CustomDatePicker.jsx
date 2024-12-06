@@ -1,8 +1,8 @@
+import dayjs from 'dayjs';
 import { useState } from 'react';
 import { DatePicker } from '@mui/x-date-pickers';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import dayjs from 'dayjs';
 
 import Icon from '../Icon/Icon';
 
@@ -42,7 +42,7 @@ const CustomDatePicker = ({ value, onChange, disablePast = false }) => {
               onFocus: handleFocus,
             },
           }}
-          minDate={dayjs().startOf('year')}
+          minDate={dayjs().startOf('day')}
           maxDate={dayjs().add(31, 'year').endOf('year')}
         />
       </LocalizationProvider>

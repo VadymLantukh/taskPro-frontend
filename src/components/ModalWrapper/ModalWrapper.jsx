@@ -22,6 +22,7 @@ const ModalWrapper = ({ open, onClose, children, className = '' }) => {
   const UpdatedModalContainer = clsx(s.modalContainer, className);
   return (
     <Modal
+      id="wrapperModal"
       open={open}
       onClose={onClose}
       closeAfterTransition

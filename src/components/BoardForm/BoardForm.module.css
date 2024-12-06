@@ -6,8 +6,12 @@
 .formTitle {
   font-size: 18px;
   font-weight: 500;
-  color: var(--text-color);
+  color: var(--text-header-color);
   margin-bottom: 24px;
+}
+
+.newBoardTitle {
+  color: var(--label-color);
 }
 
 .titleInput {
@@ -38,7 +42,7 @@
 .iconText {
   font: 500 14px 'Poppins', sans-serif;
   letter-spacing: -0.02em;
-  color: #161616;
+  color: var(--text-header-color);
   margin-bottom: 14px;
   margin-top: 24px;
 }
@@ -63,14 +67,14 @@
 }
 
 .iconLabel input[type='radio']:checked + svg {
-  stroke: #161616;
+  stroke: var(--text-header-color);
   fill: none;
 }
 
 .icon {
   width: 18px;
   height: 18px;
-  stroke: rgba(22, 22, 22, 0.5);
+  stroke: var(--icon-color);
   fill: none;
   transition: fill 0.3s ease;
 }
@@ -78,7 +82,7 @@
 .backgroundText {
   font: 500 14px 'Poppins', sans-serif;
   letter-spacing: -0.02em;
-  color: #161616;
+  color: var(--text-header-color);
   margin-bottom: 14px;
 }
 
@@ -104,14 +108,15 @@
   border-radius: 6px;
 }
 
-.backgroundIcon{
+.backgroundIcon {
   width: 28px;
   height: 28px;
   transition: border 0.3s ease;
   border-radius: 6px;
-  stroke: rgba(22, 22, 22, 0.5);
+  stroke: var(--icon-modal-close);
   fill: none;
-
+  background-color: var(---icon-color-background);
+  stroke-opacity: 0.1;
 }
 
 .selected .backgroundImage,

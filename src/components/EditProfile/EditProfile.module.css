@@ -1,0 +1,121 @@
+.title {
+  color: var(--text-header-color);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.36px;
+  margin-bottom: 24px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 14px;
+  border-radius: 8px;
+  background-color: var(--header-background-color);
+}
+.avatarWrapper {
+  position: relative;
+  align-self: center;
+  width: 68px;
+  height: 68px;
+  object-fit: cover;
+  margin-bottom: 11px;
+}
+.avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+  object-fit: cover;
+  position: relative;
+}
+
+.userIcon {
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+  object-fit: cover;
+  position: relative;
+}
+
+.uploadButton {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  background-color: var(--accent-plus-profile);
+  transition: all 0.3s ease-in-out;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    background-color: var(--accent-plus-profile-active);
+  }
+}
+
+.uploadInput {
+  width: 100%;
+  height: 100%;
+}
+
+.plus {
+  width: 100%;
+  height: 100%;
+}
+
+.field {
+  position: relative;
+  width: 100%;
+  padding: 13px 17px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--text-header-color);
+  opacity: 0.4;
+  transition: all 0.3s ease-in-out;
+  &:hover,
+  &:focus {
+    opacity: 1;
+    outline: none;
+  }
+}
+
+.field::placeholder {
+  color: var(--text-header-color);
+  opacity: 0.4;
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.eyeButton {
+  position: absolute;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--theme-text-color);
+  opacity: 0.4;
+}
+
+.error {
+  position: fixed;
+  font-size: 11px;
+  color: red;
+}

@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+import { showToast } from '../toastHelper';
+
 export const fetchBoard = createAsyncThunk(
   'boards/fetchBoard',
   async ({ id, priority }, thunkAPI) => {
@@ -11,9 +13,10 @@ export const fetchBoard = createAsyncThunk(
 
       return data.data;
     } catch (error) {
-      //    toast.error(
-      //     'Unable to load this board at the moment. Please try again later.'
-      //   );
+      showToast(
+        'Unable to load this board at the moment. Please try again later.',
+        'error'
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -24,11 +27,16 @@ export const addBoard = createAsyncThunk(
   async (board, thunkAPI) => {
     try {
       const { data } = await axios.post('/boards', board);
+      showToast(
+        'Board added successfully! You can start organizing your tasks now.',
+        'success'
+      );
       return data.data;
     } catch (error) {
-      //   toast.error(
-      //     'There was an issue adding your board. Please check the details and try again.',
-      //   );
+      showToast(
+        'There was an issue adding your board. Please check the details and try again.',
+        'error'
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -39,11 +47,13 @@ export const deleteBoard = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       await axios.delete(`/boards/${id}`);
+      showToast('Board deleted successfully!', 'success');
       return id;
     } catch (error) {
-      //   toast.error(
-      //     'Failed to delete the board. Please refresh the page and try again.',
-      //   );
+      showToast(
+        'Failed to delete the board. Please refresh the page and try again.',
+        'error'
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -51,14 +61,19 @@ export const deleteBoard = createAsyncThunk(
 
 export const updateBoard = createAsyncThunk(
   'boards/updateBoard',
-  async (board, thunkAPI) => {
+  async ({ id, data }, thunkAPI) => {
     try {
-      const { data } = await axios.patch(`/boards/${board.id}`, board);
-      return data.data.data;
+      const response = await axios.patch(`/boards/${id}`, data);
+      showToast(
+        'Board updated successfully! Your changes have been saved.',
+        'success'
+      );
+      return response.data.data.data;
     } catch (error) {
-      //   toast.error(
-      //     'Unable to update the board. Please check the details and try again.',
-      //   );
+      showToast(
+        'Failed to update the board. Please check your changes and try again.',
+        'error'
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }

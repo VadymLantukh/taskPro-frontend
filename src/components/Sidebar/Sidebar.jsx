@@ -1,12 +1,14 @@
-import s from './Sidebar.module.css';
+import { useEffect } from 'react';
+import clsx from 'clsx';
+
 import LogoComponent from './LogoComponent/LogoComponent.jsx';
 import NeedHelp from '../NeedHelp/NeedHelp.jsx';
 import CreateBoard from './CreateBoard/CreateBoard.jsx';
 import LogOut from './Logout/Logout.jsx';
 import BoardsList from '../BoardsList/BoardsList.jsx';
-import clsx from 'clsx';
 import { useScreenWidth } from '../../hooks/useScreenWidth.js';
-import { useEffect } from 'react';
+
+import s from './Sidebar.module.css';
 
 const Sidebar = ({ isOpen, onClose }) => {
   const handleSidebarClick = e => {
@@ -22,9 +24,6 @@ const Sidebar = ({ isOpen, onClose }) => {
 
     if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
     }
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
@@ -40,7 +39,7 @@ const Sidebar = ({ isOpen, onClose }) => {
       )}
       onClick={handleSidebarClick}
     >
-      <div>
+      <div className={s.wrap}>
         <div>
           <LogoComponent />
         </div>
@@ -48,9 +47,9 @@ const Sidebar = ({ isOpen, onClose }) => {
         <div>
           <CreateBoard />
         </div>
-        <div className={s.project}>
-          <BoardsList />
-        </div>
+      </div>
+      <div className={s.project}>
+        <BoardsList />
       </div>
       <div>
         <div>
